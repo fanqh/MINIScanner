@@ -229,6 +229,12 @@ static void hal_initialising_handler(Task task, MessageId id, Message message) {
 			MessageCancelAll(getHalTask(), HAL_POWER_BUTTON_HELD_SHORT);
 			MessageCancelAll(getHalTask(), HAL_POWER_BUTTON_HELD_LONG);
 			break;
+            
+        case FUNCTION_BUTTON_DFU:
+            
+            DEBUG(("hal initialising state, FUNCTION_BUTTON_DFU message arrived...\n"));
+            ledsPlay(BEEP_THREE_TIMES);
+            break;
 			
 		default:
 			break;

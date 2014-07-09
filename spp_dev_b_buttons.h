@@ -13,6 +13,7 @@ enum
 	POWER_BUTTON_PRESS = 1000 /* base value */,
 	POWER_BUTTON_RELEASE,
 	FUNCTION_BUTTON_PRESS,
+	FUNCTION_BUTTON_DFU,
 	PIO_RAW
 };
 
@@ -20,6 +21,7 @@ typedef enum
 {
 	sPOWER_BUTTON,
 	sSCAN_BUTTON,
+	sPOWER_BUTTON_SCAN_BUTTON,
 	Unknown
 } InternalState;
 

@@ -2555,6 +2555,9 @@ _hal_initialising_state_exit:
 ;# import ?LC6 .
 ;# import ?LC6 .
 .IMPORT $_MessageCancelAll 0 ; (Non-const ref)
+;# import ?LC7 .
+;# import ?LC7 .
+.IMPORT $_ledsPlay 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _hal_initialising_handler:
 	enterl	#5
@@ -2565,15 +2568,21 @@ _hal_initialising_handler:
 	cmp	AH,#H'03E9
 	beq	?L46
 	cmp	AH,#(H'0001+H'03E9)
-	bcc	?L49
+	bcc	?L50
 	cmp	AH,#H'0000
 	beq	?L44
 	cmp	AH,#H'03E8
 	beq	?L45
 	bra	(?L39)
-?L49:
-	cmp	AH,#H'03EB
+?L50:
+	cmp	AH,#H'03EC
 	beq	?L41
+	cmp	AH,#(H'0001+H'03EC)
+	bcc	?L51
+	cmp	AH,#H'03EB
+	beq	?L47
+	bra	(?L39)
+?L51:
 	cmp	AH,#H'6800
 	beq	?L42
 	bra	(?L39)
@@ -2582,7 +2591,7 @@ _hal_initialising_handler:
 	bsr	$_puts
 	ld	AL,@(H'0005,Y)
 	bsr	_pio_raw_handler
-	bra	(?L50)
+	bra	(?L52)
 ?L42:
 	ld	AL,#(?LC3)
 	bsr	$_puts
@@ -2606,7 +2615,7 @@ _hal_initialising_handler:
 ?L43:
 	ld	AL,@(H'0005,Y)
 	bsr	_battery_message_handler
-?L50:
+?L52:
 	bsr	$_update_indication
 	bra	(?L39)
 ?L44:
@@ -2655,6 +2664,12 @@ _hal_initialising_handler:
 	bsr	$_getHalTask
 	ld	AH,#H'0001
 	bsr	$_MessageCancelAll
+	bra	(?L39)
+?L47:
+	ld	AL,#(?LC7)
+	bsr	$_puts
+	ld	AL,#H'0013
+	bsr	$_ledsPlay
 ?L39:
 ?LBE_hal_initialising_handler:
 	leavel	#5
@@ -2973,11 +2988,74 @@ _hal_initialising_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
+?LC7:
+	dc	H'68
+	dc	H'61
+	dc	H'6C
+	dc	H'20
+	dc	H'69
+	dc	H'6E
+	dc	H'69
+	dc	H'74
+	dc	H'69
+	dc	H'61
+	dc	H'6C
+	dc	H'69
+	dc	H'73
+	dc	H'69
+	dc	H'6E
+	dc	H'67
+	dc	H'20
+	dc	H'73
+	dc	H'74
+	dc	H'61
+	dc	H'74
+	dc	H'65
+	dc	H'2C
+	dc	H'20
+	dc	H'46
+	dc	H'55
+	dc	H'4E
+	dc	H'43
+	dc	H'54
+	dc	H'49
+	dc	H'4F
+	dc	H'4E
+	dc	H'5F
+	dc	H'42
+	dc	H'55
+	dc	H'54
+	dc	H'54
+	dc	H'4F
+	dc	H'4E
+	dc	H'5F
+	dc	H'44
+	dc	H'46
+	dc	H'55
+	dc	H'20
+	dc	H'6D
+	dc	H'65
+	dc	H'73
+	dc	H'73
+	dc	H'61
+	dc	H'67
+	dc	H'65
+	dc	H'20
+	dc	H'61
+	dc	H'72
+	dc	H'72
+	dc	H'69
+	dc	H'76
+	dc	H'65
+	dc	H'64
+	dc	H'2E
+	dc	H'2E
+	dc	H'2E
+	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC7 .
-;# import ?LC7 .
-.IMPORT $_ledsPlay 0 ; (Non-const ref)
+;# import ?LC8 .
+;# import ?LC8 .
 ;# end scan referenced symbols
 _hal_activating_state_enter:
 	enterl	#5
@@ -2985,7 +3063,7 @@ _hal_activating_state_enter:
 	bge ?LBB_hal_activating_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_activating_state_enter:
-	ld	AL,#(?LC7)
+	ld	AL,#(?LC8)
 	bsr	$_puts
 	bsr	$_update_indication
 	ld	AL,#H'0000
@@ -3013,7 +3091,7 @@ _hal_activating_state_enter:
 ?LBE_hal_activating_state_enter:
 	leavel	#5
 	.SEG	CONST
-?LC7:
+?LC8:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3046,8 +3124,8 @@ _hal_activating_state_enter:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC8 .
-;# import ?LC8 .
+;# import ?LC9 .
+;# import ?LC9 .
 ;# end scan referenced symbols
 _hal_activating_state_exit:
 	enterl	#2
@@ -3055,20 +3133,20 @@ _hal_activating_state_exit:
 	bge ?LBB_hal_activating_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_activating_state_exit:
-	ld	AL,#(?LC8)
+	ld	AL,#(?LC9)
 	bsr	$_puts
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
-	bne	?L58
+	bne	?L61
 	bsr	$_getHalTask
 	ld	AH,#H'0002
 	bsr	$_MessageCancelAll
-?L58:
+?L61:
 ?LBE_hal_activating_state_exit:
 	leavel	#2
 	.SEG	CONST
-?LC8:
+?LC9:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3100,22 +3178,22 @@ _hal_activating_state_exit:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC9 .
-;# import ?LC9 .
+;# import ?LC10 .
+;# import ?LC10 .
 .IMPORT _powerAllowedToTurnOn 0 ; (Non-const ref)
-;# import ?LC10 .
-;# import ?LC10 .
+;# import ?LC11 .
+;# import ?LC11 .
 ;# import ?LC5 .
 ;# import ?LC5 .
 ;# import ?LC6 .
 ;# import ?LC6 .
 .IMPORT $_malloc 0 ; (Non-const ref)
 .IMPORT $_MessageSend 0 ; (Non-const ref)
-;# import ?LC11 .
-;# import ?LC11 .
+;# import ?LC12 .
+;# import ?LC12 .
 .IMPORT $_Panic 0 ; (Non-const ref)
-;# import ?LC12 .
-;# import ?LC12 .
+;# import ?LC13 .
+;# import ?LC13 .
 ;# end scan referenced symbols
 _hal_activating_handler:
 	enterl	#11
@@ -3125,56 +3203,56 @@ _hal_activating_handler:
 ?LBB_hal_activating_handler:
 ?LBB2:
 	cmp	AH,#H'03E8
-	beq	?L68
-	cmp	AH,#(H'0001+H'03E8)
-	bcc	?L82
-	cmp	AH,#H'0001
 	beq	?L71
+	cmp	AH,#(H'0001+H'03E8)
+	bcc	?L85
+	cmp	AH,#H'0001
+	beq	?L74
 	cmp	AH,#H'0002
-	beq	?L75
-	bra	(?L61)
-?L82:
-	cmp	AH,#H'03EB
-	beq	?L63
-	cmp	AH,#(H'0001+H'03EB)
-	bcc	?L83
-	cmp	AH,#H'03E9
-	beq	?L69
-	bra	(?L61)
-?L83:
-	cmp	AH,#H'6800
+	beq	?L78
+	bra	(?L64)
+?L85:
+	cmp	AH,#H'03EC
 	beq	?L66
-	bra	(?L61)
-?L63:
-	ld	AL,#(?LC9)
+	cmp	AH,#(H'0001+H'03EC)
+	bcc	?L86
+	cmp	AH,#H'03E9
+	beq	?L72
+	bra	(?L64)
+?L86:
+	cmp	AH,#H'6800
+	beq	?L69
+	bra	(?L64)
+?L66:
+	ld	AL,#(?LC10)
 	bsr	$_puts
 	ld	AL,@(H'000B,Y)
 	bsr	_pio_raw_handler
 	ld	AH,#hwrd(_powerAllowedToTurnOn)
 	ld	AL,#lwrd(_powerAllowedToTurnOn)
 	cmp	AH,#H'0000
-	bne	?L61
+	bne	?L64
 	cmp	AL,#H'0000
-	bne	?L61
+	bne	?L64
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
-	beq	?L61
-	bra	(?L86)
-?L66:
-	ld	AL,#(?LC10)
+	beq	?L64
+	bra	(?L89)
+?L69:
+	ld	AL,#(?LC11)
 	bsr	$_puts
 	ld	AL,@(H'000B,Y)
 	bsr	_battery_message_handler
 	bsr	_powerAllowedToTurnOn
 	cmp	AL,#H'0000
-	bne	?L61
+	bne	?L64
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
-	beq	?L61
-	bra	(?L86)
-?L68:
+	beq	?L64
+	bra	(?L89)
+?L71:
 	ld	AL,#(?LC5)
 	bsr	$_puts
 	bsr	$_getHalTask
@@ -3203,8 +3281,8 @@ _hal_activating_handler:
 	ld	AL,@H'ffff
 	ld	AH,#H'0001
 	bsr	$_MessageSendLater
-	bra	(?L61)
-?L69:
+	bra	(?L64)
+?L72:
 	ld	AL,#(?LC6)
 	bsr	$_puts
 	bsr	$_getHalTask
@@ -3219,7 +3297,7 @@ _hal_activating_handler:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L61
+	bne	?L64
 ?LBB3:
 	ld	AL,#H'0001
 	bsr	$_malloc
@@ -3243,23 +3321,23 @@ _hal_activating_handler:
 	ld	AH,#H'4101
 	bsr	$_MessageSend
 	ld	AL,@(H'0004,Y)
-	bra	(?L87)
-?L71:
+	bra	(?L90)
+?L74:
 ?LBE3:
-	ld	AL,#(?LC11)
+	ld	AL,#(?LC12)
 	bsr	$_puts
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
-	beq	?L73
+	beq	?L76
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(26)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L72
-?L73:
+	bne	?L75
+?L76:
 	bsr	$_Panic
-	bra	(?L61)
-?L72:
+	bra	(?L64)
+?L75:
 ?LBB4:
 	ld	AL,#H'0001
 	bsr	$_malloc
@@ -3283,25 +3361,25 @@ _hal_activating_handler:
 	ld	AH,#H'4101
 	bsr	$_MessageSend
 	ld	AL,@(H'0006,Y)
-	bra	(?L87)
-?L75:
+	bra	(?L90)
+?L78:
 ?LBE4:
-	ld	AL,#(?LC12)
+	ld	AL,#(?LC13)
 	bsr	$_puts
 	ld	AL,#H'0001
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_powerAllowedToTurnOn
 	cmp	AL,#H'0000
-	bne	?L76
-?L86:
+	bne	?L79
+?L89:
 	ld	AL,#H'0003
-	bra	(?L84)
-?L76:
+	bra	(?L87)
+?L79:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(26)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L78
+	bne	?L81
 ?LBB5:
 	ld	AL,#H'0001
 	bsr	$_malloc
@@ -3325,25 +3403,25 @@ _hal_activating_handler:
 	ld	AH,#H'4101
 	bsr	$_MessageSend
 	ld	AL,@(H'0008,Y)
-?L87:
+?L90:
 	st	AL,@(0,Y)
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(3)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	ld	AH,#H'4101
 	bsr	$_MessageSend
 	ld	AL,#H'0002
-?L84:
+?L87:
 	bsr	_hal_set_state
 ?LBE5:
-	bra	(?L61)
-?L78:
+	bra	(?L64)
+?L81:
 	bsr	$_update_indication
-?L61:
+?L64:
 ?LBE2:
 ?LBE_hal_activating_handler:
 	leavel	#11
 	.SEG	CONST
-?LC9:
+?LC10:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3393,7 +3471,7 @@ _hal_activating_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC10:
+?LC11:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3459,7 +3537,7 @@ _hal_activating_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC11:
+?LC12:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3528,7 +3606,7 @@ _hal_activating_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC12:
+?LC13:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3595,8 +3673,8 @@ _hal_activating_handler:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC13 .
-;# import ?LC13 .
+;# import ?LC14 .
+;# import ?LC14 .
 ;# end scan referenced symbols
 _hal_active_state_enter:
 	enterl	#5
@@ -3604,7 +3682,7 @@ _hal_active_state_enter:
 	bge ?LBB_hal_active_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_active_state_enter:
-	ld	AL,#(?LC13)
+	ld	AL,#(?LC14)
 	bsr	$_puts
 	bsr	$_update_indication
 	bsr	$_getHalTask
@@ -3623,7 +3701,7 @@ _hal_active_state_enter:
 ?LBE_hal_active_state_enter:
 	leavel	#5
 	.SEG	CONST
-?LC13:
+?LC14:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3652,8 +3730,8 @@ _hal_active_state_enter:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC14 .
-;# import ?LC14 .
+;# import ?LC15 .
+;# import ?LC15 .
 ;# end scan referenced symbols
 _hal_active_state_exit:
 	enterl	#2
@@ -3661,7 +3739,7 @@ _hal_active_state_exit:
 	bge ?LBB_hal_active_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_active_state_exit:
-	ld	AL,#(?LC14)
+	ld	AL,#(?LC15)
 	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0004
@@ -3669,7 +3747,7 @@ _hal_active_state_exit:
 ?LBE_hal_active_state_exit:
 	leavel	#2
 	.SEG	CONST
-?LC14:
+?LC15:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3697,11 +3775,9 @@ _hal_active_state_exit:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC15 .
-;# import ?LC15 .
+;# import ?LC16 .
+;# import ?LC16 .
 .IMPORT _powerAllowedToContinue 0 ; (Non-const ref)
-;# import ?LC16 .
-;# import ?LC16 .
 ;# import ?LC17 .
 ;# import ?LC17 .
 ;# import ?LC18 .
@@ -3714,6 +3790,8 @@ _hal_active_state_exit:
 ;# import ?LC21 .
 ;# import ?LC22 .
 ;# import ?LC22 .
+;# import ?LC23 .
+;# import ?LC23 .
 ;# end scan referenced symbols
 _hal_active_handler:
 	enterl	#5
@@ -3722,39 +3800,43 @@ _hal_active_handler:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_active_handler:
 	cmp	AH,#H'03E9
-	beq	?L111
+	beq	?L114
 	cmp	AH,#(H'0001+H'03E9)
-	bcc	?L120
+	bcc	?L123
 	cmp	AH,#H'0004
-	beq	?L117
+	beq	?L120
 	cmp	AH,#(H'0001+H'0004)
-	bcc	?L121
+	bcc	?L124
 	cmp	AH,#H'0000
-	beq	?L112
-	bra	(?L105)
-?L121:
+	beq	?L115
+	bra	(?L108)
+?L124:
 	cmp	AH,#H'03E8
-	beq	?L110
-	bra	(?L105)
-?L120:
-	cmp	AH,#H'03EB
-	beq	?L107
-	cmp	AH,#H'03EB
-	bcs	?L116
-	cmp	AH,#H'6800
 	beq	?L113
-	bra	(?L105)
-?L107:
-	ld	AL,#(?LC15)
+	bra	(?L108)
+?L123:
+	cmp	AH,#H'03EC
+	beq	?L110
+	cmp	AH,#(H'0001+H'03EC)
+	bcc	?L125
+	cmp	AH,#H'03EA
+	beq	?L119
+	bra	(?L108)
+?L125:
+	cmp	AH,#H'6800
+	beq	?L116
+	bra	(?L108)
+?L110:
+	ld	AL,#(?LC16)
 	bsr	$_puts
 	ld	AL,@(H'0005,Y)
 	bsr	_pio_raw_handler
 	bsr	_powerAllowedToContinue
 	cmp	AL,#H'0000
-	beq	?L123
-	bra	(?L114)
-?L110:
-	ld	AL,#(?LC16)
+	beq	?L127
+	bra	(?L117)
+?L113:
+	ld	AL,#(?LC17)
 	bsr	$_puts
 	bsr	$_getHalTask
 	st	AL,@H'ffff
@@ -3782,9 +3864,9 @@ _hal_active_handler:
 	ld	AL,@H'ffff
 	ld	AH,#H'0001
 	bsr	$_MessageSendLater
-	bra	(?L105)
-?L111:
-	ld	AL,#(?LC17)
+	bra	(?L108)
+?L114:
+	ld	AL,#(?LC18)
 	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0000
@@ -3792,25 +3874,25 @@ _hal_active_handler:
 	bsr	$_getHalTask
 	ld	AH,#H'0001
 	bsr	$_MessageCancelAll
-	bra	(?L105)
-?L112:
-	ld	AL,#(?LC18)
-	bra	(?L122)
-?L113:
+	bra	(?L108)
+?L115:
 	ld	AL,#(?LC19)
+	bra	(?L126)
+?L116:
+	ld	AL,#(?LC20)
 	bsr	$_puts
 	ld	AL,@(H'0005,Y)
 	bsr	_battery_message_handler
 	bsr	_powerAllowedToContinue
 	cmp	AL,#H'0000
-	bne	?L114
-	ld	AL,#(?LC20)
-	bra	(?L122)
-?L114:
-	bsr	$_update_indication
-	bra	(?L105)
-?L116:
+	bne	?L117
 	ld	AL,#(?LC21)
+	bra	(?L126)
+?L117:
+	bsr	$_update_indication
+	bra	(?L108)
+?L119:
+	ld	AL,#(?LC22)
 	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0004
@@ -3836,19 +3918,19 @@ _hal_active_handler:
 	ld	AL,@($_hal+(3)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	ld	AH,#H'4100
 	bsr	$_MessageSend
-	bra	(?L105)
-?L117:
-	ld	AL,#(?LC22)
-?L122:
+	bra	(?L108)
+?L120:
+	ld	AL,#(?LC23)
+?L126:
 	bsr	$_puts
-?L123:
+?L127:
 	ld	AL,#H'0003
 	bsr	_hal_set_state
-?L105:
+?L108:
 ?LBE_hal_active_handler:
 	leavel	#5
 	.SEG	CONST
-?LC15:
+?LC16:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3894,7 +3976,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC16:
+?LC17:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -3951,7 +4033,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC17:
+?LC18:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4010,7 +4092,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC18:
+?LC19:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4076,7 +4158,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC19:
+?LC20:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4138,7 +4220,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC20:
+?LC21:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4190,7 +4272,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC21:
+?LC22:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4250,7 +4332,7 @@ _hal_active_handler:
 	dc	H'2E
 	dc	H'2E
 	dc	H'00
-?LC22:
+?LC23:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4325,8 +4407,8 @@ _hal_active_handler:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC23 .
-;# import ?LC23 .
+;# import ?LC24 .
+;# import ?LC24 .
 ;# end scan referenced symbols
 _hal_deactivating_state_enter:
 	enterl	#5
@@ -4334,7 +4416,7 @@ _hal_deactivating_state_enter:
 	bge ?LBB_hal_deactivating_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_deactivating_state_enter:
-	ld	AL,#(?LC23)
+	ld	AL,#(?LC24)
 	bsr	$_puts
 	bsr	$_update_indication
 	ld	AL,#H'0012
@@ -4373,7 +4455,7 @@ _hal_deactivating_state_enter:
 ?LBE_hal_deactivating_state_enter:
 	leavel	#5
 	.SEG	CONST
-?LC23:
+?LC24:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4408,8 +4490,8 @@ _hal_deactivating_state_enter:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC24 .
-;# import ?LC24 .
+;# import ?LC25 .
+;# import ?LC25 .
 ;# end scan referenced symbols
 _hal_deactivating_state_exit:
 	enterl	#2
@@ -4417,12 +4499,12 @@ _hal_deactivating_state_exit:
 	bge ?LBB_hal_deactivating_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_deactivating_state_exit:
-	ld	AL,#(?LC24)
+	ld	AL,#(?LC25)
 	bsr	$_puts
 ?LBE_hal_deactivating_state_exit:
 	leavel	#2
 	.SEG	CONST
-?LC24:
+?LC25:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4456,8 +4538,8 @@ _hal_deactivating_state_exit:
 	dc	H'00
 	.CODE
 ;# begin scan referenced symbols
-;# import ?LC25 .
-;# import ?LC25 .
+;# import ?LC26 .
+;# import ?LC26 .
 ;# end scan referenced symbols
 _hal_deactivating_handler:
 	enterl	#2
@@ -4466,15 +4548,15 @@ _hal_deactivating_handler:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_deactivating_handler:
 	cmp	AH,#H'0003
-	bne	?L135
-	ld	AL,#(?LC25)
+	bne	?L139
+	ld	AL,#(?LC26)
 	bsr	$_puts
 	bsr	$_Panic
-?L135:
+?L139:
 ?LBE_hal_deactivating_handler:
 	leavel	#2
 	.SEG	CONST
-?LC25:
+?LC26:
 	dc	H'68
 	dc	H'61
 	dc	H'6C
@@ -4637,15 +4719,15 @@ _pio_raw_handler:
 	and	AL,#H'0400
 	and	AH,#H'0000
 	cmp	AH,#H'0000
-	bne	?L147
+	bne	?L151
 	cmp	AL,#H'0000
-	beq	?L145
-?L147:
+	beq	?L149
+?L151:
 	ld	AL,#H'0002
-	bra	(?L146)
-?L145:
+	bra	(?L150)
+?L149:
 	ld	AL,#H'0001
-?L146:
+?L150:
 	ld	X,#($_hal+H'0016)
 	st	X,@H'fffc
 	bsr	$dostore_AL; movqi_fetch_general+2 peephole
@@ -4694,21 +4776,21 @@ _powerAllowedToTurnOn:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(22)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L150
+	bne	?L154
 	ld	X,#($_hal+H'0017)
 	st	X,@H'fffc
 	bsr	$dofetch32_AH; movhi_fetch_general+1 peephole
 	cmp	AH,#hwrd(H'0001+H'0CB1)
-	bcs	?L152
-	bne	?L150
+	bcs	?L156
+	bne	?L154
 	cmp	AL,#lwrd(H'0001+H'0CB1)
-	bcc	?L150
-?L152:
+	bcc	?L154
+?L156:
 	ld	AL,#H'0000
-	bra	(?L149)
-?L150:
+	bra	(?L153)
+?L154:
 	ld	AL,#H'0001
-?L149:
+?L153:
 ?LBE_powerAllowedToTurnOn:
 	leavel	#2
 ;# begin scan referenced symbols
@@ -4722,21 +4804,21 @@ _powerAllowedToContinue:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(22)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L154
+	bne	?L158
 	ld	X,#($_hal+H'0017)
 	st	X,@H'fffc
 	bsr	$dofetch32_AH; movhi_fetch_general+1 peephole
 	cmp	AH,#hwrd(H'0001+H'0C4D)
-	bcs	?L156
-	bne	?L154
+	bcs	?L160
+	bne	?L158
 	cmp	AL,#lwrd(H'0001+H'0C4D)
-	bcc	?L154
-?L156:
+	bcc	?L158
+?L160:
 	ld	AL,#H'0000
-	bra	(?L153)
-?L154:
+	bra	(?L157)
+?L158:
 	ld	AL,#H'0001
-?L153:
+?L157:
 ?LBE_powerAllowedToContinue:
 	leavel	#2
 	.SEG	VAR
@@ -4755,7 +4837,7 @@ $_hal:
 ;# Function pattern *movqi_fetch_symbol_ref_with_offset used[0] = 18 total = 18
 ;# Function pattern *movqi_store_symbol_ref_with_offset used[0] = 10 total = 10
 ;# Function pattern *movhi_store_symbol_ref used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 103 total = 103
+;# Function pattern *movqi2 used[0] = 105 total = 105
 ;# Function pattern *movqi2b used[0] = 10 used[1] = 4 total = 14
 ;# Function pattern *movhi used[2] = 2 total = 2
 ;# Function pattern *andhi3 used[0] = 1 total = 1
@@ -4763,15 +4845,15 @@ $_hal:
 ;# Function pattern *mulqihi3_const used[0] = 1 total = 1
 ;# Function pattern *umulqihi3_const used[0] = 1 total = 1
 ;# Function pattern *zero_extendqihi2 used[0] = 1 total = 1
-;# Function pattern jump used[0] = 42 total = 42
+;# Function pattern jump used[0] = 45 total = 45
 ;# Function pattern *call1 used[0] = 58 total = 58
-;# Function pattern *call_value1 used[0] = 72 total = 72
+;# Function pattern *call_value1 used[0] = 74 total = 74
 ;# Function pattern addsi3+2 used[0] = 4 total = 4
 ;# Function pattern addsi3+3 used[0] = 3 total = 3
 ;# Function pattern addhi3-2 used[0] = 1 total = 1
 ;# Function pattern addhi3-1 used[0] = 2 total = 2
-;# Function pattern extendhfsf2+2 used[1] = 5 total = 5
-;# Function pattern extendhfsf2+3 used[0] = 44 total = 44
+;# Function pattern extendhfsf2+2 used[1] = 7 total = 7
+;# Function pattern extendhfsf2+3 used[0] = 45 total = 45
 ;# Function pattern extendhfsf2+4 used[0] = 2 total = 2
 ;# Function pattern extendhfsf2+5 used[0] = 3 total = 3
 	MODULE	indication
@@ -7231,11 +7313,17 @@ $_sppDevSetTrustLevel:
 _pio_encode:
 ; leaf function with empty stack frame
 ?LBB_pio_encode:
-	cmp	AL,#H'0010
-	beq	?L3
 	cmp	AL,#H'0020
 	beq	?L4
-	bra	(?L5)
+	cmp	AL,#(H'0001+H'0020)
+	bcc	?L8
+	cmp	AL,#H'0010
+	beq	?L3
+	bra	(?L6)
+?L8:
+	cmp	AL,#H'0030
+	beq	?L5
+	bra	(?L6)
 ?L3:
 	ld	AL,#H'0000
 	bra	(?L1)
@@ -7244,6 +7332,9 @@ _pio_encode:
 	bra	(?L1)
 ?L5:
 	ld	AL,#H'0002
+	bra	(?L1)
+?L6:
+	ld	AL,#H'0003
 ?L1:
 ?LBE_pio_encode:
 	bra	0,X
@@ -7264,6 +7355,8 @@ _enter_messages:
 	dc	_enter_messages_sPOWER_BUTTON
 	dc	H'0001
 	dc	_enter_messages_sSCAN_BUTTON
+	dc	H'0000
+	dc	H'0000
 ;# begin scan referenced symbols
 .IMPORT _enter_messages 1 ; (Const ref)
 .IMPORT $_MessageCancelAll 0 ; (Non-const ref)
@@ -7295,33 +7388,33 @@ _send_pio_enter_messages:
 	add	AH,#-H'0001
 	st	AH,@(H'0006,Y)
 	cmp	AH,#-H'0001
-	beq	?L23
+	beq	?L26
 	ld	AH,@(H'0003,Y)
 	add	AH,#H'0002
 	st	AH,@(H'0008,Y)
-?L21:
+?L24:
 	ld	X,@(H'0007,Y)
 	st	X,@H'fffc
 	bsr	$dofetch_AH; movqi_fetch_general+1 peephole
 	lsr	#H'000E
 	and	AH,#H'0001
 	cmp	AH,#H'0000
-	beq	?L13
+	beq	?L16
 	ld	AL,@(H'0003,Y)
 	add	AL,#H'0004
 	st	AL,@H'fffc
 	bsr	$dofetch_AL
 	cmp	AL,@(H'0004,Y)
-	bne	?L14
+	bne	?L17
 	ld	AL,@(H'0003,Y)
 	ld	AH,#H'0001
 	bsr	$_MessageCancelAll
 	cmp	AL,#H'0000
-	beq	?L15
+	beq	?L18
 	ld	AH,@(H'0003,Y)
 	add	AH,#H'0003
 	st	AH,@H'fffc
-	ld	AL,#H'0002
+	ld	AL,#H'0003
 	bsr	$dostore_AL
 	st	AL,@H'ffff
 	ld	AL,#H'0000
@@ -7332,15 +7425,15 @@ _send_pio_enter_messages:
 	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
 	ld	AH,@(H'0007,Y)
 	add	AH,#H'0002
-	bra	(?L25)
-?L15:
+	bra	(?L28)
+?L18:
 	ld	AL,#H'0000
 	st	AL,@(0,Y)
 	ld	AL,@(H'0007,Y); movqi2b+1 peephole
 	add	AL,#H'0001
 	st	AL,@H'fffc
-	bra	(?L24)
-?L14:
+	bra	(?L27)
+?L17:
 	ld	AH,@(H'0003,Y)
 	add	AH,#H'0004
 	st	AH,@H'fffc
@@ -7356,7 +7449,7 @@ _send_pio_enter_messages:
 	ld	AH,@(H'0007,Y)
 	add	AH,#H'0001
 	st	AH,@H'fffc
-?L24:
+?L27:
 	bsr	$dofetch_AH
 	lsr	#H'0001
 	ld	AL,@$XAP_AH
@@ -7366,14 +7459,14 @@ _send_pio_enter_messages:
 	ld	AL,@(H'0003,Y)
 	ld	AH,#H'0001
 	bsr	$_MessageSendLater
-	bra	(?L18)
-?L13:
+	bra	(?L21)
+?L16:
 	ld	X,@(H'0007,Y)
 	st	X,@H'fffc
 	bsr	$dofetch_AH; movqi_fetch_general+1 peephole
 	lsr	#H'000F
 	cmp	AH,#H'0000
-	bne	?L19
+	bne	?L22
 	ld	AH,#H'0002
 	add	AH,@H'fffc
 	ld	AL,#H'0000
@@ -7382,12 +7475,12 @@ _send_pio_enter_messages:
 	add	AL,#H'0002
 	st	AL,@H'fffc
 	bsr	$dofetch_AL
-?L25:
+?L28:
 	st	AH,@H'fffc
 	bsr	$dofetch_AH
 	bsr	$_MessageSend
-	bra	(?L18)
-?L19:
+	bra	(?L21)
+?L22:
 	ld	AH,@(H'0003,Y)
 	add	AH,#H'0003
 	st	AH,@H'fffc
@@ -7400,7 +7493,7 @@ _send_pio_enter_messages:
 	add	AH,#H'0008
 	st	AH,@H'fffc
 	bsr	$dostore_AL
-?L18:
+?L21:
 	ld	AL,@(H'0007,Y)
 	add	AL,#H'0003
 	st	AL,@(H'0007,Y)
@@ -7408,19 +7501,25 @@ _send_pio_enter_messages:
 	add	AH,#-H'0001
 	st	AH,@(H'0006,Y)
 	cmp	AH,#-H'0001
-	bne	?L21
-?L23:
+	bne	?L24
+?L26:
 ?LBE2:
 ?LBE_send_pio_enter_messages:
 	leavel	#11
 ;.stabn	192,0,0,?LBB2
 ;.stabn	224,0,0,?LBE2
 	.SEG	CONST
+_timed_messages_sPOWER_BUTTON_SCAN_BUTTON:
+	dc	H'2710
+	dc	H'0000
+	dc	H'03EB
 _timed_messages:
 	dc	H'0000
 	dc	H'0000
 	dc	H'0000
 	dc	H'0000
+	dc	H'0001
+	dc	_timed_messages_sPOWER_BUTTON_SCAN_BUTTON
 ;# begin scan referenced symbols
 .IMPORT $_malloc 0 ; (Non-const ref)
 .IMPORT $_PanicNull 0 ; (Non-const ref)
@@ -7443,7 +7542,7 @@ _send_pio_timed_message:
 	bsr	$dostore_AH
 	ld	AH,@(H'0007,Y)
 	cmp	AH,#H'0000
-	beq	?L33
+	beq	?L36
 	st	AL,@(0,Y)
 	ld	AL,@(H'0004,Y)
 	add	AL,#H'0001
@@ -7452,8 +7551,8 @@ _send_pio_timed_message:
 	lsr	#H'0001
 	ld	AL,@$XAP_AH
 	ld	AH,#H'0000
-	bra	(?L35)
-?L33:
+	bra	(?L38)
+?L36:
 	st	AL,@(0,Y)
 	ld	X,@(H'0004,Y)
 	st	X,@H'fffc
@@ -7461,7 +7560,7 @@ _send_pio_timed_message:
 	and	AL,#H'7FFF
 	ld	AL,@$XAP_AL
 	ld	AH,#H'0000
-?L35:
+?L38:
 	st	AH,@(H'0001,Y)
 	st	AL,@(H'0002,Y)
 	ld	AL,@(H'0003,Y)
@@ -7499,8 +7598,8 @@ _send_pio_timed_messages:
 	add	AL,#-H'0001
 	st	AL,@(H'0002,Y)
 	cmp	AL,#-H'0001
-	beq	?L43
-?L41:
+	beq	?L46
+?L44:
 	ld	AH,@(H'0003,Y)
 	ld	AL,@$XAP_AH
 	add	AL,#H'0003
@@ -7513,8 +7612,8 @@ _send_pio_timed_messages:
 	add	AL,#-H'0001
 	st	AL,@(H'0002,Y)
 	cmp	AL,#-H'0001
-	bne	?L41
-?L43:
+	bne	?L44
+?L46:
 ?LBE4:
 ?LBE_send_pio_timed_messages:
 	leavel	#6
@@ -7549,7 +7648,7 @@ _pioChanged:
 	bsr	$dofetch_AL
 	ld	AH,@(H'0004,Y)
 	cmp	AH,@$XAP_AL
-	beq	?L47
+	beq	?L50
 ?LBB6:
 	ld	AL,#H'0001
 	bsr	$_malloc
@@ -7561,7 +7660,7 @@ _pioChanged:
 	add	AL,#H'0002
 	st	AL,@H'fffc
 	bsr	$dofetch_AL
-	ld	AH,#H'03EB
+	ld	AH,#H'03EC
 	bsr	$_MessageSend
 	st	X,@H'ffff
 	ld	X,@(H'0007,Y)
@@ -7569,7 +7668,7 @@ _pioChanged:
 	ld	X,@H'ffff
 	ld	AH,@(H'0004,Y)
 	bsr	$dostore_AH
-?L47:
+?L50:
 ?LBE6:
 	ld	AL,@(H'0005,Y)
 	bsr	_pio_encode
@@ -7580,23 +7679,23 @@ _pioChanged:
 	bsr	$dofetch_AL
 	ld	AH,@(H'0005,Y)
 	cmp	AH,@$XAP_AL
-	bne	?L48
+	bne	?L51
 	ld	AL,#H'0000
 	st	AL,@(H'0006,Y)
-?L48:
+?L51:
 	ld	AH,@(H'0006,Y)
 	cmp	AH,#H'0000
-	beq	?L46
+	beq	?L49
 	ld	AL,@(H'0002,Y)
 	add	AL,#H'0003
 	st	AL,@H'fff8
 	st	AL,@H'fffc
 	bsr	$dofetch_AL
-	cmp	AL,#H'0002
-	beq	?L50
+	cmp	AL,#H'0003
+	beq	?L53
 	ld	AH,@(H'0003,Y)
 	cmp	AH,@$XAP_AL
-	beq	?L50
+	beq	?L53
 	ld	AL,@(H'0002,Y)
 ?LBB7:
 	add	AL,#H'0007
@@ -7606,7 +7705,7 @@ _pioChanged:
 	bsr	$dofetch_AH
 	and	AL,@$XAP_AH
 	cmp	AL,@$XAP_AH
-	bne	?L51
+	bne	?L54
 ?LBB8:
 	ld	X,@H'fff8
 	st	X,@H'fffc
@@ -7636,14 +7735,14 @@ _pioChanged:
 	st	AH,@H'fffc; addqi2+1/0 peephole
 	bsr	$dofetch_AH
 	bsr	$_MessageSend
-?L51:
+?L54:
 	ld	AH,@(H'0002,Y)
 ?LBE8:
 	add	AH,#H'0003
 	st	AH,@H'fffc
-	ld	AL,#H'0002
+	ld	AL,#H'0003
 	bsr	$dostore_AL
-?L50:
+?L53:
 	ld	AH,@(H'0002,Y)
 ?LBE7:
 	add	AH,#H'0009
@@ -7651,7 +7750,7 @@ _pioChanged:
 	st	AH,@H'fffc
 	bsr	$dofetch_AL
 	cmp	AL,#H'0000
-	beq	?L52
+	beq	?L55
 	ld	AL,#H'0000
 	st	AL,@(0,Y)
 	ld	AL,@(H'0002,Y); movqi2b+1 peephole
@@ -7667,26 +7766,26 @@ _pioChanged:
 	ld	X,@H'ffff
 	ld	AH,#H'0000
 	bsr	$dostore_AH
-?L52:
+?L55:
 	ld	AL,@(H'0001,Y)
 	ld	AH,#H'0000
 	bsr	$_MessageCancelAll
 	ld	AL,@(H'0003,Y)
-	cmp	AL,#H'0002
-	beq	?L53
+	cmp	AL,#H'0003
+	beq	?L56
 	ld	AL,@(H'0002,Y)
 	ld	AH,@(H'0003,Y)
 	bsr	_send_pio_enter_messages
 	ld	AL,@(H'0002,Y)
 	ld	AH,@(H'0003,Y)
 	bsr	_send_pio_timed_messages
-?L53:
+?L56:
 	ld	AH,@(H'0002,Y)
 	add	AH,#H'0007
 	st	AH,@H'fffc
 	ld	AL,@(H'0005,Y)
 	bsr	$dostore_AL
-?L46:
+?L49:
 ?LBE5:
 ?LBE_pioChanged:
 	leavel	#11
@@ -7713,13 +7812,13 @@ _pioHandler:
 	ld	AL,@H'ffff
 ?LBB9:
 	cmp	AH,#H'0001
-	beq	?L62
+	beq	?L65
 	cmp	AH,#H'0001
-	bcs	?L64
+	bcs	?L67
 	cmp	AH,#-H'7FDD
-	beq	?L70
-	bra	(?L62)
-?L64:
+	beq	?L73
+	bra	(?L65)
+?L67:
 ?LBB10:
 	st	AL,@H'fffc
 	bsr	$dofetch_AH
@@ -7735,15 +7834,15 @@ _pioHandler:
 	bsr	$dofetch_AL
 	and	AL,#H'0001
 	cmp	AL,#H'0000
-	beq	?L65
+	beq	?L68
 	ld	AL,@(H'0002,Y)
 	add	AL,#H'0002
 	st	AL,@H'fffc
 	bsr	$dofetch_AL
 	st	AH,@H'fffc
 	bsr	$dostore_AL
-	bra	(?L66)
-?L65:
+	bra	(?L69)
+?L68:
 	st	AL,@H'ffff
 	ld	AL,#H'0000
 	st	AL,@(0,Y)
@@ -7762,25 +7861,25 @@ _pioHandler:
 	st	AL,@H'fffc
 	ld	AH,#H'0000
 	bsr	$dostore_AH
-?L66:
+?L69:
 	ld	AL,@(H'0001,Y)
 	add	AL,#H'0003
 	st	AL,@H'fffc
-	ld	AH,#H'0002
+	ld	AH,#H'0003
 	bsr	$dostore_AH
 	ld	X,@(H'0002,Y)
 	st	X,@H'fffc
 	bsr	$dofetch_AH; movqi_fetch_general+1 peephole
 	lsr	#H'000F
 	cmp	AH,#H'0000
-	beq	?L62
+	beq	?L65
 	ld	X,@H'fffc
 	add	X,#H'0001
 	st	X,@H'fffc; addqi2+1/0 peephole
 	bsr	$dofetch_AH
 	lsr	#H'0001
 	cmp	AH,#H'0000
-	beq	?L68
+	beq	?L71
 	ld	AL,@(H'0001,Y)
 	add	AL,#H'0009
 	st	AL,@H'fffc
@@ -7790,19 +7889,19 @@ _pioHandler:
 	ld	AL,#H'0001
 	st	AL,@(0,Y)
 	ld	AL,@H'ffff
-	bra	(?L74)
-?L68:
+	bra	(?L77)
+?L71:
 	st	AL,@H'ffff
 	ld	AL,#H'0000
 	st	AL,@(0,Y)
 	ld	AL,@H'ffff
-?L74:
+?L77:
 	ld	AL,@(H'0001,Y)
 	ld	AH,@(H'0002,Y)
 	bsr	_send_pio_timed_message
 ?LBE10:
-	bra	(?L62)
-?L70:
+	bra	(?L65)
+?L73:
 ?LBB11:
 	st	AL,@H'fffc
 	bsr	$dofetch_AL
@@ -7815,7 +7914,7 @@ _pioHandler:
 	ld	AL,@H'fff8
 	ld	AH,@(H'0001,Y)
 	bsr	_pioChanged
-?L62:
+?L65:
 ?LBE11:
 ?LBE9:
 ?LBE_pioHandler:
@@ -7884,7 +7983,7 @@ $_pioInit:
 	ld	AH,@(H'0002,Y)
 	add	AH,#H'0003
 	st	AH,@H'fffc
-	ld	AL,#H'0002
+	ld	AL,#H'0003
 	bsr	$dostore_AL
 	ld	AH,@(H'0002,Y)
 	add	AH,#H'0004
@@ -7960,7 +8059,7 @@ $_pioInit:
 ;# Function pattern *movhi_store_general used[1] = 2 total = 2
 ;# Function pattern *movqi_store_general used[0] = 23 total = 23
 ;# Function pattern *movqi2 used[0] = 37 total = 37
-;# Function pattern *movqi2b used[0] = 7 used[1] = 2 total = 9
+;# Function pattern *movqi2b used[0] = 8 used[1] = 2 total = 10
 ;# Function pattern *addqi0-framep used[0] = 2 total = 2
 ;# Function pattern *addqi2 used[0] = 49 used[2] = 1 used[3] = 3 total = 53
 ;# Function pattern *andqi3 used[0] = 8 total = 8
@@ -7970,14 +8069,15 @@ $_pioInit:
 ;# Function pattern *lshrqi3 used[0] = 6 total = 6
 ;# Function pattern one_cmplqi2 used[0] = 2 total = 2
 ;# Function pattern *zero_extendqihi2 used[0] = 3 total = 3
-;# Function pattern jump used[0] = 12 total = 12
+;# Function pattern jump used[0] = 14 total = 14
 ;# Function pattern *call1 used[0] = 14 total = 14
 ;# Function pattern *call_value1 used[0] = 11 total = 11
 ;# Function pattern addsi3+1 used[0] = 6 total = 6
 ;# Function pattern addsi3+2 used[0] = 1 total = 1
 ;# Function pattern addhi3-1 used[0] = 7 total = 7
 ;# Function pattern subhi3+1 used[0] = 6 total = 6
-;# Function pattern extendhfsf2+3 used[0] = 25 total = 25
+;# Function pattern extendhfsf2+2 used[1] = 1 total = 1
+;# Function pattern extendhfsf2+3 used[0] = 26 total = 26
 	MODULE	spp_dev_b_leds
 	.LARGE
 ; Native execution

@@ -18,6 +18,7 @@ static InternalState pio_encode(uint16 pressed)
 	{
 		case (1UL<<4) : return sPOWER_BUTTON;
 		case (1UL<<5) : return sSCAN_BUTTON;
+		case (1UL<<4)|(1UL<<5) : return sPOWER_BUTTON_SCAN_BUTTON;
 		default : return Unknown;
 	}
 }
@@ -41,7 +42,8 @@ static const struct
 	uint16 count; const EnterMessage *send;
 } enter_messages[] = {
 	{ 2, enter_messages_sPOWER_BUTTON },
-	{ 1, enter_messages_sSCAN_BUTTON }
+	{ 1, enter_messages_sSCAN_BUTTON },
+	{ 0, 0 }
 };
 
 static void send_pio_enter_messages(PioState *pioState, InternalState state)
@@ -92,6 +94,10 @@ typedef struct
 	MessageId id;
 } TimedMessage;
 
+static const TimedMessage timed_messages_sPOWER_BUTTON_SCAN_BUTTON[] =
+{
+	{ 0, 10000, 0, 0, FUNCTION_BUTTON_DFU }
+};
 
 static const struct
 {
@@ -100,7 +106,8 @@ static const struct
 } timed_messages[] =
 {
 	{ 0, 0 },
-	{ 0, 0 }
+	{ 0, 0 },
+	{ 1, timed_messages_sPOWER_BUTTON_SCAN_BUTTON }
 };
 
 static void send_pio_timed_message(PioState *pioState, const TimedMessage *p, int hold_repeat)
