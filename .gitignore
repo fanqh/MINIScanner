@@ -233,4 +233,17 @@ sandbox
 *.uvgui.*
 
 
+#############
+## bluelab IDE
+#############
+
+*.fs
+*.xdv
+*.xpv
+*.psr_
+*.app
+
+
+
+
 
