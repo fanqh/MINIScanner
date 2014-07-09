@@ -75,6 +75,7 @@ static void trigger_pull_up(void) {
 	PioSet(SCANNER_TRIGGER_MASK, SCANNER_TRIGGER_MASK);	
 }
 
+#if 0
 static void enable_scanner(void) {
 	
 	/** drive high **/
@@ -88,13 +89,15 @@ static void disable_scanner(void) {
 	PioSetDir(SCANNER_POWER_MASK, SCANNER_POWER_MASK);
 	PioSet(SCANNER_POWER_MASK, 0);
 }
+#endif
 
 static void scanner_off_state_enter(void) {
 	
 	DEBUG(( "scanner, off state enter... \n" ));
 	update_indication();
-	
+#if 0	
 	disable_scanner();
+#endif
 	trigger_pull_up();
 	
 	if (StreamUartSource()) {
@@ -133,7 +136,9 @@ static void scanner_on_state_enter(void) {
 	DEBUG(( "scanner, on state enter... \n" ));
 	
 	trigger_pull_up();
+#if 0
 	enable_scanner();
+#endif
 	
 	scanner.on_state = SCANNER_ON_WARMUP;
 	scanner_warmup_state_enter();
@@ -164,7 +169,9 @@ static void scanner_on_state_exit(void) {
 	scanner.on_state = SCANNER_ON_INVALID;
 	
 	trigger_pull_up();
+#if 0
 	disable_scanner();
+#endif
 }
 
 static void scanner_on_state_handler(Task task, MessageId id, Message message) {
@@ -445,8 +452,9 @@ static void scanner_handler(Task task, MessageId id, Message message) {
 void scanner_init(Task hal, Task client) {
 
 	trigger_pull_up();
+#if 0
 	enable_scanner();	
-	
+#endif	
 	scanner.task.handler = scanner_handler;
 	scanner.hal = hal;
 	scanner.client = client;

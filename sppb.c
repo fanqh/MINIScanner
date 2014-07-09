@@ -401,6 +401,7 @@ static void sppb_connected_state_handler(Task task, MessageId id, Message messag
 					uint8* dst;
 					Sink sink = sppb.spp_sink;
 					
+                    ledsPlay(MOTOR_ONCE);
 					offset = SinkClaim(sink, barcode ->length);
 					dst = SinkMap(sink);
 					memcpy(dst + offset, barcode ->code, barcode ->length);

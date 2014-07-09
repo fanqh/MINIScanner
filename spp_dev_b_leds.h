@@ -35,7 +35,9 @@ typedef enum LedPatternTag
     RAINBOW ,
     BEEP_ONCE ,
     BEEP_TWICE ,
-    BEEP_THREE_TIMES
+    BEEP_THREE_TIMES ,
+    MOTOR_ONCE ,
+    MOTOR_TWICE
 
 } LedPattern_t ;
 /*END_OF_INSERTED_CODE*/
