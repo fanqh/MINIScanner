@@ -1,6 +1,6 @@
 // Version      : xapasmcsr from BlueLab 4.1.2-Release
 // Title        : "Symbol Table"
-// Date         : Mon Jun 09 11:34:15 2014
+// Date         : Wed Jul 09 13:39:07 2014
 // Command Line : C:\BlueLab412\tools\lib\gcc-lib\xapnative-local-xapnative\3.3.3\xapasmcsr -pass 250 -I C:/BlueLab412/tools/lib/gcc-lib/xapnative-local-xapnative/3.3.3/ -large -supcmt -quiet spp_dev_b.xap -o spp_dev_b.app 
 //
 //
@@ -96,7 +96,7 @@ $common_trap_code, 000235
 $_VmPutChar, 00023a
 e_t_c.e_t_c, 00023d
 barcode._isDisplayableChar, 00023d
-barcode.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c626172636f64652e63'.?9.1, 00023d
+barcode.'463a5c6769745c4d494e495363616e6e65725c626172636f64652e63'.?9.1, 00023d
 barcode.?LBB_isDisplayableChar, 00023d
 barcode.''.?11.1, 00023d
 barcode.''.?13.1, 000240
@@ -195,7 +195,7 @@ barcode.''.?136.1, 000308
 barcode.?L56, 000308
 barcode.?LBE_barcode_is_terminated, 000308
 battery_probe._getBatteryProbeTask, 000309
-battery_probe.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c626174746572795f70726f62652e63'.?45.1, 000309
+battery_probe.'463a5c6769745c4d494e495363616e6e65725c626174746572795f70726f62652e63'.?45.1, 000309
 battery_probe.?LBB_getBatteryProbeTask, 000309
 battery_probe.''.?48.1, 000309
 battery_probe.?LBE_getBatteryProbeTask, 00030b
@@ -272,7 +272,7 @@ battery_probe.''.?154.1, 0003d6
 battery_probe.''.?155.1, 0003dd
 battery_probe.?LBE_battery_probe_stop, 0003dd
 $_buzzer_on, 0003de
-buzzer.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c62757a7a65722e63'.?7.1, 0003de
+buzzer.'463a5c6769745c4d494e495363616e6e65725c62757a7a65722e63'.?7.1, 0003de
 buzzer.?LBB_buzzer_on, 0003e3
 buzzer.''.?10.1, 0003e3
 buzzer.''.?11.1, 0003e8
@@ -302,7 +302,7 @@ buzzer.''.?56.1, 000414
 buzzer.''.?57.1, 000421
 buzzer.?LBE_beep, 000421
 $_DoErrorCheck, 000422
-errman.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c6572726d616e2e63'.?13.1, 000422
+errman.'463a5c6769745c4d494e495363616e6e65725c6572726d616e2e63'.?13.1, 000422
 errman.?LBB_DoErrorCheck, 000427
 errman.''.?17.1, 000427
 errman.''.?21.1, 000429
@@ -371,7 +371,7 @@ errman.''.?90.1, 0004b2
 errman.''.?91.1, 0004b4
 errman.?LBE_raise_exception, 0004b4
 $_getHalTask, 0004b5
-hal.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c68616c2e63'.?68.1, 0004b5
+hal.'463a5c6769745c4d494e495363616e6e65725c68616c2e63'.?68.1, 0004b5
 hal.?LBB_getHalTask, 0004b5
 hal.''.?71.1, 0004b5
 hal.?LBE_getHalTask, 0004b7
@@ -728,7 +728,7 @@ hal.''.?624.1, 0008e6
 hal.?L153, 0008e6
 hal.?LBE_powerAllowedToContinue, 0008e6
 $_calcIndication, 0008e7
-indication.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c696e6469636174696f6e2e63'.?13.1, 0008e7
+indication.'463a5c6769745c4d494e495363616e6e65725c696e6469636174696f6e2e63'.?13.1, 0008e7
 indication.?LBB_calcIndication, 0008ec
 indication.''.?19.1, 0008ec
 indication.?LBB2, 0008ec
@@ -793,7 +793,7 @@ indication.?L46, 000990
 indication.?LBE3, 000990
 indication.?LBE_update_indication, 000990
 $_main, 000991
-main.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c6d61696e2e63'.?8.1, 000991
+main.'463a5c6769745c4d494e495363616e6e65725c6d61696e2e63'.?8.1, 000991
 main.?LBB_main, 000996
 main.''.?9.1, 000996
 main.''.?10.1, 00099f
@@ -802,7 +802,7 @@ main.''.?13.1, 0009ac
 main.''.?16.1, 0009af
 main.?LBE_main, 0009b0
 scanner._trigger_drive_low, 0009b1
-scanner.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c7363616e6e65722e63'.?60.1, 0009b1
+scanner.'463a5c6769745c4d494e495363616e6e65725c7363616e6e65722e63'.?60.1, 0009b1
 scanner.?LBB_trigger_drive_low, 0009b6
 scanner.''.?63.1, 0009b6
 scanner.''.?66.1, 0009ba
@@ -1083,7 +1083,7 @@ scanner.?LBB_getScannerTask, 000c2f
 scanner.''.?465.1, 000c2f
 scanner.?LBE_getScannerTask, 000c31
 $_sppDevHandlePinCodeRequest, 000c32
-spp_dev_auth.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c7370705f6465765f617574682e63'.?33.1, 000c32
+spp_dev_auth.'463a5c6769745c4d494e495363616e6e65725c7370705f6465765f617574682e63'.?33.1, 000c32
 spp_dev_auth.?LBB_sppDevHandlePinCodeRequest, 000c37
 spp_dev_auth.''.?36.1, 000c37
 spp_dev_auth.?LBB2, 000c37
@@ -1115,7 +1115,7 @@ spp_dev_auth.''.?108.1, 000c92
 spp_dev_auth.?L4, 000c92
 spp_dev_auth.?LBE_sppDevSetTrustLevel, 000c92
 spp_dev_b_buttons._pio_encode, 000c93
-spp_dev_b_buttons.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c7370705f6465765f625f627574746f6e732e63'.?16.1, 000c93
+spp_dev_b_buttons.'463a5c6769745c4d494e495363616e6e65725c7370705f6465765f625f627574746f6e732e63'.?16.1, 000c93
 spp_dev_b_buttons.?LBB_pio_encode, 000c93
 spp_dev_b_buttons.''.?17.1, 000c93
 spp_dev_b_buttons.?L3, 000c98
@@ -1295,7 +1295,7 @@ spp_dev_b_buttons.''.?248.1, 000f50
 spp_dev_b_buttons.?LBE12, 000f50
 spp_dev_b_buttons.?LBE_pioInit, 000f50
 $_ledsPlay, 000f51
-spp_dev_b_leds.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c7370705f6465765f625f6c6564732e63'.?305.1, 000f51
+spp_dev_b_leds.'463a5c6769745c4d494e495363616e6e65725c7370705f6465765f625f6c6564732e63'.?305.1, 000f51
 spp_dev_b_leds.?LBB_ledsPlay, 000f56
 spp_dev_b_leds.''.?309.1, 000f57
 spp_dev_b_leds.?LBB2, 000f57
@@ -1398,7 +1398,7 @@ spp_dev_b_leds.''.?577.1, 00113c
 spp_dev_b_leds.?LBE5, 00113c
 spp_dev_b_leds.?LBE_ledsConfigPattern, 00113d
 sppb._sppDevInit, 00113e
-sppb.'463a5c626c7565746f6f74685c4163746e6f7661425450726f6a6563745c736f75726365636f64655c737070625f7363616e6e65725c737070622e63'.?38.1, 00113e
+sppb.'463a5c6769745c4d494e495363616e6e65725c737070622e63'.?38.1, 00113e
 sppb.?LBB_sppDevInit, 001143
 sppb.''.?41.1, 001143
 sppb.?LBB2, 001143
