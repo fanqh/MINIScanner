@@ -1,0 +1,12 @@
+// PSKEY_FIXED_PIN
+&035b = 0030 0030 0030 0030
+// PSKEY_MAX_SCOS
+&000e = 0
+
+// PSKEY_DEVICE_NAME
+// &0108 = 5343 2052 4948 2044 654b 6279 616f 6472		// CSR Hid Keyboard
+&0108 = 6341 6e74 766f 2061 6142 6372 646f 2065 6353 6e61 656e 0072 	// Actnova Barcode Scanner, cA nt vo _a aB cr do _e cS na en _r
+
+// PSKEY_LOCAL_SUPPORTED_FEATURES
+&00ef = ffff fe8f ff9b 8359		// all features set, with support for BT 2.1 simple secure pairing
+

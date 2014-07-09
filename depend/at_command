@@ -1,0 +1,14 @@
+at_command.o: at_command.c at_command.h \
+  D:/BlueLab412/tools/include/firmware/message_.h \
+  D:/BlueLab412/tools/include/standard/csrtypes.h \
+  D:/BlueLab412/tools/include/firmware/source.h \
+  D:/BlueLab412/tools/include/firmware/source_.h \
+  D:/BlueLab412/tools/include/firmware/app/vm/vm_if.h \
+  D:/BlueLab412/tools/include/firmware/app/hid/hid_if.h \
+  D:/BlueLab412/tools/include/standard/ctype.h \
+  D:/BlueLab412/tools/include/firmware/panic.h \
+  D:/BlueLab412/tools/include/standard/stdlib.h \
+  D:/BlueLab412/tools/include/standard/stdio.h \
+  D:/BlueLab412/tools/lib/gcc-lib/xapnative-local-xapnative/3.3.3/include/stdarg.h \
+  D:/BlueLab412/tools/include/standard/string.h \
+  D:/BlueLab412/tools/include/firmware/util.h

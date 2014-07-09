@@ -1,0 +1,20 @@
+indication.o: indication.c hal.h \
+  C:/BlueLab412/tools/include/firmware/message.h \
+  C:/BlueLab412/tools/include/standard/csrtypes.h \
+  C:/BlueLab412/tools/include/firmware/sink_.h \
+  C:/BlueLab412/tools/include/firmware/message_.h \
+  C:/BlueLab412/tools/include/firmware/app/message/system_message.h \
+  C:/BlueLab412/tools/include/firmware/app/adc/adc_if.h \
+  C:/BlueLab412/tools/include/firmware/source_.h \
+  C:/BlueLab412/tools/include/firmware/app/status/status_if.h \
+  messagebase.h hal_private.h \
+  C:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/battery.h \
+  spp_dev_b_buttons.h app_state.h sppb.h \
+  C:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/spp.h \
+  C:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/connection.h \
+  C:/BlueLab412/tools/include/firmware/bdaddr_.h \
+  C:/BlueLab412/tools/include/firmware/panic.h scanner.h barcode.h \
+  spp_dev_private.h indication.h spp_dev_b_leds.h \
+  C:/BlueLab412/tools/include/standard/stdlib.h \
+  C:/BlueLab412/tools/include/standard/stdio.h \
+  C:/BlueLab412/tools/lib/gcc-lib/xapnative-local-xapnative/3.3.3/include/stdarg.h

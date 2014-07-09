@@ -1,0 +1,7 @@
+spp_dev_parse__.o: spp_dev_parse__.c spp_dev_parse.h \
+  C:/BlueLab412/tools/include/firmware/message_.h \
+  C:/BlueLab412/tools/include/standard/csrtypes.h \
+  C:/BlueLab412/tools/include/firmware/source.h \
+  C:/BlueLab412/tools/include/firmware/source_.h \
+  C:/BlueLab412/tools/include/firmware/app/vm/vm_if.h \
+  C:/BlueLab412/tools/include/firmware/app/hid/hid_if.h

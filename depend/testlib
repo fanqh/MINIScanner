@@ -1,0 +1,16 @@
+testlib.o: testlib.c D:/BlueLab412/tools/include/standard/stdio.h \
+  D:/BlueLab412/tools/lib/gcc-lib/xap-local-xap/3.3.3/include/stdarg.h \
+  D:/BlueLab412/tools/include/standard/csrtypes.h \
+  D:/BlueLab412/tools/include/firmware/pio.h \
+  D:/BlueLab412/tools/include/firmware/stream.h \
+  D:/BlueLab412/tools/include/firmware/bdaddr_.h \
+  D:/BlueLab412/tools/include/firmware/source_.h \
+  D:/BlueLab412/tools/include/firmware/sink_.h \
+  D:/BlueLab412/tools/include/firmware/transform_.h \
+  D:/BlueLab412/tools/include/firmware/usb_.h \
+  D:/BlueLab412/tools/include/firmware/app/vm/vm_if.h \
+  D:/BlueLab412/tools/include/firmware/app/hid/hid_if.h \
+  D:/BlueLab412/tools/include/firmware/app/file/file_if.h \
+  D:/BlueLab412/tools/include/firmware/app/uart/uart_if.h \
+  D:/BlueLab412/tools/include/firmware/app/audio/audio_if.h \
+  D:/BlueLab412/tools/include/firmware/app/audio/audio_notes.h testlib.h

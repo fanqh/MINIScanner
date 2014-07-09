@@ -1,0 +1,9 @@
+buzzer.o: buzzer.c C:/BlueLab412/tools/include/firmware/pio.h \
+  C:/BlueLab412/tools/include/standard/csrtypes.h \
+  C:/BlueLab412/tools/include/firmware/message.h \
+  C:/BlueLab412/tools/include/firmware/sink_.h \
+  C:/BlueLab412/tools/include/firmware/message_.h \
+  C:/BlueLab412/tools/include/firmware/app/message/system_message.h \
+  C:/BlueLab412/tools/include/firmware/app/adc/adc_if.h \
+  C:/BlueLab412/tools/include/firmware/source_.h \
+  C:/BlueLab412/tools/include/firmware/app/status/status_if.h buzzer.h

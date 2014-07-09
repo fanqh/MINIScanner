@@ -1,0 +1,26 @@
+spp_dev_private.o: spp_dev_private.c \
+  D:/BlueLab412/tools/include/firmware/pio.h \
+  D:/BlueLab412/tools/include/standard/csrtypes.h \
+  D:/BlueLab412/tools/include/firmware/stream.h \
+  D:/BlueLab412/tools/include/firmware/bdaddr_.h \
+  D:/BlueLab412/tools/include/firmware/source_.h \
+  D:/BlueLab412/tools/include/firmware/sink_.h \
+  D:/BlueLab412/tools/include/firmware/transform_.h \
+  D:/BlueLab412/tools/include/firmware/usb_.h \
+  D:/BlueLab412/tools/include/firmware/app/vm/vm_if.h \
+  D:/BlueLab412/tools/include/firmware/app/hid/hid_if.h \
+  D:/BlueLab412/tools/include/firmware/app/file/file_if.h \
+  D:/BlueLab412/tools/include/firmware/app/uart/uart_if.h \
+  D:/BlueLab412/tools/include/firmware/app/audio/audio_if.h \
+  D:/BlueLab412/tools/include/firmware/app/audio/audio_notes.h \
+  D:/BlueLab412/tools/include/firmware/source.h \
+  D:/BlueLab412/tools/include/firmware/sink.h \
+  D:/BlueLab412/tools/include/firmware/panic.h spp_dev_private.h \
+  D:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/spp.h \
+  D:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/connection.h \
+  D:/BlueLab412/tools/include/firmware/message.h \
+  D:/BlueLab412/tools/include/firmware/message_.h \
+  D:/BlueLab412/tools/include/firmware/app/message/system_message.h \
+  D:/BlueLab412/tools/include/firmware/app/adc/adc_if.h \
+  D:/BlueLab412/tools/include/firmware/app/status/status_if.h sppb.h \
+  spp_dev_parse.h

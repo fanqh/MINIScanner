@@ -1,0 +1,72 @@
+<project buildenvironment="{84faf732-1340-4049-9094-244167adf571}" buildenvironmentname="CSR Virtual Machine" executionenvironmentoption="" buildenvironmentoption="" executionenvironmentname="CSR Virtual Machine" executionenvironment="{2b2c6868-a56e-4266-962a-cddf1c979343}" >
+ <folder name="C Files" >
+  <extension name="c" />
+  <file path="main.c" >
+   <properties>
+    <configuration name="Release" />
+   </properties>
+  </file>
+  <file path="spp_dev_auth.c" />
+  <file path="spp_dev_b_leds.c" />
+  <file path="spp_dev_b_buttons.c" />
+  <file path="hal.c" />
+  <file path="battery_probe.c" />
+  <file path="errman.c" />
+  <file path="sppb.c" />
+  <file path="indication.c" />
+  <file path="scanner.c" />
+  <file path="barcode.c" />
+  <file path="buzzer.c" />
+ </folder>
+ <folder name="Header Files" >
+  <extension name="h" />
+  <file path="spp_dev_private.h" />
+  <file path="spp_dev_auth.h" />
+  <file path="spp_dev_b_leds.h" />
+  <file path="spp_dev_b_buttons.h" />
+  <file path="hal.h" />
+  <file path="hal_config.h" />
+  <file path="battery_probe.h" />
+  <file path="messagebase.h" />
+  <file path="battery_probe_private.h" />
+  <file path="errman.h" />
+  <file path="hal_private.h" />
+  <file path="sppb.h" />
+  <file path="bitmacro.h" />
+  <file path="debug.h" />
+  <file path="at_command.h" />
+  <file path="app_state.h" />
+  <file path="command_return_code.h" />
+  <file path="indication.h" />
+  <file path="buzzer.h" />
+  <file path="scanner.h" />
+  <file path="barcode.h" />
+ </folder>
+ <file path="spp_dev_b_leds.led" />
+ <file path="spp_dev_b_buttons.button" />
+ <file path="README.html" />
+ <file path="spp_dev_b.psr" />
+ <file path="led_timing.def" />
+ <properties currentconfiguration="Release" >
+  <configuration name="Release" >
+   <property key="board" >0</property>
+   <property key="buildMatch" >(file):(line):</property>
+   <property key="buildtransport" >1</property>
+   <property key="characters" >1</property>
+   <property key="debug" >0</property>
+   <property key="debugtransport" >[SPITRANS=USB SPIPORT=0]</property>
+   <property key="defines" ></property>
+   <property key="execution_mode" >1</property>
+   <property key="faultalerts" >0</property>
+   <property key="gcc_ver" >1</property>
+   <property key="libs" >connection, spp, region, service,bdaddr,sdp_parse,battery</property>
+   <property key="messages" >0</property>
+   <property key="output" ></property>
+   <property key="panic" >1</property>
+   <property key="pcvalue" >0</property>
+   <property key="primitives" >0</property>
+   <property key="stacksize" >512</property>
+   <property key="timestamps" >0</property>
+  </configuration>
+ </properties>
+</project>

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>ReadMe for Serial Port Profile (SPP) Device Role B Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <style type="text/css">
+
+	h1,h2,h3,h4{font-family: arial;color: #0060a9}
+	body,a{font-family: arial}
+
+    </style>
+  </head>
+
+  <body>
+    <h1>ReadMe for Serial Port Profile (SPP) Device Role B Example</h1>
+    <hr>
+    <p>
+      <a href="#Description">Description</a>
+      <br><a href="#Prerequisites">Prerequisites</a>
+      <br><a href="#RunningApplication">Running the Application</a>
+      <br><a href="#ConfigurationDetails">Configuration Details</a>
+      <br><a href="#AdditionalNotes">Additional Notes</a>
+      <br><a href="#IncludedFiles">Files Included in the Project</a>
+      <br><a href="#Troubleshooting">Troubleshooting</a>
+    </p>
+    
+    <h2><a name="Description">Description</a></h2>
+    <p>
+      This <code>spp_dev_b</code> example application implements a serial port emulation over the Bluetooth Serial Port Profile and demonstrates how to use:
+    </p>
+	    <ul>
+		    <li>SPP library</li>
+		    <li>Serial Port Device role B</li>
+	    </ul>
+    <p>
+	    A device running <code>spp_dev_b</code> is initially discoverable for 50 seconds. During this time it will accept a request to pair 
+        from a remote device that is searching for a slave device running the SPP profile (see <code>spp_dev_a</code>). If pairing is successful an SPP 
+        connection is established with the remote device.
+     </p>
+     <p>
+        This ReadMe is not intended to describe procedures that are covered in the xIDE user guide such as building projects in xIDE etc.
+    </p>
+    <p>
+       For further information, please read the support documentation supplied with BlueLab or visit the CSR technical newsgroups (see <a href="http://www.csr.com/forum.htm"> http://www.csr.com/forum.htm</a>)
+
+     </p>
+
+    <h2><a name="Prerequisites">Prerequisites</a></h2>
+    <h3>Hardware requirements</h3>
+    <p>
+      This application requires <b>one</b> of the following::
+      <ul>
+        <li>A CaSiRa endpoint device with BlueCore module and keypad</li>
+   	    <li>A CSR DEV-PC-1508 BC3MM-Ext Headset Example Design board</li>
+        <li>A CSR DEV-PC-1442 BlueCore Application Development Platform with BlueCore module</li>
+      </ul>
+	A second Bluetooth device supporting SPP is required as a peer.
+    </p>
+    <p>
+      To download the application to the BlueCore chip, an SPI connection is required 
+      between the development hardware and the PC hosting xIDE.
+    </p>
+    <p>
+      If you wish to use an application such as HyperTerminal to communicate with the chip to test the connection, 
+      a 9-pin serial cable will also be required connecting the board to the host PC.
+    </p>
+    <h3>Software requirements</h3>
+    <p>
+      You may wish to use an application such as Windows HyperTerminal to communicate with the chip, e.g. for testing purposes. 
+    </p>
+
+    <h2><a name="RunningApplication">Running the application</a></h2>
+       The following details include steps which are valid for Windows XP Service Pack 2 but may vary on other systems and/or different Bluetooth stacks.
+    <h3>Configuring the Project</h3>
+    <ol>
+        <li>Open the <code>spp_dev_b</code> example workspace (<code>spp_dev_b.xiw</code>) in xIDE.</li>
+        <li>Ensure that the appropriate option is selected based on your hardware as described above (<b>Project->Properties</b>, then select <b>Build System</b>):</li> 
+        <ul><li><b>Property:</b></li>
+          <ul><li>Selected board</li></ul>
+        <li><b>Options:</b></li>
+	  <ul><li>CaSiRa Motherboard</li>
+          <li>Development board 1508</li>
+          <li>Development board 1645</li></ul>
+        <li><b>Property:</b></li>
+          <ul><li>Enable Debug</li></ul>
+        <li><b>Options:</b></li>
+          <ul><li>Yes</li>
+	    <li>No</li></ul>
+        </ul>
+      </ol>
+
+    <h3>Running the <code>spp_dev_b</code> application</h3>
+    <ol>
+        <li>Build (<b>F7</b>) and Run (<b>F5</b>) the
+           application from within xIDE.</li>
+        <li>When the download is complete, the device is discoverable for 50 secs. If a device is successfully paired during this period an SPP connection is established.</li>
+    </ol>
+    <h3>Testing the connection</h3>
+    	Once a connection has been established, you can confirm that data is sent over the link by opening two separate HyperTerminal sessions; one with each device. Characters typed in one Terminal session will appear in the other as the data is transferred over the Bluetooth SPP link.
+	<p><b>NOTE:</b>  If both HyperTerminal sessions are being run from the same PC it is important to use different COM ports for the connections. Also ensure the BAUD rates of both devices are compatible.
+It will require the following comm port settings for the terminal emulator:
+	<ul>
+		<li>Baud rate <b>115200</b></li>
+		<li>Data bits <b>8</b></li>
+		<li>Stop bits <b>1</b></li>
+		<li>Parity <b>None</b></li>
+		<li>Flow control <b>RTS/CTS</b></li>
+</ul>
+    
+    <h2><a name="ConfigurationDetails">Configuration Details</a></h2>
+    <h3>PS Keys</h3>
+    <p>
+      It is not required to use the PSTool to set these PSKEY settings since the <code>spp_dev_b.psr</code> file sets the following PSKEY Settings while executing the project:
+    </p>
+    <table border="1">
+      <tr><th width=300>PS Key</th><th width=400>PS Key Description</th><th width=200>Value</th></tr>
+      <tr><td>PSKEY_FIXED_PIN</td><td>Pin Key used for Authentication</td><td>1234</td></tr>
+      <tr><td>PSKEY_MAX_SCOS</td><td>Number of supported SCO connections</td><td>0</td></tr>
+    </table>
+    <p>
+      Please use the 'Describe' feature in the supplied PSTool application for
+      more details about PS Keys.
+    </p>
+    <h3><a name="ButtonConfiguration">Button Configuration</a></h3>
+    <p>
+      This project uses the following button configurations:
+    </p>
+    <table border="1">
+      <tr><th width=300>Button</th><th width=400>Button Description</th></tr>
+      <tr><td>RESET (1645: PIO_11/VOL+)<br>(1508: PIO_5/VOL-)</td><td>This puts the device into discoverable mode.</td></tr>
+    </table>
+    <h3>LED Configuration</h3>
+    <p>
+      This project uses the following LED behaviour:
+    </p>
+    <table border="1">
+      <tr><th width=300>LED behaviour</th><th width=400>Meaning</th></tr>
+      <tr><td>Rapid blinking</td><td>Discoverable</td></tr>
+      <tr><td>Slow blinking</td><td>Connecting</td></tr>
+      <tr><td>Solid ON</td><td>Connected</td></tr>
+    </table>
+
+    <h2><a name="AdditionalNotes">Additional Notes</a></h2>
+      <p>
+	<ul>
+	<li>As shipped, the code does not flash the LED on a multimedia board. To flash LEDs, simply change <code>LED = 1<<7</code> in the <code>spp_dev_private.h</code> file to <code>LED = 1<<1</code>, then rebuild and run the application.</li>
+      	<li>To establish a connection the PIN 1234 must be used by the remote device.</li>
+       	<li>If connecting to a device running spp_dev_a which also has the hardcoded PIN 1234 the pairing procedure will complete automatically and a connection will be established without user intervention.
+</li>
+	<li>Pressing RESET (see <a href="#ButtonConfiguration">Button Configuration</a>) makes the device discoverable for another 50 seconds.</li>
+	</ul>
+</p>
+
+    <h2><a name="FilesIncluded">Files Included in the Project</a></h2>
+    <table border="1">
+      <tr><th width=300>File(s)</th><th width=600>Description</th></tr>
+      <tr><td><code>spp_dev_b.xiw, .xip</code></td><td>Workspace, Project files</td></tr>
+      <tr><td><code>main.c</code></td><td>Main <code>spp_dev_b</code> application</td></tr>
+      <tr><td><code>spp_dev_b_buttons.button</code></td><td>Key press and PIO definitions</td></tr>
+      <tr><td><code>spp_dev_b_leds.led</code></td><td>LED control task</td></tr>
+      <tr><td><code>spp_dev_auth.h, .c</code></td><td>Authentication procedures</td></tr>
+      <tr><td><code>spp_dev_init.h, .c</code></td><td>Initialisation procedures</td></tr>
+      <tr><td><code>spp_dev_inquire.h</code></td><td>Inquiry procedures</td></tr>
+      <tr><td><code>spp_dev_b.psr</code></td><td>Application PS Keys</td></tr>
+      <tr><td><code>spp_dev_b_vmprops.xml</code></td><td>Additional project properties (see above)</td></tr>
+    </table>
+
+    <h2><a name="Troubleshooting">Troubleshooting</a></h2>
+    <table border="1">
+      <tr><th width=450>Symptom</th><th width=450>Suggested actions</th></tr>
+      <tr><td><i>Connection fails</i></td><td>
+      <ol>
+      <li><i>Check that power is on and application is running.</i></li>
+      <li><i>Make sure the host uses pin code 1234.</i></li>
+      </ol></td></tr>
+      <tr><td><i>Not able to connect to the HyperTerminal</i></td><td>
+      <ol>
+      <li><i>Check both BT devices have the same Baud rate and UART config settings etc.</i></li>
+      </ol></td></tr>
+    </table>
+
+    <p>
+    	See <a href="..\..\TroubleshootingTheVMAndDSP.html">Troubleshooting the VM and DSP</a>.
+    </p>
+
+    <br><br><hr>
+    Copyright &copy; Cambridge Silicon Radio Limited 2005-2009.<br>Part of BlueLab 4.1.2-Release
+  </body>
+</html>

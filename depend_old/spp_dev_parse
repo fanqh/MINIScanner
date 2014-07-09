@@ -1,0 +1,14 @@
+spp_dev_parse.o: spp_dev_parse.c spp_dev_parse.h \
+  C:/BlueLab412/tools/include/firmware/message_.h \
+  C:/BlueLab412/tools/include/standard/csrtypes.h \
+  C:/BlueLab412/tools/include/firmware/source.h \
+  C:/BlueLab412/tools/include/firmware/source_.h \
+  C:/BlueLab412/tools/include/firmware/app/vm/vm_if.h \
+  C:/BlueLab412/tools/include/firmware/app/hid/hid_if.h \
+  C:/BlueLab412/tools/include/standard/ctype.h \
+  C:/BlueLab412/tools/include/firmware/panic.h \
+  C:/BlueLab412/tools/include/standard/stdlib.h \
+  C:/BlueLab412/tools/include/standard/stdio.h \
+  C:/BlueLab412/tools/lib/gcc-lib/xap-local-xap/3.3.3/include/stdarg.h \
+  C:/BlueLab412/tools/include/standard/string.h \
+  C:/BlueLab412/tools/include/firmware/util.h

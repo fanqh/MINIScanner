@@ -1,0 +1,21 @@
+<custom>
+   <property type="list" key="board" format="define" name="Selected board" defaultvalue="0">
+       <option internalval="DEV_CASIRA">CaSiRa Motherboard</option>
+       <option internalval="DEV_1508">Development Board 1508</option>
+       <option internalval="DEV_1645">Development board 1645</option>
+       <description>
+           <![CDATA[
+           This option selects which development board you will be working with.
+           ]]>
+       </description>
+   </property>
+   <property type="list" key="debug" format="define" name="Enable debug" defaultvalue="1">
+       <option internalval="DEBUG_ENABLED">Yes</option>
+       <option internalval="NO_DEBUG">No</option>
+       <description>
+           <![CDATA[
+           This option determines if debug should be enabled.
+           ]]>
+       </description>
+   </property>
+</custom>

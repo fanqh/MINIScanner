@@ -1,0 +1,16 @@
+hal.o: hal.c C:/BlueLab412/tools/include/standard/csrtypes.h \
+  C:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/battery.h \
+  C:/BlueLab412/tools/include/firmware/message_.h \
+  C:/BlueLab412/tools/include/firmware/pio.h \
+  C:/BlueLab412/tools/include/firmware/panic.h spp_dev_b_buttons.h \
+  C:/BlueLab412/tools/include/firmware/message.h \
+  C:/BlueLab412/tools/include/firmware/sink_.h \
+  C:/BlueLab412/tools/include/firmware/app/message/system_message.h \
+  C:/BlueLab412/tools/include/firmware/app/adc/adc_if.h \
+  C:/BlueLab412/tools/include/firmware/source_.h \
+  C:/BlueLab412/tools/include/firmware/app/status/status_if.h \
+  spp_dev_b_leds.h C:/BlueLab412/tools/include/standard/stdlib.h \
+  C:/BlueLab412/tools/include/standard/stdio.h \
+  C:/BlueLab412/tools/lib/gcc-lib/xapnative-local-xapnative/3.3.3/include/stdarg.h \
+  hal.h messagebase.h hal_config.h hal_private.h app_state.h errman.h \
+  debug.h indication.h

@@ -1,0 +1,2 @@
+barcode.o: barcode.c barcode.h \
+  C:/BlueLab412/tools/include/standard/csrtypes.h

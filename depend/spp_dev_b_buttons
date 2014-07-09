@@ -1,0 +1,14 @@
+spp_dev_b_buttons.o: spp_dev_b_buttons.c spp_dev_b_buttons.h \
+  C:/BlueLab412/tools/include/firmware/message.h \
+  C:/BlueLab412/tools/include/standard/csrtypes.h \
+  C:/BlueLab412/tools/include/firmware/sink_.h \
+  C:/BlueLab412/tools/include/firmware/message_.h \
+  C:/BlueLab412/tools/include/firmware/app/message/system_message.h \
+  C:/BlueLab412/tools/include/firmware/app/adc/adc_if.h \
+  C:/BlueLab412/tools/include/firmware/source_.h \
+  C:/BlueLab412/tools/include/firmware/app/status/status_if.h \
+  C:/BlueLab412/tools/include/firmware/pio.h \
+  C:/BlueLab412/tools/include/firmware/panic.h \
+  C:/BlueLab412/tools/include/firmware/ps.h \
+  C:/BlueLab412/tools/include/firmware/app/ps/ps_if.h \
+  C:/BlueLab412/tools/include/standard/stdlib.h

@@ -1,0 +1,25 @@
+// Copyright (C) Cambridge Silicon Radio Limited 2005-2009
+// Part of BlueLab 4.1.2-Release
+
+// This is the power button
+pio 4 POWER_BUTTON
+
+// This is the scan button
+pio 5 SCAN_BUTTON
+
+// default debounce
+debounce 2 20
+
+// pio 10 is used for voltage detection
+pio_raw 10
+
+message POWER_BUTTON_PRESS
+	POWER_BUTTON enter
+	
+message POWER_BUTTON_RELEASE
+	POWER_BUTTON release
+
+message FUNCTION_BUTTON_PRESS
+	SCAN_BUTTON  enter
+	
+

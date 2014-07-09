@@ -1,0 +1,13 @@
+spp_dev_inquire.o: spp_dev_inquire.c spp_dev_inquire.h spp_dev_private.h \
+  D:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/spp.h \
+  D:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release/connection.h \
+  D:/BlueLab412/tools/include/firmware/bdaddr_.h \
+  D:/BlueLab412/tools/include/standard/csrtypes.h \
+  D:/BlueLab412/tools/include/firmware/message.h \
+  D:/BlueLab412/tools/include/firmware/sink_.h \
+  D:/BlueLab412/tools/include/firmware/message_.h \
+  D:/BlueLab412/tools/include/firmware/app/message/system_message.h \
+  D:/BlueLab412/tools/include/firmware/app/adc/adc_if.h \
+  D:/BlueLab412/tools/include/firmware/source_.h \
+  D:/BlueLab412/tools/include/firmware/app/status/status_if.h \
+  D:/BlueLab412/tools/include/firmware/panic.h
