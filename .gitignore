@@ -77,7 +77,9 @@ build/
 *.pidb
 *.log
 *.scc
-
+*.PFI
+*.PO
+*.WK3
 # Visual C++ cache files
 ipch/
 *.aps
