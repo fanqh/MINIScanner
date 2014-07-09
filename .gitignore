@@ -193,7 +193,8 @@ $RECYCLE.BIN/
 *.xpv
 *.psr_
 *.app
-
+*.sym
+*.mak
 
 #############
 ## Python
