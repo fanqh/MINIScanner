@@ -2,6 +2,7 @@
 #include <battery.h>
 #include <pio.h>
 #include <panic.h>
+#include <boot.h>
 #include "spp_dev_b_buttons.h"
 #include "spp_dev_b_leds.h"
 #include "hal.h"
@@ -233,8 +234,15 @@ static void hal_initialising_handler(Task task, MessageId id, Message message) {
         case FUNCTION_BUTTON_DFU:
             
             DEBUG(("hal initialising state, FUNCTION_BUTTON_DFU message arrived...\n"));
-            ledsPlay(BEEP_THREE_TIMES);
+            ledsPlay(BEEP_ONCE);/*if need beep we should add a timeout message then to enter DFU mode*/
+            MessageSendLater(getHalTask(), HAL_FUNCTION_BUTTON_DFU_TIMEOUT, 0, BEEP_ONCE_DURATION + 100);
             break;
+            
+        case HAL_FUNCTION_BUTTON_DFU_TIMEOUT:
+            
+            DEBUG(("hal initialising state, HAL_FUNCTION_BUTTON_DFU_TIMEOUT message arrived...\n"));
+            BootSetMode(0);
+            break;            
 			
 		default:
 			break;

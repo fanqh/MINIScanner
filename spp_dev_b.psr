@@ -9,4 +9,5 @@
 
 // PSKEY_LOCAL_SUPPORTED_FEATURES
 &00ef = ffff fe8f ff9b 8359		// all features set, with support for BT 2.1 simple secure pairing
+//crystal set need to check
 
