@@ -179,8 +179,8 @@ static const ledEntry_t pattern_RAINBOW [ 12 ] =
 /*BEEP_ONCE*/ 
 static const ledEntry_t pattern_BEEP_ONCE [ 2 ] = 
 {
-    { 0x0A00 , ON  , 300  }  , 
-    { 0x0A00 , OFF , 100  }  
+    { 0x0A00 , ON  , 200  }  , 
+    { 0x0A00 , OFF , 50   }  
 }; 
 /*BEEP_TWICE*/ 
 static const ledEntry_t pattern_BEEP_TWICE [ 4 ] = 

@@ -17,7 +17,7 @@
 #define SCANNER_WARMUP_WAIT_TIMEOUT				(500)
 #define SCANNER_SCANNING_TIMEOUT				(4000)
 
-#define SCANNER_SCANNING_BUZZER_TIMEOUT    300
+#define SCANNER_READY_UPDATE_INDICATION_TIMEOUT   200+30
 
 /** pulling down for only 20ms is a WRONG logic, should keep pulling down until read finishe **/
 /** #define SCANNER_SCANNING_PULLDOWN_TIMEOUT		(20) **/
@@ -29,7 +29,7 @@ enum {
 	SCANNER_TRIGGER_TIMEOUT_IND,			/** obsolete **/
 	SCANNER_SCANNING_TIMEOUT_IND,
 	SCANNER_SCANNING_PULLDOWN_TIMEOUT_IND,
-    SCANNER_SCANNING_BUZZER_TIMEOUT_IND
+    SCANNER_READY_UPDATE_INDICATION_TIMEOUT_IND  
 };
 
 /** task data **/
@@ -280,7 +280,8 @@ static void scanner_ready_state_enter(void) {
 	
 	DEBUG(( "scanner, ready state enter... \n" ));
 	
-	update_indication();
+	/*update_indication();*/  /*write bu uglee  killed by fan for motor ,if i call ledsPlay(BEEP_ONCE),then call update_indication(), the motor does not drive   */
+    MessageSendLater(&scanner.task, SCANNER_READY_UPDATE_INDICATION_TIMEOUT_IND, 0, SCANNER_READY_UPDATE_INDICATION_TIMEOUT);     /*add by fan for motor driver*/
 }
 
 static void scanner_ready_state_exit(void) {
@@ -300,11 +301,12 @@ static void scanner_ready_state_handler(Task task, MessageId id, Message message
 			scanner.on_state = SCANNER_ON_SCANNING;
 			scanner_scanning_state_enter();
 			break;
-/*        case  SCANNER_SCANNING_BUZZER_TIMEOUT_IND:
+        case  SCANNER_READY_UPDATE_INDICATION_TIMEOUT_IND:
             
-            DEBUG(( "scanner, scanner_scanning_state_handler, SCANNER_SCANNING_BUZZER_TIMEOUT_IND arrived... \n" ));
-            disable_buzzer();
-            break;*/
+            DEBUG(( "scanner, scanner_ready_state_handler, SCANNER_READY_UPDATE_INDICATION_TIMEOUT_IND arrived... \n" ));
+            update_indication();
+            
+            break;
 	}
 }
 
@@ -409,10 +411,9 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 				fill_success = barcode_fill_raw_bytes(&scanner.barcode, ptr, size);
 				
 				SourceDrop(source, size);
-				
-/*               enable_buzzer();
-               MessageSendLater(&scanner.task, SCANNER_SCANNING_BUZZER_TIMEOUT_IND, 0, SCANNER_SCANNING_BUZZER_TIMEOUT);
- */               
+                
+                 ledsPlay(BEEP_ONCE);
+                                                              
 				if ( TRUE == fill_success ) {
 					
 					DEBUG(( "    barcode_fill_raw_bytes succeed... \n" ));
@@ -425,6 +426,7 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 						DEBUG(( "    %s", scanner.barcode.code ));
 					
 						result = (barcode_t*)malloc(sizeof(barcode_t));
+                       
 						if (0 == result) { /** mem fail, then neglect the result **/
 							
 							DEBUG(( "    mem error, no result sent... \n" ));
@@ -433,17 +435,24 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 							scanner.on_state = SCANNER_ON_READY;
 							scanner_ready_state_enter();
 						}
+                      
 						else {	/** throw out message to client **/
 							
 							DEBUG(( "    result sent to client in SCANNER_RESULT_MESSAGE... \n" ));
 							
-							memcpy(result, &scanner.barcode, sizeof(barcode_t));
+						 	
+                            memcpy(result, &scanner.barcode, sizeof(barcode_t));
 							
-							MessageSend(scanner.client, SCANNER_RESULT_MESSAGE, result);
-							scanner_scanning_state_exit();
-							scanner.on_state = SCANNER_ON_READY;
+						 	MessageSend(scanner.client, SCANNER_RESULT_MESSAGE, result);
+						
+                            scanner_scanning_state_exit();
+					
+                            scanner.on_state = SCANNER_ON_READY;
+                           
 							scanner_ready_state_enter();
+                            
 						}
+                        
 					}
 					else {
 						
@@ -458,14 +467,15 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 					scanner.on_state = SCANNER_ON_READY;
 					scanner_ready_state_enter();
 				}
+
 			}
 			break;
-/*        case  SCANNER_SCANNING_BUZZER_TIMEOUT_IND:
+        case  SCANNER_READY_UPDATE_INDICATION_TIMEOUT_IND:
             
-            DEBUG(( "scanner, scanner_scanning_state_handler, SCANNER_SCANNING_BUZZER_TIMEOUT_IND arrived... \n" ));
-            disable_buzzer();
-            break;
-  */          
+            DEBUG(( "scanner, scanner_scanning_state_handler, SCANNER_READY_UPDATE_INDICATION_TIMEOUT_IND arrived... \n" ));
+            update_indication();
+            
+            break;         
 	}
 }
 

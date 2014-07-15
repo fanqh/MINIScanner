@@ -3900,14 +3900,26 @@ _scanner_warmup_state_handler:
 ;# begin scan referenced symbols
 ;# end scan referenced symbols
 _scanner_ready_state_enter:
-	enterl	#2
+	enterl	#5
 	cmp	Y,@(H'FFF3) ; Inserted for native exec
 	bge ?LBB_scanner_ready_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_ready_state_enter:
-	bsr	$_update_indication
+	st	AL,@H'ffff
+	ld	AL,#H'0000
+	st	AL,@(0,Y)
+;	ld	AL,@H'ffff; Redundant: REMOVED by as
+;	st	AL,@H'ffff; Redundant: REMOVED by as
+	ld	AL,#H'0000
+	st	AL,@(H'0001,Y)
+	ld	AL,#H'00E6
+	st	AL,@(H'0002,Y)
+	ld	AL,@H'ffff
+	ld	AL,#(_scanner)
+	ld	AH,#H'0004
+	bsr	$_MessageSendLater
 ?LBE_scanner_ready_state_enter:
-	leavel	#2
+	leavel	#5
 ;# begin scan referenced symbols
 ;# end scan referenced symbols
 _scanner_ready_state_exit:
@@ -3924,6 +3936,8 @@ _scanner_ready_state_handler:
 	bge ?LBB_scanner_ready_state_handler ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_ready_state_handler:
+	cmp	AH,#H'0004
+	beq	?L52
 	cmp	AH,#H'4100
 	bne	?L49
 	bsr	_scanner_ready_state_exit
@@ -3931,6 +3945,9 @@ _scanner_ready_state_handler:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_scanner+(6)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_scanner_scanning_state_enter
+	bra	(?L49)
+?L52:
+	bsr	$_update_indication
 ?L49:
 ?LBE_scanner_ready_state_handler:
 	leavel	#2
@@ -3966,16 +3983,16 @@ _scanner_scanning_state_enter:
 	bsr	$_StreamSourceFromSink
 	st	AL,@(H'0003,Y)
 	cmp	AL,#H'0000
-	beq	?L56
+	beq	?L58
 	bsr	$_SourceSize
 	cmp	AL,#H'0000
-	beq	?L56
+	beq	?L58
 	ld	AL,@(H'0003,Y)
 	bsr	$_SourceSize
 	ld	AH,@$XAP_AL
 	ld	AL,@(H'0003,Y)
 	bsr	$_SourceDrop
-?L56:
+?L58:
 	ld	AL,#(_scanner+H'0007)
 	bsr	$_barcode_clear
 ?LBE2:
@@ -4000,16 +4017,16 @@ _scanner_scanning_state_exit:
 	bsr	$_StreamSourceFromSink
 	st	AL,@(0,Y)
 	cmp	AL,#H'0000
-	beq	?L60
+	beq	?L62
 	bsr	$_SourceSize
 	cmp	AL,#H'0000
-	beq	?L60
+	beq	?L62
 	ld	AL,@(0,Y)
 	bsr	$_SourceSize
 	ld	AH,@$XAP_AL
 	ld	AL,@(0,Y)
 	bsr	$_SourceDrop
-?L60:
+?L62:
 	ld	AL,#(_scanner)
 	ld	AH,#-H'7FDF
 	bsr	$_MessageCancelAll
@@ -4026,6 +4043,7 @@ _scanner_scanning_state_exit:
 ;# begin scan referenced symbols
 .IMPORT $_SourceMap 0 ; (Non-const ref)
 .IMPORT $_barcode_fill_raw_bytes 0 ; (Non-const ref)
+.IMPORT $_ledsPlay 0 ; (Non-const ref)
 .IMPORT $_barcode_is_terminated 0 ; (Non-const ref)
 .IMPORT $_malloc 0 ; (Non-const ref)
 .IMPORT $_memcpy 0 ; (Non-const ref)
@@ -4038,16 +4056,18 @@ _scanner_scanning_state_handler:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_scanning_state_handler:
 ?LBB4:
-	cmp	AH,#H'4100
-	beq	?L63
-	cmp	AH,#(H'0001+H'4100)
-	bcc	?L76
+	cmp	AH,#H'0004
+	beq	?L76
+	cmp	AH,#(H'0001+H'0004)
+	bcc	?L79
 	cmp	AH,#H'0002
-	beq	?L68
-	bra	(?L63)
-?L76:
+	beq	?L70
+	bra	(?L65)
+?L79:
+	cmp	AH,#H'4100
+	beq	?L65
 	cmp	AH,#-H'7FDF
-	bne	?L63
+	bne	?L65
 ?LBB5:
 	bsr	$_StreamUartSink
 	bsr	$_StreamSourceFromSink
@@ -4065,19 +4085,21 @@ _scanner_scanning_state_handler:
 	ld	AL,@(H'0001,Y)
 	ld	AH,@(H'0002,Y)
 	bsr	$_SourceDrop
+	ld	AL,#H'0011
+	bsr	$_ledsPlay
 	ld	AL,@(H'0003,Y)
 	cmp	AL,#H'0001
-	bne	?L68
+	bne	?L70
 	ld	AL,#(_scanner+H'0007)
 	bsr	$_barcode_is_terminated
 	cmp	AL,#H'0000
-	beq	?L63
+	beq	?L65
 ?LBB6:
 	ld	AL,#H'0032
 	bsr	$_malloc
 	st	AL,@(H'0004,Y)
 	cmp	AL,#H'0000
-	beq	?L68
+	beq	?L70
 	ld	AL,#H'0032
 	st	AL,@(0,Y)
 	ld	AL,@(H'0004,Y); movqi2b+1 peephole
@@ -4089,15 +4111,18 @@ _scanner_scanning_state_handler:
 	ld	AL,@(_scanner+(3)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	ld	AH,#H'3800
 	bsr	$_MessageSend
-?L68:
+?L70:
 ?LBE6:
 	bsr	_scanner_scanning_state_exit
 	ld	AL,#H'0001
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_scanner+(6)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_scanner_ready_state_enter
-?L63:
 ?LBE5:
+	bra	(?L65)
+?L76:
+	bsr	$_update_indication
+?L65:
 ?LBE4:
 ?LBE_scanner_scanning_state_handler:
 	leavel	#7
@@ -4122,22 +4147,22 @@ _scanner_handler:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_scanner+(5)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
-	beq	?L85
+	beq	?L89
 	cmp	AL,#H'0001
-	beq	?L86
-	bra	(?L83)
-?L85:
+	beq	?L90
+	bra	(?L87)
+?L89:
 	st	AH,@(0,Y)
 	ld	AL,@H'fff8
 	ld	AH,@H'fff9
 	bsr	_scanner_off_state_handler
-	bra	(?L83)
-?L86:
+	bra	(?L87)
+?L90:
 	st	AH,@(0,Y)
 	ld	AL,@H'fff8
 	ld	AH,@H'fff9
 	bsr	_scanner_on_state_handler
-?L83:
+?L87:
 ?LBE7:
 ?LBE_scanner_handler:
 	leavel	#3
@@ -4190,21 +4215,21 @@ _scanner:
 	DS	57
 	ENDMOD
 
-;# Function pattern *movqi_store_y_relative used[0] = 15 used[1] = 2 total = 17
+;# Function pattern *movqi_store_y_relative used[0] = 15 used[1] = 3 total = 18
 ;# Function pattern *movqi_fetch_y_relative used[0] = 9 total = 9
-;# Function pattern *movhi_store_y_relative used[2] = 2 total = 2
+;# Function pattern *movhi_store_y_relative used[2] = 3 total = 3
 ;# Function pattern *movqi_fetch_symbol_ref_with_offset used[0] = 4 total = 4
 ;# Function pattern *movqi_store_symbol_ref_with_offset used[0] = 12 total = 12
 ;# Function pattern *movhi_store_symbol_ref used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 55 total = 55
+;# Function pattern *movqi2 used[0] = 58 total = 58
 ;# Function pattern *movqi2b used[0] = 3 used[1] = 3 total = 6
 ;# Function pattern *movhi used[2] = 1 total = 1
-;# Function pattern jump used[0] = 10 total = 10
-;# Function pattern *call1 used[0] = 44 total = 44
-;# Function pattern *call_value1 used[0] = 24 total = 24
+;# Function pattern jump used[0] = 12 total = 12
+;# Function pattern *call1 used[0] = 46 total = 46
+;# Function pattern *call_value1 used[0] = 25 total = 25
 ;# Function pattern addhi3-1 used[0] = 2 total = 2
 ;# Function pattern extendhfsf2+2 used[1] = 1 total = 1
-;# Function pattern extendhfsf2+3 used[0] = 23 total = 23
+;# Function pattern extendhfsf2+3 used[0] = 25 total = 25
 	MODULE	spp_dev_auth
 	.LARGE
 ; Native execution
@@ -5317,9 +5342,9 @@ _pattern_RAINBOW:
 	dc	H'0000
 _pattern_BEEP_ONCE:
 	dc	H'0A00
-	dc	H'812C
+	dc	H'80C8
 	dc	H'0A00
-	dc	H'0064
+	dc	H'0032
 _pattern_BEEP_TWICE:
 	dc	H'0A00
 	dc	H'812C
