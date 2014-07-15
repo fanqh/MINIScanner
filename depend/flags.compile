@@ -15,5 +15,5 @@
 -Wp,-MD,./depend/
 -Wp,-MQ,dummy.force
 -DDEV_CASIRA
--DDEBUG_ENABLED
+-DNO_DEBUG
 native

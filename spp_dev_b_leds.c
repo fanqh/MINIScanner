@@ -179,16 +179,16 @@ static const ledEntry_t pattern_RAINBOW [ 12 ] =
 /*BEEP_ONCE*/ 
 static const ledEntry_t pattern_BEEP_ONCE [ 2 ] = 
 {
-    { 0x0800 , ON  , 300  }  , 
-    { 0x0800 , OFF , 100  }  
+    { 0x0A00 , ON  , 300  }  , 
+    { 0x0A00 , OFF , 100  }  
 }; 
 /*BEEP_TWICE*/ 
 static const ledEntry_t pattern_BEEP_TWICE [ 4 ] = 
 {
-    { 0x0800 , ON  , 300  }  , 
-    { 0x0800 , OFF , 100  }  , 
-    { 0x0800 , ON  , 300  }  , 
-    { 0x0800 , OFF , 100  }  
+    { 0x0A00 , ON  , 300  }  , 
+    { 0x0A00 , OFF , 100  }  , 
+    { 0x0A00 , ON  , 300  }  , 
+    { 0x0A00 , OFF , 100  }  
 }; 
 /*BEEP_THREE_TIMES*/ 
 static const ledEntry_t pattern_BEEP_THREE_TIMES [ 6 ] = 
@@ -200,23 +200,9 @@ static const ledEntry_t pattern_BEEP_THREE_TIMES [ 6 ] =
     { 0x0800 , ON  , 300  }  , 
     { 0x0800 , OFF , 100  }  
 }; 
-/*MOTOR_ONCE*/ 
-static const ledEntry_t pattern_MOTOR_ONCE [ 2 ] = 
-{
-    { 0x0200 , ON  , 300  }  , 
-    { 0x0200 , OFF , 100  }  
-}; 
-/*MOTOR_TWICE*/ 
-static const ledEntry_t pattern_MOTOR_TWICE [ 4 ] = 
-{
-    { 0x0200 , ON  , 300  }  , 
-    { 0x0200 , OFF , 100  }  , 
-    { 0x0200 , ON  , 300  }  , 
-    { 0x0200 , OFF , 100  }  
-}; 
 
 
-#define LED_NUM_PATTERNS ( 22 )
+#define LED_NUM_PATTERNS ( 20 )
 
 /*The LED entries*/
 static const led_t gLeds [ LED_NUM_PATTERNS ] = 
@@ -259,11 +245,7 @@ static const led_t gLeds [ LED_NUM_PATTERNS ] =
 
     {  { 4,  0x00 , OFF }, (ledEntry_t *) pattern_BEEP_TWICE } ,
 
-    {  { 6,  0x00 , OFF }, (ledEntry_t *) pattern_BEEP_THREE_TIMES } ,
-
-    {  { 2,  0x00 , OFF }, (ledEntry_t *) pattern_MOTOR_ONCE } ,
-
-    {  { 4,  0x00 , OFF }, (ledEntry_t *) pattern_MOTOR_TWICE } 
+    {  { 6,  0x00 , OFF }, (ledEntry_t *) pattern_BEEP_THREE_TIMES } 
 };
 
 /*END_OF_INSERTED_CODE*/

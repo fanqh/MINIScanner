@@ -1,0 +1,46 @@
+
+&F000- 
+&F002 = 0000 0000 0000 0040
+
+// PSKEY_ANA_FREQ - generally either 16Mhz (3e80) or 26Mhz (6590)
+//&01fe=3e80
+
+// PSKEY_DEVICE_NAME
+&0108 = 4b54 4345 3220 3030 4330
+
+// PSKEY_ONCHIP_HCI_CLIENT - true
+&03cc = 0001
+
+//PSKEY_INITIAL_BOOTMODE
+&03cd = 0001
+
+// --------MODE0-------------------------------------------------------- 
+// BOOTMODE_KEY_LIST_0: Overwrite :
+//                                HOST_INTRFACE  (1F9)
+//								 								VM_DISABLE     (25D)
+//                                USB_VM_CONTROL (3C0)
+&04B0 = 01F9 025D 03C0 03b5
+// 
+// BOOTMODE_KEY_TABLE_0+0: PSKEY_HOST_INTERFACE = USB
+&04B8 = 0002
+// BOOTMODE_KEY_TABLE_0+1: PSKEY_VM_DISABLE = TRUE
+&04B9 = 0001
+// BOOTMODE_KEY_TABLE_0+2: PSKEY_USB_VM_CONTROL = false
+&04BA = 0000
+// PSKEY_INITIAL_PIO_STATE
+&04BB = 0002 0002 0002 0000
+
+// --------MODE1-------------------------------------------------------- 
+// BOOTMODE_KEY_LIST_1: Overwrite :
+//                                HOST_INTRFACE  (1F9)
+//								 								VM_DISABLE     (25D)
+//                                USB_VM_CONTROL (3C0)
+//                                  
+&04B1 = 01F9 025D 03C0 
+
+// BOOTMODE_KEY_TABLE_0+0: PSKEY_HOST_INTERFACE = VM access to the UART
+&04f8 = 0004
+// BOOTMODE_KEY_TABLE_0+1: PSKEY_VM_DISABLE = TRUE
+&04f9 = 0000
+// BOOTMODE_KEY_TABLE_0+2: PSKEY_USB_VM_CONTROL = TRUE
+&04fA = 0001

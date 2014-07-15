@@ -1227,16 +1227,6 @@ $stack_overflow:
 	bra	0,x		 
 
 	ENDMOD 
-	MODULE	putchar
-	.ENHANCED
-	.CSEG	CODE
-	.LARGE
-$_putchar:
-	enterl  #3
-	ld    x,#8
-	bra $common_trap_code
-trapset_1	EQU	$trapset_1
-	ENDMOD	putchar
 	MODULE	MessageWait
 	.ENHANCED
 	.CSEG	CODE
@@ -1326,16 +1316,6 @@ $common_trap_code:
 	bra	@$TRAP_HANDLER_LWRD
 
 	ENDMOD 
-	MODULE	VmPutChar
-	.ENHANCED
-	.CSEG	CODE
-	.LARGE
-$_VmPutChar:
-	enterl  #3
-	ld    x,#27
-	bra $common_trap_code
-trapset_1	EQU	$trapset_1
-	ENDMOD	VmPutChar
 	MODULE	e_t_c
 
 	.ALL
@@ -1350,11 +1330,10 @@ e_t_c:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -1652,11 +1631,10 @@ $_barcode_is_terminated:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -1947,11 +1925,10 @@ $_battery_probe:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -2068,11 +2045,10 @@ _beeper:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -2288,11 +2264,10 @@ $_raise_exception:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -2434,9 +2409,6 @@ _hal_handler:
 ?LBE_hal_handler:
 	leavel	#3
 ;# begin scan referenced symbols
-;# import ?LC0 .
-;# import ?LC0 .
-.IMPORT $_puts 0 ; (Non-const ref)
 .IMPORT $_getHalTask 0 ; (Non-const ref)
 .IMPORT $_pioInit 0 ; (Non-const ref)
 .IMPORT $_BatteryInit 0 ; (Non-const ref)
@@ -2449,8 +2421,6 @@ _hal_initialising_state_enter:
 	bge ?LBB_hal_initialising_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_initialising_state_enter:
-	ld	AL,#(?LC0)
-	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,@$XAP_AL
 	ld	AL,#($_hal+H'0005)
@@ -2469,44 +2439,7 @@ _hal_initialising_state_enter:
 	bsr	$_update_indication
 ?LBE_hal_initialising_state_enter:
 	leavel	#4
-	.SEG	CONST
-?LC0:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC1 .
-;# import ?LC1 .
 .IMPORT _enableLDO 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _hal_initialising_state_exit:
@@ -2515,67 +2448,17 @@ _hal_initialising_state_exit:
 	bge ?LBB_hal_initialising_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_initialising_state_exit:
-	ld	AL,#(?LC1)
-	bsr	$_puts
 	bsr	_enableLDO
 ?LBE_hal_initialising_state_exit:
 	leavel	#2
-	.SEG	CONST
-?LC1:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC2 .
-;# import ?LC2 .
 .IMPORT _pio_raw_handler 0 ; (Non-const ref)
-;# import ?LC3 .
-;# import ?LC3 .
 .IMPORT _battery_message_handler 0 ; (Non-const ref)
-;# import ?LC4 .
-;# import ?LC4 .
 .IMPORT $_initialisationFinished 0 ; (Non-const ref)
 .IMPORT _hal_set_state 0 ; (Non-const ref)
-;# import ?LC5 .
-;# import ?LC5 .
 .IMPORT $_MessageSendLater 0 ; (Non-const ref)
-;# import ?LC6 .
-;# import ?LC6 .
 .IMPORT $_MessageCancelAll 0 ; (Non-const ref)
-;# import ?LC7 .
-;# import ?LC7 .
 .IMPORT $_ledsPlay 0 ; (Non-const ref)
-;# import ?LC8 .
-;# import ?LC8 .
 .IMPORT $_BootSetMode 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _hal_initialising_handler:
@@ -2612,14 +2495,10 @@ _hal_initialising_handler:
 	beq	?L42
 	bra	(?L39)
 ?L41:
-	ld	AL,#(?LC2)
-	bsr	$_puts
 	ld	AL,@(H'0005,Y)
 	bsr	_pio_raw_handler
 	bra	(?L55)
 ?L42:
-	ld	AL,#(?LC3)
-	bsr	$_puts
 	ld	X,#($_hal+H'0017)
 	st	X,@H'fffc
 	bsr	$dofetch32_AH; movhi_fetch_general+1 peephole
@@ -2644,15 +2523,11 @@ _hal_initialising_handler:
 	bsr	$_update_indication
 	bra	(?L39)
 ?L44:
-	ld	AL,#(?LC4)
-	bsr	$_puts
 	bsr	$_initialisationFinished
 	ld	AL,#H'0001
 	bsr	_hal_set_state
 	bra	(?L39)
 ?L45:
-	ld	AL,#(?LC5)
-	bsr	$_puts
 	bsr	$_getHalTask
 	st	AL,@H'ffff
 	ld	AL,#H'0000
@@ -2680,8 +2555,6 @@ _hal_initialising_handler:
 	ld	AH,#H'0001
 	bra	(?L54)
 ?L46:
-	ld	AL,#(?LC6)
-	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0000
 	bsr	$_MessageCancelAll
@@ -2690,8 +2563,6 @@ _hal_initialising_handler:
 	bsr	$_MessageCancelAll
 	bra	(?L39)
 ?L47:
-	ld	AL,#(?LC7)
-	bsr	$_puts
 	ld	AL,#H'0011
 	bsr	$_ledsPlay
 	bsr	$_getHalTask
@@ -2710,472 +2581,12 @@ _hal_initialising_handler:
 	bsr	$_MessageSendLater
 	bra	(?L39)
 ?L48:
-	ld	AL,#(?LC8)
-	bsr	$_puts
 	ld	AL,#H'0000
 	bsr	$_BootSetMode
 ?L39:
 ?LBE_hal_initialising_handler:
 	leavel	#5
-	.SEG	CONST
-?LC2:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'49
-	dc	H'4F
-	dc	H'5F
-	dc	H'52
-	dc	H'41
-	dc	H'57
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC3:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'77
-	dc	H'61
-	dc	H'72
-	dc	H'6D
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'2D
-	dc	H'75
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'42
-	dc	H'41
-	dc	H'54
-	dc	H'54
-	dc	H'45
-	dc	H'52
-	dc	H'59
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'41
-	dc	H'44
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC4:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'48
-	dc	H'45
-	dc	H'4C
-	dc	H'44
-	dc	H'5F
-	dc	H'53
-	dc	H'48
-	dc	H'4F
-	dc	H'52
-	dc	H'54
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC5:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'50
-	dc	H'52
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC6:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'4C
-	dc	H'45
-	dc	H'41
-	dc	H'53
-	dc	H'45
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC7:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'46
-	dc	H'55
-	dc	H'4E
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'44
-	dc	H'46
-	dc	H'55
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC8:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'46
-	dc	H'55
-	dc	H'4E
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'44
-	dc	H'46
-	dc	H'55
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC9 .
-;# import ?LC9 .
 ;# end scan referenced symbols
 _hal_activating_state_enter:
 	enterl	#5
@@ -3183,8 +2594,6 @@ _hal_activating_state_enter:
 	bge ?LBB_hal_activating_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_activating_state_enter:
-	ld	AL,#(?LC9)
-	bsr	$_puts
 	bsr	$_update_indication
 	ld	AL,#H'0000
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
@@ -3192,8 +2601,6 @@ _hal_activating_state_enter:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@($_hal+(26)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	ld	AL,#H'0012
-	bsr	$_ledsPlay
-	ld	AL,#H'0015
 	bsr	$_ledsPlay
 	bsr	$_getHalTask
 	st	AL,@H'ffff
@@ -3210,42 +2617,7 @@ _hal_activating_state_enter:
 	bsr	$_MessageSendLater
 ?LBE_hal_activating_state_enter:
 	leavel	#5
-	.SEG	CONST
-?LC9:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC10 .
-;# import ?LC10 .
 ;# end scan referenced symbols
 _hal_activating_state_exit:
 	enterl	#2
@@ -3253,8 +2625,6 @@ _hal_activating_state_exit:
 	bge ?LBB_hal_activating_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_activating_state_exit:
-	ld	AL,#(?LC10)
-	bsr	$_puts
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
@@ -3265,55 +2635,11 @@ _hal_activating_state_exit:
 ?L65:
 ?LBE_hal_activating_state_exit:
 	leavel	#2
-	.SEG	CONST
-?LC10:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC11 .
-;# import ?LC11 .
 .IMPORT _powerAllowedToTurnOn 0 ; (Non-const ref)
-;# import ?LC12 .
-;# import ?LC12 .
-;# import ?LC5 .
-;# import ?LC5 .
-;# import ?LC6 .
-;# import ?LC6 .
 .IMPORT $_malloc 0 ; (Non-const ref)
 .IMPORT $_MessageSend 0 ; (Non-const ref)
-;# import ?LC13 .
-;# import ?LC13 .
 .IMPORT $_Panic 0 ; (Non-const ref)
-;# import ?LC14 .
-;# import ?LC14 .
 ;# end scan referenced symbols
 _hal_activating_handler:
 	enterl	#11
@@ -3321,6 +2647,7 @@ _hal_activating_handler:
 	bge ?LBB_hal_activating_handler ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_activating_handler:
+	ld	AL,@(H'000B,Y)
 ?LBB2:
 	cmp	AH,#H'03E8
 	beq	?L75
@@ -3344,9 +2671,6 @@ _hal_activating_handler:
 	beq	?L73
 	bra	(?L68)
 ?L70:
-	ld	AL,#(?LC11)
-	bsr	$_puts
-	ld	AL,@(H'000B,Y)
 	bsr	_pio_raw_handler
 	ld	AH,#hwrd(_powerAllowedToTurnOn)
 	ld	AL,#lwrd(_powerAllowedToTurnOn)
@@ -3360,9 +2684,6 @@ _hal_activating_handler:
 	beq	?L68
 	bra	(?L93)
 ?L73:
-	ld	AL,#(?LC12)
-	bsr	$_puts
-	ld	AL,@(H'000B,Y)
 	bsr	_battery_message_handler
 	bsr	_powerAllowedToTurnOn
 	cmp	AL,#H'0000
@@ -3373,8 +2694,6 @@ _hal_activating_handler:
 	beq	?L68
 	bra	(?L93)
 ?L75:
-	ld	AL,#(?LC5)
-	bsr	$_puts
 	bsr	$_getHalTask
 	st	AL,@H'ffff
 	ld	AL,#H'0000
@@ -3403,8 +2722,6 @@ _hal_activating_handler:
 	bsr	$_MessageSendLater
 	bra	(?L68)
 ?L76:
-	ld	AL,#(?LC6)
-	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0000
 	bsr	$_MessageCancelAll
@@ -3444,8 +2761,6 @@ _hal_activating_handler:
 	bra	(?L94)
 ?L78:
 ?LBE3:
-	ld	AL,#(?LC13)
-	bsr	$_puts
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
@@ -3483,10 +2798,8 @@ _hal_activating_handler:
 	ld	AL,@(H'0006,Y)
 	bra	(?L94)
 ?L82:
-?LBE4:
-	ld	AL,#(?LC14)
-	bsr	$_puts
 	ld	AL,#H'0001
+?LBE4:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@($_hal+(25)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_powerAllowedToTurnOn
@@ -3540,261 +2853,7 @@ _hal_activating_handler:
 ?LBE2:
 ?LBE_hal_activating_handler:
 	leavel	#11
-	.SEG	CONST
-?LC11:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'49
-	dc	H'4F
-	dc	H'5F
-	dc	H'52
-	dc	H'41
-	dc	H'57
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC12:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'42
-	dc	H'41
-	dc	H'54
-	dc	H'54
-	dc	H'45
-	dc	H'52
-	dc	H'59
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'41
-	dc	H'44
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC13:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'48
-	dc	H'45
-	dc	H'4C
-	dc	H'44
-	dc	H'5F
-	dc	H'4C
-	dc	H'4F
-	dc	H'4E
-	dc	H'47
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC14:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'41
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'56
-	dc	H'41
-	dc	H'54
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC15 .
-;# import ?LC15 .
 ;# end scan referenced symbols
 _hal_active_state_enter:
 	enterl	#5
@@ -3802,8 +2861,6 @@ _hal_active_state_enter:
 	bge ?LBB_hal_active_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_active_state_enter:
-	ld	AL,#(?LC15)
-	bsr	$_puts
 	bsr	$_update_indication
 	bsr	$_getHalTask
 	st	AL,@H'ffff
@@ -3820,38 +2877,7 @@ _hal_active_state_enter:
 	bsr	$_MessageSendLater
 ?LBE_hal_active_state_enter:
 	leavel	#5
-	.SEG	CONST
-?LC15:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC16 .
-;# import ?LC16 .
 ;# end scan referenced symbols
 _hal_active_state_exit:
 	enterl	#2
@@ -3859,59 +2885,13 @@ _hal_active_state_exit:
 	bge ?LBB_hal_active_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_active_state_exit:
-	ld	AL,#(?LC16)
-	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0004
 	bsr	$_MessageCancelAll
 ?LBE_hal_active_state_exit:
 	leavel	#2
-	.SEG	CONST
-?LC16:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC17 .
-;# import ?LC17 .
 .IMPORT _powerAllowedToContinue 0 ; (Non-const ref)
-;# import ?LC18 .
-;# import ?LC18 .
-;# import ?LC19 .
-;# import ?LC19 .
-;# import ?LC20 .
-;# import ?LC20 .
-;# import ?LC21 .
-;# import ?LC21 .
-;# import ?LC22 .
-;# import ?LC22 .
-;# import ?LC23 .
-;# import ?LC23 .
-;# import ?LC24 .
-;# import ?LC24 .
 ;# end scan referenced symbols
 _hal_active_handler:
 	enterl	#5
@@ -3919,6 +2899,7 @@ _hal_active_handler:
 	bge ?LBB_hal_active_handler ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_active_handler:
+	ld	AL,@(H'0005,Y)
 	cmp	AH,#H'03E9
 	beq	?L118
 	cmp	AH,#(H'0001+H'03E9)
@@ -3928,7 +2909,7 @@ _hal_active_handler:
 	cmp	AH,#(H'0001+H'0004)
 	bcc	?L128
 	cmp	AH,#H'0000
-	beq	?L119
+	beq	?L124
 	bra	(?L112)
 ?L128:
 	cmp	AH,#H'03E8
@@ -3947,17 +2928,9 @@ _hal_active_handler:
 	beq	?L120
 	bra	(?L112)
 ?L114:
-	ld	AL,#(?LC17)
-	bsr	$_puts
-	ld	AL,@(H'0005,Y)
 	bsr	_pio_raw_handler
-	bsr	_powerAllowedToContinue
-	cmp	AL,#H'0000
-	beq	?L131
-	bra	(?L121)
+	bra	(?L130)
 ?L117:
-	ld	AL,#(?LC18)
-	bsr	$_puts
 	bsr	$_getHalTask
 	st	AL,@H'ffff
 	ld	AL,#H'0000
@@ -3986,8 +2959,6 @@ _hal_active_handler:
 	bsr	$_MessageSendLater
 	bra	(?L112)
 ?L118:
-	ld	AL,#(?LC19)
-	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0000
 	bsr	$_MessageCancelAll
@@ -3995,25 +2966,15 @@ _hal_active_handler:
 	ld	AH,#H'0001
 	bsr	$_MessageCancelAll
 	bra	(?L112)
-?L119:
-	ld	AL,#(?LC20)
-	bra	(?L130)
 ?L120:
-	ld	AL,#(?LC21)
-	bsr	$_puts
-	ld	AL,@(H'0005,Y)
 	bsr	_battery_message_handler
+?L130:
 	bsr	_powerAllowedToContinue
 	cmp	AL,#H'0000
-	bne	?L121
-	ld	AL,#(?LC22)
-	bra	(?L130)
-?L121:
+	beq	?L124
 	bsr	$_update_indication
 	bra	(?L112)
 ?L123:
-	ld	AL,#(?LC23)
-	bsr	$_puts
 	bsr	$_getHalTask
 	ld	AH,#H'0004
 	bsr	$_MessageCancelAll
@@ -4040,495 +3001,12 @@ _hal_active_handler:
 	bsr	$_MessageSend
 	bra	(?L112)
 ?L124:
-	ld	AL,#(?LC24)
-?L130:
-	bsr	$_puts
-?L131:
 	ld	AL,#H'0003
 	bsr	_hal_set_state
 ?L112:
 ?LBE_hal_active_handler:
 	leavel	#5
-	.SEG	CONST
-?LC17:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'49
-	dc	H'4F
-	dc	H'5F
-	dc	H'52
-	dc	H'41
-	dc	H'57
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC18:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'50
-	dc	H'52
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC19:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'4C
-	dc	H'45
-	dc	H'41
-	dc	H'53
-	dc	H'45
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC20:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'50
-	dc	H'4F
-	dc	H'57
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'48
-	dc	H'45
-	dc	H'4C
-	dc	H'44
-	dc	H'5F
-	dc	H'53
-	dc	H'48
-	dc	H'4F
-	dc	H'52
-	dc	H'54
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC21:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'42
-	dc	H'41
-	dc	H'54
-	dc	H'54
-	dc	H'45
-	dc	H'52
-	dc	H'59
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'41
-	dc	H'44
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC22:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'70
-	dc	H'6F
-	dc	H'77
-	dc	H'65
-	dc	H'72
-	dc	H'41
-	dc	H'6C
-	dc	H'6C
-	dc	H'6F
-	dc	H'77
-	dc	H'65
-	dc	H'64
-	dc	H'54
-	dc	H'6F
-	dc	H'43
-	dc	H'6F
-	dc	H'6E
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'75
-	dc	H'65
-	dc	H'20
-	dc	H'66
-	dc	H'61
-	dc	H'69
-	dc	H'6C
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC23:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'46
-	dc	H'55
-	dc	H'4E
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'50
-	dc	H'52
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC24:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'41
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'56
-	dc	H'45
-	dc	H'5F
-	dc	H'41
-	dc	H'55
-	dc	H'54
-	dc	H'4F
-	dc	H'5F
-	dc	H'53
-	dc	H'48
-	dc	H'55
-	dc	H'54
-	dc	H'44
-	dc	H'4F
-	dc	H'57
-	dc	H'4E
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'20
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC25 .
-;# import ?LC25 .
 ;# end scan referenced symbols
 _hal_deactivating_state_enter:
 	enterl	#5
@@ -4536,12 +3014,8 @@ _hal_deactivating_state_enter:
 	bge ?LBB_hal_deactivating_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_deactivating_state_enter:
-	ld	AL,#(?LC25)
-	bsr	$_puts
 	bsr	$_update_indication
 	ld	AL,#H'0012
-	bsr	$_ledsPlay
-	ld	AL,#H'0015
 	bsr	$_ledsPlay
 	bsr	$_getHalTask
 	st	AL,@H'ffff
@@ -4574,92 +3048,14 @@ _hal_deactivating_state_enter:
 	bsr	$_MessageSend
 ?LBE_hal_deactivating_state_enter:
 	leavel	#5
-	.SEG	CONST
-?LC25:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'64
-	dc	H'65
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC26 .
-;# import ?LC26 .
 ;# end scan referenced symbols
 _hal_deactivating_state_exit:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_hal_deactivating_state_exit ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_hal_deactivating_state_exit:
-	ld	AL,#(?LC26)
-	bsr	$_puts
 ?LBE_hal_deactivating_state_exit:
-	leavel	#2
-	.SEG	CONST
-?LC26:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'64
-	dc	H'65
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC27 .
-;# import ?LC27 .
 ;# end scan referenced symbols
 _hal_deactivating_handler:
 	enterl	#2
@@ -4668,84 +3064,11 @@ _hal_deactivating_handler:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_hal_deactivating_handler:
 	cmp	AH,#H'0003
-	bne	?L143
-	ld	AL,#(?LC27)
-	bsr	$_puts
+	bne	?L141
 	bsr	$_Panic
-?L143:
+?L141:
 ?LBE_hal_deactivating_handler:
 	leavel	#2
-	.SEG	CONST
-?LC27:
-	dc	H'68
-	dc	H'61
-	dc	H'6C
-	dc	H'20
-	dc	H'64
-	dc	H'65
-	dc	H'61
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'76
-	dc	H'61
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'44
-	dc	H'45
-	dc	H'41
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'56
-	dc	H'41
-	dc	H'54
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
 .IMPORT _hal_handler 0 ; (Non-const ref)
 ;# end scan referenced symbols
@@ -4839,15 +3162,15 @@ _pio_raw_handler:
 	and	AL,#H'0400
 	and	AH,#H'0000
 	cmp	AH,#H'0000
-	bne	?L155
+	bne	?L153
 	cmp	AL,#H'0000
-	beq	?L153
-?L155:
-	ld	AL,#H'0002
-	bra	(?L154)
+	beq	?L151
 ?L153:
+	ld	AL,#H'0002
+	bra	(?L152)
+?L151:
 	ld	AL,#H'0001
-?L154:
+?L152:
 	ld	X,#($_hal+H'0016)
 	st	X,@H'fffc
 	bsr	$dostore_AL; movqi_fetch_general+2 peephole
@@ -4896,21 +3219,21 @@ _powerAllowedToTurnOn:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(22)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L158
+	bne	?L156
 	ld	X,#($_hal+H'0017)
 	st	X,@H'fffc
 	bsr	$dofetch32_AH; movhi_fetch_general+1 peephole
 	cmp	AH,#hwrd(H'0001+H'0CB1)
-	bcs	?L160
-	bne	?L158
+	bcs	?L158
+	bne	?L156
 	cmp	AL,#lwrd(H'0001+H'0CB1)
-	bcc	?L158
-?L160:
-	ld	AL,#H'0000
-	bra	(?L157)
+	bcc	?L156
 ?L158:
+	ld	AL,#H'0000
+	bra	(?L155)
+?L156:
 	ld	AL,#H'0001
-?L157:
+?L155:
 ?LBE_powerAllowedToTurnOn:
 	leavel	#2
 ;# begin scan referenced symbols
@@ -4924,21 +3247,21 @@ _powerAllowedToContinue:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@($_hal+(22)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0001
-	bne	?L162
+	bne	?L160
 	ld	X,#($_hal+H'0017)
 	st	X,@H'fffc
 	bsr	$dofetch32_AH; movhi_fetch_general+1 peephole
 	cmp	AH,#hwrd(H'0001+H'0C4D)
-	bcs	?L164
-	bne	?L162
+	bcs	?L162
+	bne	?L160
 	cmp	AL,#lwrd(H'0001+H'0C4D)
-	bcc	?L162
-?L164:
-	ld	AL,#H'0000
-	bra	(?L161)
+	bcc	?L160
 ?L162:
+	ld	AL,#H'0000
+	bra	(?L159)
+?L160:
 	ld	AL,#H'0001
-?L161:
+?L159:
 ?LBE_powerAllowedToContinue:
 	leavel	#2
 	.SEG	VAR
@@ -4949,7 +3272,7 @@ $_hal:
 ;# Function pattern *movqi_set_rsvd_reg used[0] = 2 used[1] = 4 total = 6
 ;# Function pattern *movqi_fetch_general used[0] = 1 total = 1
 ;# Function pattern *movqi_store_y_relative used[0] = 15 used[1] = 16 total = 31
-;# Function pattern *movqi_fetch_y_relative used[0] = 8 total = 8
+;# Function pattern *movqi_fetch_y_relative used[0] = 10 total = 10
 ;# Function pattern *movhi_store_y_relative used[2] = 12 total = 12
 ;# Function pattern *movhi_fetch_general used[0] = 1 total = 1
 ;# Function pattern *movhi_store_general used[1] = 1 total = 1
@@ -4957,7 +3280,7 @@ $_hal:
 ;# Function pattern *movqi_fetch_symbol_ref_with_offset used[0] = 18 total = 18
 ;# Function pattern *movqi_store_symbol_ref_with_offset used[0] = 10 total = 10
 ;# Function pattern *movhi_store_symbol_ref used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 108 total = 108
+;# Function pattern *movqi2 used[0] = 72 total = 72
 ;# Function pattern *movqi2b used[0] = 10 used[1] = 4 total = 14
 ;# Function pattern *movhi used[2] = 2 total = 2
 ;# Function pattern *andhi3 used[0] = 1 total = 1
@@ -4965,15 +3288,15 @@ $_hal:
 ;# Function pattern *mulqihi3_const used[0] = 1 total = 1
 ;# Function pattern *umulqihi3_const used[0] = 1 total = 1
 ;# Function pattern *zero_extendqihi2 used[0] = 1 total = 1
-;# Function pattern jump used[0] = 47 total = 47
+;# Function pattern jump used[0] = 45 total = 45
 ;# Function pattern *call1 used[0] = 59 total = 59
-;# Function pattern *call_value1 used[0] = 76 total = 76
+;# Function pattern *call_value1 used[0] = 45 total = 45
 ;# Function pattern addsi3+2 used[0] = 4 total = 4
 ;# Function pattern addsi3+3 used[0] = 3 total = 3
 ;# Function pattern addhi3-2 used[0] = 1 total = 1
 ;# Function pattern addhi3-1 used[0] = 2 total = 2
 ;# Function pattern extendhfsf2+2 used[1] = 8 total = 8
-;# Function pattern extendhfsf2+3 used[0] = 46 total = 46
+;# Function pattern extendhfsf2+3 used[0] = 45 total = 45
 ;# Function pattern extendhfsf2+4 used[0] = 2 total = 2
 ;# Function pattern extendhfsf2+5 used[0] = 3 total = 3
 	MODULE	indication
@@ -4985,11 +3308,10 @@ $_hal:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -5235,11 +3557,10 @@ $_update_indication:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -5302,11 +3623,10 @@ $_main:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -5355,9 +3675,6 @@ _trigger_pull_up:
 ?LBE_trigger_pull_up:
 	leavel	#2
 ;# begin scan referenced symbols
-;# import ?LC0 .
-;# import ?LC0 .
-.IMPORT $_puts 0 ; (Non-const ref)
 .IMPORT $_update_indication 0 ; (Non-const ref)
 .IMPORT _trigger_pull_up 0 ; (Non-const ref)
 .IMPORT $_StreamUartSink 0 ; (Non-const ref)
@@ -5372,8 +3689,6 @@ _scanner_off_state_enter:
 	bge ?LBB_scanner_off_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_off_state_enter:
-	ld	AL,#(?LC0)
-	bsr	$_puts
 	bsr	$_update_indication
 	bsr	_trigger_pull_up
 	bsr	$_StreamUartSink
@@ -5394,86 +3709,15 @@ _scanner_off_state_enter:
 ?L3:
 ?LBE_scanner_off_state_enter:
 	leavel	#3
-	.SEG	CONST
-?LC0:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'6F
-	dc	H'66
-	dc	H'66
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC1 .
-;# import ?LC1 .
 ;# end scan referenced symbols
 _scanner_off_state_exit:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_scanner_off_state_exit ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_scanner_off_state_exit:
-	ld	AL,#(?LC1)
-	bsr	$_puts
 ?LBE_scanner_off_state_exit:
-	leavel	#2
-	.SEG	CONST
-?LC1:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'6F
-	dc	H'66
-	dc	H'66
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC2 .
-;# import ?LC2 .
-.IMPORT _scanner_off_state_exit 0 ; (Non-const ref)
+.IMPORT _scanner_off_state_exit 1 ; (Const ref)
 .IMPORT _scanner_on_state_enter 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _scanner_off_state_handler:
@@ -5484,8 +3728,6 @@ _scanner_off_state_handler:
 ?LBB_scanner_off_state_handler:
 	cmp	AH,#H'4101
 	bne	?L7
-	ld	AL,#(?LC2)
-	bsr	$_puts
 	bsr	_scanner_off_state_exit
 	ld	AL,#H'0001
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
@@ -5494,85 +3736,7 @@ _scanner_off_state_handler:
 ?L7:
 ?LBE_scanner_off_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC2:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'6F
-	dc	H'66
-	dc	H'66
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'5F
-	dc	H'53
-	dc	H'57
-	dc	H'49
-	dc	H'54
-	dc	H'43
-	dc	H'48
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4F
-	dc	H'4E
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC3 .
-;# import ?LC3 .
 .IMPORT _scanner_warmup_state_enter 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _scanner_on_state_enter:
@@ -5581,8 +3745,6 @@ _scanner_on_state_enter:
 	bge ?LBB_scanner_on_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_on_state_enter:
-	ld	AL,#(?LC3)
-	bsr	$_puts
 	bsr	_trigger_pull_up
 	ld	AL,#H'0000
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
@@ -5590,37 +3752,6 @@ _scanner_on_state_enter:
 	bsr	_scanner_warmup_state_enter
 ?LBE_scanner_on_state_enter:
 	leavel	#2
-	.SEG	CONST
-?LC3:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'6F
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
 .IMPORT _scanner_warmup_state_exit 0 ; (Non-const ref)
 .IMPORT _scanner_ready_state_exit 0 ; (Non-const ref)
@@ -5662,8 +3793,6 @@ _scanner_on_state_exit:
 .IMPORT _scanner_warmup_state_handler 0 ; (Non-const ref)
 .IMPORT _scanner_ready_state_handler 0 ; (Non-const ref)
 .IMPORT _scanner_scanning_state_handler 0 ; (Non-const ref)
-;# import ?LC4 .
-;# import ?LC4 .
 ;# end scan referenced symbols
 _scanner_on_state_handler:
 	enterl	#3
@@ -5689,8 +3818,6 @@ _scanner_on_state_handler:
 	bcs	?L28
 	cmp	AL,#H'0002
 	beq	?L30
-	cmp	AL,#H'0003
-	beq	?L31
 	bra	(?L25)
 ?L28:
 	ld	AL,@(H'0003,Y)
@@ -5709,105 +3836,10 @@ _scanner_on_state_handler:
 	st	AL,@(0,Y)
 	ld	AL,@H'fff8
 	bsr	_scanner_scanning_state_handler
-	bra	(?L25)
-?L31:
-	ld	AL,#(?LC4)
-	bsr	$_puts
 ?L25:
 ?LBE_scanner_on_state_handler:
 	leavel	#3
-	.SEG	CONST
-?LC4:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'6F
-	dc	H'6E
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'6F
-	dc	H'6E
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'69
-	dc	H'73
-	dc	H'20
-	dc	H'53
-	dc	H'43
-	dc	H'41
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'56
-	dc	H'41
-	dc	H'4C
-	dc	H'49
-	dc	H'44
-	dc	H'2C
-	dc	H'20
-	dc	H'45
-	dc	H'52
-	dc	H'52
-	dc	H'4F
-	dc	H'52
-	dc	H'20
-	dc	H'21
-	dc	H'21
-	dc	H'21
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC5 .
-;# import ?LC5 .
 .IMPORT $_MessageSendLater 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _scanner_warmup_state_enter:
@@ -5816,8 +3848,6 @@ _scanner_warmup_state_enter:
 	bge ?LBB_scanner_warmup_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_warmup_state_enter:
-	ld	AL,#(?LC5)
-	bsr	$_puts
 	bsr	$_update_indication
 	st	AL,@H'ffff
 	ld	AL,#H'0000
@@ -5834,44 +3864,7 @@ _scanner_warmup_state_enter:
 	bsr	$_MessageSendLater
 ?LBE_scanner_warmup_state_enter:
 	leavel	#5
-	.SEG	CONST
-?LC5:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'77
-	dc	H'61
-	dc	H'72
-	dc	H'6D
-	dc	H'75
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC6 .
-;# import ?LC6 .
 .IMPORT $_MessageCancelAll 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _scanner_warmup_state_exit:
@@ -5880,53 +3873,13 @@ _scanner_warmup_state_exit:
 	bge ?LBB_scanner_warmup_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_warmup_state_exit:
-	ld	AL,#(?LC6)
-	bsr	$_puts
 	ld	AL,#(_scanner)
 	ld	AH,#H'0000
 	bsr	$_MessageCancelAll
 ?LBE_scanner_warmup_state_exit:
 	leavel	#2
-	.SEG	CONST
-?LC6:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'77
-	dc	H'61
-	dc	H'72
-	dc	H'6D
-	dc	H'75
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC7 .
-;# import ?LC7 .
 .IMPORT _scanner_ready_state_enter 0 ; (Non-const ref)
-;# import ?LC8 .
-;# import ?LC8 .
 ;# end scan referenced symbols
 _scanner_warmup_state_handler:
 	enterl	#2
@@ -5935,195 +3888,16 @@ _scanner_warmup_state_handler:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_warmup_state_handler:
 	cmp	AH,#H'0000
-	beq	?L43
-	cmp	AH,#H'4100
-	beq	?L44
-	bra	(?L41)
-?L43:
-	ld	AL,#(?LC7)
-	bsr	$_puts
+	bne	?L40
 	bsr	_scanner_warmup_state_exit
 	ld	AL,#H'0001
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_scanner+(6)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_scanner_ready_state_enter
-	bra	(?L41)
-?L44:
-	ld	AL,#(?LC8)
-	bsr	$_puts
-?L41:
+?L40:
 ?LBE_scanner_warmup_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC7:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'77
-	dc	H'61
-	dc	H'72
-	dc	H'6D
-	dc	H'75
-	dc	H'70
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'43
-	dc	H'41
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'57
-	dc	H'41
-	dc	H'52
-	dc	H'4D
-	dc	H'55
-	dc	H'50
-	dc	H'5F
-	dc	H'57
-	dc	H'41
-	dc	H'49
-	dc	H'54
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC8:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'77
-	dc	H'61
-	dc	H'72
-	dc	H'6D
-	dc	H'75
-	dc	H'70
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'46
-	dc	H'55
-	dc	H'4E
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'30
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'69
-	dc	H'67
-	dc	H'6E
-	dc	H'6F
-	dc	H'72
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC9 .
-;# import ?LC9 .
 ;# end scan referenced symbols
 _scanner_ready_state_enter:
 	enterl	#2
@@ -6131,95 +3905,17 @@ _scanner_ready_state_enter:
 	bge ?LBB_scanner_ready_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_ready_state_enter:
-	ld	AL,#(?LC9)
-	bsr	$_puts
 	bsr	$_update_indication
 ?LBE_scanner_ready_state_enter:
 	leavel	#2
-	.SEG	CONST
-?LC9:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'61
-	dc	H'64
-	dc	H'79
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC10 .
-;# import ?LC10 .
 ;# end scan referenced symbols
 _scanner_ready_state_exit:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_scanner_ready_state_exit ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_scanner_ready_state_exit:
-	ld	AL,#(?LC10)
-	bsr	$_puts
 ?LBE_scanner_ready_state_exit:
-	leavel	#2
-	.SEG	CONST
-?LC10:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'61
-	dc	H'64
-	dc	H'79
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC11 .
-;# import ?LC11 .
 .IMPORT _scanner_scanning_state_enter 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _scanner_ready_state_handler:
@@ -6229,91 +3925,16 @@ _scanner_ready_state_handler:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_ready_state_handler:
 	cmp	AH,#H'4100
-	bne	?L51
-	ld	AL,#(?LC11)
-	bsr	$_puts
+	bne	?L49
 	bsr	_scanner_ready_state_exit
 	ld	AL,#H'0002
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_scanner+(6)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_scanner_scanning_state_enter
-?L51:
+?L49:
 ?LBE_scanner_ready_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC11:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'72
-	dc	H'65
-	dc	H'61
-	dc	H'64
-	dc	H'79
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'46
-	dc	H'55
-	dc	H'4E
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'30
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC12 .
-;# import ?LC12 .
 .IMPORT _trigger_drive_low 0 ; (Non-const ref)
 .IMPORT $_SourceSize 0 ; (Non-const ref)
 .IMPORT $_SourceDrop 0 ; (Non-const ref)
@@ -6326,8 +3947,6 @@ _scanner_scanning_state_enter:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_scanning_state_enter:
 ?LBB2:
-	ld	AL,#(?LC12)
-	bsr	$_puts
 	bsr	$_update_indication
 	st	AL,@H'ffff
 	ld	AL,#H'0000
@@ -6347,63 +3966,24 @@ _scanner_scanning_state_enter:
 	bsr	$_StreamSourceFromSink
 	st	AL,@(H'0003,Y)
 	cmp	AL,#H'0000
-	beq	?L58
+	beq	?L56
 	bsr	$_SourceSize
 	cmp	AL,#H'0000
-	beq	?L58
+	beq	?L56
 	ld	AL,@(H'0003,Y)
 	bsr	$_SourceSize
 	ld	AH,@$XAP_AL
 	ld	AL,@(H'0003,Y)
 	bsr	$_SourceDrop
-?L58:
+?L56:
 	ld	AL,#(_scanner+H'0007)
 	bsr	$_barcode_clear
 ?LBE2:
 ?LBE_scanner_scanning_state_enter:
 	leavel	#6
-	.SEG	CONST
-?LC12:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;.stabn	192,0,0,?LBB2
 ;.stabn	224,0,0,?LBE2
 ;# begin scan referenced symbols
-;# import ?LC13 .
-;# import ?LC13 .
 ;# end scan referenced symbols
 _scanner_scanning_state_exit:
 	enterl	#3
@@ -6412,8 +3992,6 @@ _scanner_scanning_state_exit:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_scanner_scanning_state_exit:
 ?LBB3:
-	ld	AL,#(?LC13)
-	bsr	$_puts
 	ld	AL,#(_scanner)
 	ld	AH,#H'0002
 	bsr	$_MessageCancelAll
@@ -6422,16 +4000,16 @@ _scanner_scanning_state_exit:
 	bsr	$_StreamSourceFromSink
 	st	AL,@(0,Y)
 	cmp	AL,#H'0000
-	beq	?L62
+	beq	?L60
 	bsr	$_SourceSize
 	cmp	AL,#H'0000
-	beq	?L62
+	beq	?L60
 	ld	AL,@(0,Y)
 	bsr	$_SourceSize
 	ld	AH,@$XAP_AL
 	ld	AL,@(0,Y)
 	bsr	$_SourceDrop
-?L62:
+?L60:
 	ld	AL,#(_scanner)
 	ld	AH,#-H'7FDF
 	bsr	$_MessageCancelAll
@@ -6443,74 +4021,15 @@ _scanner_scanning_state_exit:
 ?LBE3:
 ?LBE_scanner_scanning_state_exit:
 	leavel	#3
-	.SEG	CONST
-?LC13:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;.stabn	192,0,0,?LBB3
 ;.stabn	224,0,0,?LBE3
 ;# begin scan referenced symbols
-;# import ?LC14 .
-;# import ?LC14 .
-;# import ?LC15 .
-;# import ?LC15 .
-;# import ?LC16 .
-;# import ?LC16 .
-;# import ?LC17 .
-;# import ?LC17 .
-.IMPORT $_printf 0 ; (Non-const ref)
 .IMPORT $_SourceMap 0 ; (Non-const ref)
 .IMPORT $_barcode_fill_raw_bytes 0 ; (Non-const ref)
-;# import ?LC18 .
-;# import ?LC18 .
 .IMPORT $_barcode_is_terminated 0 ; (Non-const ref)
-;# import ?LC19 .
-;# import ?LC19 .
-;# import ?LC20 .
-;# import ?LC20 .
 .IMPORT $_malloc 0 ; (Non-const ref)
-;# import ?LC21 .
-;# import ?LC21 .
-;# import ?LC22 .
-;# import ?LC22 .
 .IMPORT $_memcpy 0 ; (Non-const ref)
 .IMPORT $_MessageSend 0 ; (Non-const ref)
-;# import ?LC23 .
-;# import ?LC23 .
-;# import ?LC24 .
-;# import ?LC24 .
 ;# end scan referenced symbols
 _scanner_scanning_state_handler:
 	enterl	#7
@@ -6520,34 +4039,21 @@ _scanner_scanning_state_handler:
 ?LBB_scanner_scanning_state_handler:
 ?LBB4:
 	cmp	AH,#H'4100
-	beq	?L67
+	beq	?L63
 	cmp	AH,#(H'0001+H'4100)
-	bcc	?L78
+	bcc	?L76
 	cmp	AH,#H'0002
 	beq	?L68
-	bra	(?L65)
-?L78:
+	bra	(?L63)
+?L76:
 	cmp	AH,#-H'7FDF
-	beq	?L69
-	bra	(?L65)
-?L67:
-	ld	AL,#(?LC14)
-	bra	(?L80)
-?L68:
-	ld	AL,#(?LC15)
-	bra	(?L81)
-?L69:
+	bne	?L63
 ?LBB5:
-	ld	AL,#(?LC16)
-	bsr	$_puts
 	bsr	$_StreamUartSink
 	bsr	$_StreamSourceFromSink
 	st	AL,@(H'0001,Y)
 	bsr	$_SourceSize
 	st	AL,@(H'0002,Y)
-	st	AL,@(0,Y)
-	ld	AL,#(?LC17)
-	bsr	$_printf
 	ld	AL,@(H'0001,Y)
 	bsr	$_SourceMap
 	ld	AH,@$XAP_AL
@@ -6561,30 +4067,17 @@ _scanner_scanning_state_handler:
 	bsr	$_SourceDrop
 	ld	AL,@(H'0003,Y)
 	cmp	AL,#H'0001
-	bne	?L70
-	ld	AL,#(?LC18)
-	bsr	$_puts
+	bne	?L68
 	ld	AL,#(_scanner+H'0007)
 	bsr	$_barcode_is_terminated
 	cmp	AL,#H'0000
-	beq	?L71
+	beq	?L63
 ?LBB6:
-	ld	AL,#(?LC19)
-	bsr	$_puts
-	ld	AL,#(_scanner+H'0009)
-	st	AL,@(0,Y)
-	ld	AL,#(?LC20); movqi2b+1 peephole
-	bsr	$_printf
 	ld	AL,#H'0032
 	bsr	$_malloc
 	st	AL,@(H'0004,Y)
 	cmp	AL,#H'0000
-	bne	?L72
-	ld	AL,#(?LC21)
-	bra	(?L81)
-?L72:
-	ld	AL,#(?LC22)
-	bsr	$_puts
+	beq	?L68
 	ld	AL,#H'0032
 	st	AL,@(0,Y)
 	ld	AL,@(H'0004,Y); movqi2b+1 peephole
@@ -6596,551 +4089,18 @@ _scanner_scanning_state_handler:
 	ld	AL,@(_scanner+(3)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	ld	AH,#H'3800
 	bsr	$_MessageSend
-	bra	(?L79)
-?L71:
+?L68:
 ?LBE6:
-	ld	AL,#(?LC23)
-?L80:
-	bsr	$_puts
-	bra	(?L65)
-?L70:
-	ld	AL,#(?LC24)
-?L81:
-	bsr	$_puts
-?L79:
 	bsr	_scanner_scanning_state_exit
 	ld	AL,#H'0001
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_scanner+(6)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_scanner_ready_state_enter
-?L65:
+?L63:
 ?LBE5:
 ?LBE4:
 ?LBE_scanner_scanning_state_handler:
 	leavel	#7
-	.SEG	CONST
-?LC14:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'46
-	dc	H'55
-	dc	H'4E
-	dc	H'43
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'42
-	dc	H'55
-	dc	H'54
-	dc	H'54
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'30
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'69
-	dc	H'67
-	dc	H'6E
-	dc	H'6F
-	dc	H'72
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC15:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'43
-	dc	H'41
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'53
-	dc	H'43
-	dc	H'41
-	dc	H'4E
-	dc	H'4E
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC16:
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'72
-	dc	H'5F
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'6E
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'5F
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'5F
-	dc	H'68
-	dc	H'61
-	dc	H'6E
-	dc	H'64
-	dc	H'6C
-	dc	H'65
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'5F
-	dc	H'4D
-	dc	H'4F
-	dc	H'52
-	dc	H'45
-	dc	H'5F
-	dc	H'44
-	dc	H'41
-	dc	H'54
-	dc	H'41
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC17:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'73
-	dc	H'6F
-	dc	H'75
-	dc	H'72
-	dc	H'63
-	dc	H'65
-	dc	H'20
-	dc	H'68
-	dc	H'61
-	dc	H'73
-	dc	H'20
-	dc	H'25
-	dc	H'64
-	dc	H'20
-	dc	H'62
-	dc	H'79
-	dc	H'74
-	dc	H'65
-	dc	H'73
-	dc	H'20
-	dc	H'6F
-	dc	H'66
-	dc	H'20
-	dc	H'64
-	dc	H'61
-	dc	H'74
-	dc	H'61
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'0A
-	dc	H'00
-?LC18:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'62
-	dc	H'61
-	dc	H'72
-	dc	H'63
-	dc	H'6F
-	dc	H'64
-	dc	H'65
-	dc	H'5F
-	dc	H'66
-	dc	H'69
-	dc	H'6C
-	dc	H'6C
-	dc	H'5F
-	dc	H'72
-	dc	H'61
-	dc	H'77
-	dc	H'5F
-	dc	H'62
-	dc	H'79
-	dc	H'74
-	dc	H'65
-	dc	H'73
-	dc	H'20
-	dc	H'73
-	dc	H'75
-	dc	H'63
-	dc	H'63
-	dc	H'65
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC19:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'62
-	dc	H'61
-	dc	H'72
-	dc	H'63
-	dc	H'6F
-	dc	H'64
-	dc	H'65
-	dc	H'20
-	dc	H'69
-	dc	H'73
-	dc	H'20
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'6D
-	dc	H'69
-	dc	H'6E
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC20:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'25
-	dc	H'73
-	dc	H'00
-?LC21:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'6D
-	dc	H'20
-	dc	H'65
-	dc	H'72
-	dc	H'72
-	dc	H'6F
-	dc	H'72
-	dc	H'2C
-	dc	H'20
-	dc	H'6E
-	dc	H'6F
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'73
-	dc	H'75
-	dc	H'6C
-	dc	H'74
-	dc	H'20
-	dc	H'73
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC22:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'73
-	dc	H'75
-	dc	H'6C
-	dc	H'74
-	dc	H'20
-	dc	H'73
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'20
-	dc	H'74
-	dc	H'6F
-	dc	H'20
-	dc	H'63
-	dc	H'6C
-	dc	H'69
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'20
-	dc	H'53
-	dc	H'43
-	dc	H'41
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'52
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'53
-	dc	H'55
-	dc	H'4C
-	dc	H'54
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC23:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'62
-	dc	H'61
-	dc	H'72
-	dc	H'63
-	dc	H'6F
-	dc	H'64
-	dc	H'65
-	dc	H'20
-	dc	H'69
-	dc	H'73
-	dc	H'20
-	dc	H'6E
-	dc	H'6F
-	dc	H'74
-	dc	H'20
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'6D
-	dc	H'69
-	dc	H'6E
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC24:
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'20
-	dc	H'62
-	dc	H'61
-	dc	H'72
-	dc	H'63
-	dc	H'6F
-	dc	H'64
-	dc	H'65
-	dc	H'5F
-	dc	H'66
-	dc	H'69
-	dc	H'6C
-	dc	H'6C
-	dc	H'5F
-	dc	H'72
-	dc	H'61
-	dc	H'77
-	dc	H'5F
-	dc	H'62
-	dc	H'79
-	dc	H'74
-	dc	H'65
-	dc	H'73
-	dc	H'20
-	dc	H'66
-	dc	H'61
-	dc	H'69
-	dc	H'6C
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-	.CODE
 ;.stabn	192,0,0,?LBB5
 ;.stabn	192,0,0,?LBB6
 ;.stabn	224,0,0,?LBE6
@@ -7162,22 +4122,22 @@ _scanner_handler:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_scanner+(5)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
-	beq	?L90
+	beq	?L85
 	cmp	AL,#H'0001
-	beq	?L91
-	bra	(?L88)
-?L90:
+	beq	?L86
+	bra	(?L83)
+?L85:
 	st	AH,@(0,Y)
 	ld	AL,@H'fff8
 	ld	AH,@H'fff9
 	bsr	_scanner_off_state_handler
-	bra	(?L88)
-?L91:
+	bra	(?L83)
+?L86:
 	st	AH,@(0,Y)
 	ld	AL,@H'fff8
 	ld	AH,@H'fff9
 	bsr	_scanner_on_state_handler
-?L88:
+?L83:
 ?LBE7:
 ?LBE_scanner_handler:
 	leavel	#3
@@ -7230,21 +4190,21 @@ _scanner:
 	DS	57
 	ENDMOD
 
-;# Function pattern *movqi_store_y_relative used[0] = 16 used[1] = 2 total = 18
+;# Function pattern *movqi_store_y_relative used[0] = 15 used[1] = 2 total = 17
 ;# Function pattern *movqi_fetch_y_relative used[0] = 9 total = 9
 ;# Function pattern *movhi_store_y_relative used[2] = 2 total = 2
 ;# Function pattern *movqi_fetch_symbol_ref_with_offset used[0] = 4 total = 4
 ;# Function pattern *movqi_store_symbol_ref_with_offset used[0] = 12 total = 12
 ;# Function pattern *movhi_store_symbol_ref used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 79 total = 79
+;# Function pattern *movqi2 used[0] = 55 total = 55
 ;# Function pattern *movqi2b used[0] = 3 used[1] = 3 total = 6
 ;# Function pattern *movhi used[2] = 1 total = 1
-;# Function pattern jump used[0] = 19 total = 19
+;# Function pattern jump used[0] = 10 total = 10
 ;# Function pattern *call1 used[0] = 44 total = 44
-;# Function pattern *call_value1 used[0] = 46 total = 46
-;# Function pattern addhi3-1 used[0] = 3 total = 3
+;# Function pattern *call_value1 used[0] = 24 total = 24
+;# Function pattern addhi3-1 used[0] = 2 total = 2
 ;# Function pattern extendhfsf2+2 used[1] = 1 total = 1
-;# Function pattern extendhfsf2+3 used[0] = 25 total = 25
+;# Function pattern extendhfsf2+3 used[0] = 23 total = 23
 	MODULE	spp_dev_auth
 	.LARGE
 ; Native execution
@@ -7254,11 +4214,10 @@ _scanner:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -7410,11 +4369,10 @@ $_sppDevSetTrustLevel:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -8207,11 +5165,10 @@ $_pioInit:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -8359,18 +5316,18 @@ _pattern_RAINBOW:
 	dc	H'0006
 	dc	H'0000
 _pattern_BEEP_ONCE:
-	dc	H'0800
+	dc	H'0A00
 	dc	H'812C
-	dc	H'0800
+	dc	H'0A00
 	dc	H'0064
 _pattern_BEEP_TWICE:
-	dc	H'0800
+	dc	H'0A00
 	dc	H'812C
-	dc	H'0800
+	dc	H'0A00
 	dc	H'0064
-	dc	H'0800
+	dc	H'0A00
 	dc	H'812C
-	dc	H'0800
+	dc	H'0A00
 	dc	H'0064
 _pattern_BEEP_THREE_TIMES:
 	dc	H'0800
@@ -8384,20 +5341,6 @@ _pattern_BEEP_THREE_TIMES:
 	dc	H'0800
 	dc	H'812C
 	dc	H'0800
-	dc	H'0064
-_pattern_MOTOR_ONCE:
-	dc	H'0200
-	dc	H'812C
-	dc	H'0200
-	dc	H'0064
-_pattern_MOTOR_TWICE:
-	dc	H'0200
-	dc	H'812C
-	dc	H'0200
-	dc	H'0064
-	dc	H'0200
-	dc	H'812C
-	dc	H'0200
 	dc	H'0064
 _gLeds:
 	dc	H'0101
@@ -8440,10 +5383,6 @@ _gLeds:
 	dc	_pattern_BEEP_TWICE
 	dc	H'0600
 	dc	_pattern_BEEP_THREE_TIMES
-	dc	H'0200
-	dc	_pattern_MOTOR_ONCE
-	dc	H'0400
-	dc	_pattern_MOTOR_TWICE
 	.SEG	INIT
 $_LED:
 	DS	1
@@ -8474,7 +5413,7 @@ $_ledsPlay:
 	bsr	_ledsInit
 ?L2:
 	ld	AL,@(H'0001,Y)
-	cmp	AL,#H'0015
+	cmp	AL,#H'0013
 	bcz	?L3
 	ld	AL,#H'0000
 	bra	(?L1)
@@ -8973,11 +5912,10 @@ _ledsConfigPattern:
 ;# -IC:/BlueLab412/tools/include/standard
 ;# -IC:/BlueLab412/tools/include/profiles/BlueLab4.1.2-Release -iprefix
 ;# -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3 -D__GNUC_PATCHLEVEL__=3
-;# -DDEV_CASIRA -DDEBUG_ENABLED -MD -MQ -mxap2-mode -menhanced-mode
-;# -mlarge-mode -mbig-function-pointers -mleaf-optim -munderscore -ansi
-;# -auxbase-strip -g -O -pedantic -Wall -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
+;# -DDEV_CASIRA -DNO_DEBUG -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
+;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
+;# -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
+;# -Wsign-compare -Wredundant-decls -Werror -ansi -fno-builtin-memcpy
 ;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
 ;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
 ;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
@@ -9056,116 +5994,25 @@ $_getSppbTask:
 ?LBE_getSppbTask:
 	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC0 .
-;# import ?LC0 .
-.IMPORT $_printf 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _unhandledSppState:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_unhandledSppState ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_unhandledSppState:
-	st	AL,@(0,Y)
-	st	AH,@(H'0001,Y)
-	ld	AL,#(?LC0)
-	bsr	$_printf
 ?LBE_unhandledSppState:
-	leavel	#4
-	.SEG	CONST
-?LC0:
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'20
-	dc	H'63
-	dc	H'75
-	dc	H'72
-	dc	H'72
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'25
-	dc	H'64
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'69
-	dc	H'64
-	dc	H'20
-	dc	H'30
-	dc	H'78
-	dc	H'25
-	dc	H'78
-	dc	H'0A
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC1 .
-;# import ?LC1 .
 ;# end scan referenced symbols
 _setSppState:
-	enterl	#5
+	enterl	#2
 	cmp	Y,@(H'FFF3) ; Inserted for native exec
 	bge ?LBB_setSppState ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_setSppState:
-	st	AL,@(H'0002,Y)
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	ld	AL,@(_sppb+(14)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	st	AL,@(0,Y)
-	ld	AL,@(H'0002,Y)
-	st	AL,@(H'0001,Y)
-	ld	AL,#(?LC1)
-	bsr	$_printf
-	ld	AL,@(H'0002,Y)
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(14)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 ?LBE_setSppState:
-	leavel	#5
-	.SEG	CONST
-?LC1:
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'20
-	dc	H'53
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'2D
-	dc	H'20
-	dc	H'43
-	dc	H'3D
-	dc	H'25
-	dc	H'64
-	dc	H'20
-	dc	H'4E
-	dc	H'3D
-	dc	H'25
-	dc	H'64
-	dc	H'0A
-	dc	H'00
-	.CODE
+	leavel	#2
 ;# begin scan referenced symbols
-;# import ?LC2 .
-;# import ?LC2 .
-.IMPORT $_puts 0 ; (Non-const ref)
 .IMPORT $_update_indication 0 ; (Non-const ref)
 .IMPORT $_ConnectionInit 0 ; (Non-const ref)
 ;# end scan referenced symbols
@@ -9175,102 +6022,22 @@ _sppb_initialising_state_enter:
 	bge ?LBB_sppb_initialising_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_initialising_state_enter:
-	ld	AL,#(?LC2)
-	bsr	$_puts
 	bsr	$_update_indication
 	bsr	$_getSppbTask
 	bsr	$_ConnectionInit
 ?LBE_sppb_initialising_state_enter:
 	leavel	#2
-	.SEG	CONST
-?LC2:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC3 .
-;# import ?LC3 .
 ;# end scan referenced symbols
 _sppb_initialising_state_exit:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_sppb_initialising_state_exit ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_sppb_initialising_state_exit:
-	ld	AL,#(?LC3)
-	bsr	$_puts
 ?LBE_sppb_initialising_state_exit:
-	leavel	#2
-	.SEG	CONST
-?LC3:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC4 .
-;# import ?LC4 .
-.IMPORT _sppb_initialising_state_exit 0 ; (Non-const ref)
+.IMPORT _sppb_initialising_state_exit 1 ; (Const ref)
 .IMPORT _sppb_ready_state_enter 0 ; (Non-const ref)
-.IMPORT _unhandledSppState 0 ; (Non-const ref)
+.IMPORT _unhandledSppState 1 ; (Const ref)
 ;# end scan referenced symbols
 _sppb_initialising_state_handler:
 	enterl	#2
@@ -9280,8 +6047,6 @@ _sppb_initialising_state_handler:
 ?LBB_sppb_initialising_state_handler:
 	cmp	AH,#H'6F00
 	bne	?L12
-	ld	AL,#(?LC4)
-	bsr	$_puts
 	ld	AL,@(H'0002,Y)
 	add	AL,#H'0001
 	st	AL,@H'fffc; addqi2+1/0 peephole
@@ -9304,68 +6069,7 @@ _sppb_initialising_state_handler:
 ?L7:
 ?LBE_sppb_initialising_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC4:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'69
-	dc	H'6E
-	dc	H'69
-	dc	H'74
-	dc	H'69
-	dc	H'61
-	dc	H'6C
-	dc	H'69
-	dc	H'73
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'49
-	dc	H'54
-	dc	H'5F
-	dc	H'43
-	dc	H'46
-	dc	H'4D
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC5 .
-;# import ?LC5 .
 ;# end scan referenced symbols
 _sppb_ready_state_enter:
 	enterl	#2
@@ -9373,84 +6077,18 @@ _sppb_ready_state_enter:
 	bge ?LBB_sppb_ready_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_ready_state_enter:
-	ld	AL,#(?LC5)
-	bsr	$_puts
 	bsr	$_update_indication
 ?LBE_sppb_ready_state_enter:
 	leavel	#2
-	.SEG	CONST
-?LC5:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'61
-	dc	H'64
-	dc	H'79
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC6 .
-;# import ?LC6 .
 ;# end scan referenced symbols
 _sppb_ready_state_exit:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_sppb_ready_state_exit ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_sppb_ready_state_exit:
-	ld	AL,#(?LC6)
-	bsr	$_puts
 ?LBE_sppb_ready_state_exit:
-	leavel	#2
-	.SEG	CONST
-?LC6:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'61
-	dc	H'64
-	dc	H'79
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC7 .
-;# import ?LC7 .
-.IMPORT _sppb_ready_state_exit 0 ; (Non-const ref)
+.IMPORT _sppb_ready_state_exit 1 ; (Const ref)
 .IMPORT _setSppState 0 ; (Non-const ref)
 .IMPORT _sppb_scan_state_enter 0 ; (Non-const ref)
 ;# end scan referenced symbols
@@ -9462,8 +6100,6 @@ _sppb_ready_state_handler:
 ?LBB_sppb_ready_state_handler:
 	cmp	AH,#H'4101
 	bne	?L21
-	ld	AL,#(?LC7)
-	bsr	$_puts
 	ld	X,@(H'0002,Y)
 	st	X,@H'fffc
 	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
@@ -9481,73 +6117,7 @@ _sppb_ready_state_handler:
 ?L18:
 ?LBE_sppb_ready_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC7:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'72
-	dc	H'65
-	dc	H'61
-	dc	H'64
-	dc	H'79
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'5F
-	dc	H'53
-	dc	H'57
-	dc	H'49
-	dc	H'54
-	dc	H'43
-	dc	H'48
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4F
-	dc	H'4E
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC8 .
-;# import ?LC8 .
 .IMPORT $_ConnectionSmRegisterIncomingService 0 ; (Non-const ref)
 .IMPORT $_ConnectionWriteClassOfDevice 0 ; (Non-const ref)
 .IMPORT $_ConnectionWriteInquiryscanActivity 0 ; (Non-const ref)
@@ -9561,8 +6131,6 @@ _sppb_scan_state_enter:
 	bge ?LBB_sppb_scan_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_scan_state_enter:
-	ld	AL,#(?LC8)
-	bsr	$_puts
 	st	AL,@H'ffff
 	ld	AL,#H'0000
 	st	AL,@(0,Y)
@@ -9620,36 +6188,7 @@ _sppb_scan_state_enter:
 	bsr	$_update_indication
 ?LBE_sppb_scan_state_enter:
 	leavel	#5
-	.SEG	CONST
-?LC8:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC9 .
-;# import ?LC9 .
 .IMPORT $_MessageCancelAll 0 ; (Non-const ref)
 ;# end scan referenced symbols
 _sppb_scan_state_exit:
@@ -9658,8 +6197,6 @@ _sppb_scan_state_exit:
 	bge ?LBB_sppb_scan_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_scan_state_exit:
-	ld	AL,#(?LC9)
-	bsr	$_puts
 	ld	AL,#H'0000
 	bsr	$_ConnectionWriteScanEnable
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
@@ -9672,45 +6209,11 @@ _sppb_scan_state_exit:
 ?L28:
 ?LBE_sppb_scan_state_exit:
 	leavel	#2
-	.SEG	CONST
-?LC9:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC10 .
-;# import ?LC10 .
 .IMPORT $_sppDevAuthoriseConnectInd 0 ; (Non-const ref)
-;# import ?LC11 .
-;# import ?LC11 .
 .IMPORT $_SppDisconnect 0 ; (Non-const ref)
 .IMPORT _sppb_scan_state_exit 0 ; (Non-const ref)
 .IMPORT _sppb_connected_state_enter 0 ; (Non-const ref)
-;# import ?LC12 .
-;# import ?LC12 .
-;# import ?LC13 .
-;# import ?LC13 .
 ;# end scan referenced symbols
 _sppb_scan_state_handler:
 	enterl	#2
@@ -9718,6 +6221,10 @@ _sppb_scan_state_handler:
 	bge ?LBB_sppb_scan_state_handler ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_scan_state_handler:
+	st	AL,@H'ffff
+	ld	AL,@(H'0002,Y)
+	st	AL,@H'fff8
+	ld	AL,@H'ffff
 ?LBB3:
 	cmp	AH,#H'4102
 	beq	?L43
@@ -9731,53 +6238,49 @@ _sppb_scan_state_handler:
 	beq	?L36
 	cmp	AH,#H'6F02
 	bne	?L31
-	ld	AL,#(?LC10)
-	bsr	$_puts
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_sppb+(11)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
 	bne	?L31
 	ld	AL,#(_sppb)
-	ld	AH,@(H'0002,Y)
+	ld	AH,@H'fff8
 	bsr	$_sppDevAuthoriseConnectInd
 	ld	AL,#H'0001
 	bra	(?L47)
 ?L36:
-	ld	AL,#(?LC11)
-	bsr	$_puts
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_sppb+(11)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	cmp	AL,#H'0000
 	bne	?L37
-	ld	AL,@(H'0002,Y)
 ?LBB4:
-	add	AL,#H'0001
-	st	AL,@H'fffc
+	ld	X,@H'fff8
+	add	X,#H'0001
+	st	X,@H'fffc; addqi2+1/0 peephole
 	bsr	$dofetch_AL
 	cmp	AL,#H'0000
 	bne	?L31
-	ld	X,@(H'0002,Y)
+	ld	X,@H'fff8
 	st	X,@H'fffc
 	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
 	bsr	$_SppDisconnect
 ?LBE4:
 	bra	(?L31)
 ?L37:
-	ld	AL,@(H'0002,Y)
 ?LBB5:
-	add	AL,#H'0001
-	st	AL,@H'fffc
+	ld	X,@H'fff8
+	add	X,#H'0001
+	st	X,@H'fffc; addqi2+1/0 peephole
 	bsr	$dofetch_AL
 	cmp	AL,#H'0000
 	bne	?L40
-	ld	X,@(H'0002,Y)
+	ld	X,@H'fff8
 	st	X,@H'fffc
 	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(12)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	AL,@H'fffc
-	add	AL,#H'0002
-	st	AL,@H'fffc
+	ld	X,@H'fff8
+	add	X,#H'0002
+	st	X,@H'fffc; addqi2+1/0 peephole
 	bsr	$dofetch_AL
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(13)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
@@ -9795,8 +6298,6 @@ _sppb_scan_state_handler:
 ?LBE5:
 	bra	(?L31)
 ?L42:
-	ld	AL,#(?LC12)
-	bsr	$_puts
 	ld	AL,#H'0002
 	bsr	$_ConnectionWriteScanEnable
 	ld	AL,#H'0000
@@ -9804,8 +6305,6 @@ _sppb_scan_state_handler:
 	st	AL,@(_sppb+(10)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bra	(?L31)
 ?L43:
-	ld	AL,#(?LC13)
-	bsr	$_puts
 	bsr	_sppb_scan_state_exit
 	ld	AL,#H'0001
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
@@ -9815,241 +6314,7 @@ _sppb_scan_state_handler:
 ?LBE3:
 ?LBE_sppb_scan_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC10:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'5F
-	dc	H'43
-	dc	H'4F
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'43
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC11:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'5F
-	dc	H'43
-	dc	H'4F
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'43
-	dc	H'54
-	dc	H'5F
-	dc	H'43
-	dc	H'46
-	dc	H'4D
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'20
-	dc	H'00
-?LC12:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'42
-	dc	H'5F
-	dc	H'50
-	dc	H'41
-	dc	H'49
-	dc	H'52
-	dc	H'41
-	dc	H'42
-	dc	H'4C
-	dc	H'45
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC13:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'73
-	dc	H'63
-	dc	H'61
-	dc	H'6E
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'5F
-	dc	H'53
-	dc	H'57
-	dc	H'49
-	dc	H'54
-	dc	H'43
-	dc	H'48
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4F
-	dc	H'46
-	dc	H'46
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC14 .
-;# import ?LC14 .
 .IMPORT $_StreamSourceFromSink 0 ; (Non-const ref)
 .IMPORT $_StreamConnectDispose 0 ; (Non-const ref)
 ;# end scan referenced symbols
@@ -10060,8 +6325,6 @@ _sppb_connected_state_enter:
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_connected_state_enter:
 ?LBB6:
-	ld	AL,#(?LC14)
-	bsr	$_puts
 	bsr	$_update_indication
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_sppb+(13)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
@@ -10070,43 +6333,9 @@ _sppb_connected_state_enter:
 ?LBE6:
 ?LBE_sppb_connected_state_enter:
 	leavel	#2
-	.SEG	CONST
-?LC14:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'65
-	dc	H'64
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;.stabn	192,0,0,?LBB6
 ;.stabn	224,0,0,?LBE6
 ;# begin scan referenced symbols
-;# import ?LC15 .
-;# import ?LC15 .
 ;# end scan referenced symbols
 _sppb_connected_state_exit:
 	enterl	#2
@@ -10114,54 +6343,17 @@ _sppb_connected_state_exit:
 	bge ?LBB_sppb_connected_state_exit ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_connected_state_exit:
-	ld	AL,#(?LC15)
-	bsr	$_puts
 	ld	AL,#H'0000
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(13)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 ?LBE_sppb_connected_state_exit:
 	leavel	#2
-	.SEG	CONST
-?LC15:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'65
-	dc	H'64
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC16 .
-;# import ?LC16 .
 .IMPORT _sppb_connected_state_exit 0 ; (Non-const ref)
-;# import ?LC17 .
-;# import ?LC17 .
 .IMPORT _sppb_disconnecting_state_enter 0 ; (Non-const ref)
+.IMPORT $_ledsPlay 0 ; (Non-const ref)
 .IMPORT $_SinkIsValid 0 ; (Non-const ref)
 .IMPORT $_SinkSlack 0 ; (Non-const ref)
-.IMPORT $_ledsPlay 0 ; (Non-const ref)
 .IMPORT $_SinkClaim 0 ; (Non-const ref)
 .IMPORT $_SinkMap 0 ; (Non-const ref)
 .IMPORT $_memcpy 0 ; (Non-const ref)
@@ -10184,24 +6376,22 @@ _sppb_connected_state_handler:
 ?L66:
 	cmp	AH,#H'6F05
 	bne	?L64
-	ld	AL,#(?LC16)
-	bsr	$_puts
 	bsr	_sppb_connected_state_exit
 	ld	AL,#H'0002
 	bsr	_setSppState
 	bsr	_sppb_scan_state_enter
 	bra	(?L58)
 ?L61:
-	ld	AL,#(?LC17)
-	bsr	$_puts
 	bsr	_sppb_connected_state_exit
 	ld	AL,#H'0004
 	bsr	_setSppState
 	bsr	_sppb_disconnecting_state_enter
 	bra	(?L58)
 ?L62:
-	ld	AL,@(H'0005,Y)
 ?LBB8:
+	ld	AL,#H'0011
+	bsr	$_ledsPlay
+	ld	AL,@(H'0005,Y)
 	cmp	AL,#H'0000
 	beq	?L58
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
@@ -10221,12 +6411,7 @@ _sppb_connected_state_handler:
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_sppb+(13)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	st	AL,@(H'0002,Y)
-	ld	AL,#H'0014
-	bsr	$_ledsPlay
-	ld	AL,@(H'0002,Y)
-	ld	X,@(H'0005,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AH; movqi_fetch_general+1 peephole
+	bsr	$dofetch_AH
 	bsr	$_SinkClaim
 	st	AL,@(H'0001,Y)
 	ld	AL,@(H'0002,Y)
@@ -10260,140 +6445,9 @@ _sppb_connected_state_handler:
 ?LBE7:
 ?LBE_sppb_connected_state_handler:
 	leavel	#5
-	.SEG	CONST
-?LC16:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'65
-	dc	H'64
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'5F
-	dc	H'44
-	dc	H'49
-	dc	H'53
-	dc	H'43
-	dc	H'4F
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'43
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-?LC17:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'65
-	dc	H'64
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'48
-	dc	H'41
-	dc	H'4C
-	dc	H'5F
-	dc	H'4D
-	dc	H'45
-	dc	H'53
-	dc	H'53
-	dc	H'41
-	dc	H'47
-	dc	H'45
-	dc	H'5F
-	dc	H'53
-	dc	H'57
-	dc	H'49
-	dc	H'54
-	dc	H'43
-	dc	H'48
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'4F
-	dc	H'46
-	dc	H'46
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;.stabn	192,0,0,?LBB9
 ;.stabn	224,0,0,?LBE9
 ;# begin scan referenced symbols
-;# import ?LC18 .
-;# import ?LC18 .
 ;# end scan referenced symbols
 _sppb_disconnecting_state_enter:
 	enterl	#2
@@ -10401,103 +6455,21 @@ _sppb_disconnecting_state_enter:
 	bge ?LBB_sppb_disconnecting_state_enter ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_sppb_disconnecting_state_enter:
-	ld	AL,#(?LC18)
-	bsr	$_puts
 	bsr	$_update_indication
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	ld	AL,@(_sppb+(12)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	$_SppDisconnect
 ?LBE_sppb_disconnecting_state_enter:
 	leavel	#2
-	.SEG	CONST
-?LC18:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'64
-	dc	H'69
-	dc	H'73
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'6E
-	dc	H'74
-	dc	H'65
-	dc	H'72
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
-;# import ?LC19 .
-;# import ?LC19 .
 ;# end scan referenced symbols
 _sppb_disconnecting_state_exit:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_sppb_disconnecting_state_exit ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
+; leaf function with empty stack frame
 ?LBB_sppb_disconnecting_state_exit:
-	ld	AL,#(?LC19)
-	bsr	$_puts
 ?LBE_sppb_disconnecting_state_exit:
-	leavel	#2
-	.SEG	CONST
-?LC19:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'64
-	dc	H'69
-	dc	H'73
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'65
-	dc	H'78
-	dc	H'69
-	dc	H'74
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
+	bra	0,X
 ;# begin scan referenced symbols
-;# import ?LC20 .
-;# import ?LC20 .
-.IMPORT _sppb_disconnecting_state_exit 0 ; (Non-const ref)
+.IMPORT _sppb_disconnecting_state_exit 1 ; (Const ref)
 ;# end scan referenced symbols
 _sppb_disconnecting_state_handler:
 	enterl	#2
@@ -10507,8 +6479,6 @@ _sppb_disconnecting_state_handler:
 ?LBB_sppb_disconnecting_state_handler:
 	cmp	AH,#H'6F05
 	bne	?L78
-	ld	AL,#(?LC20)
-	bsr	$_puts
 	bsr	_sppb_disconnecting_state_exit
 	ld	AL,#H'0001
 	bsr	_setSppState
@@ -10521,72 +6491,6 @@ _sppb_disconnecting_state_handler:
 ?L75:
 ?LBE_sppb_disconnecting_state_handler:
 	leavel	#2
-	.SEG	CONST
-?LC20:
-	dc	H'73
-	dc	H'70
-	dc	H'70
-	dc	H'20
-	dc	H'64
-	dc	H'69
-	dc	H'73
-	dc	H'63
-	dc	H'6F
-	dc	H'6E
-	dc	H'6E
-	dc	H'65
-	dc	H'63
-	dc	H'74
-	dc	H'69
-	dc	H'6E
-	dc	H'67
-	dc	H'20
-	dc	H'73
-	dc	H'74
-	dc	H'61
-	dc	H'74
-	dc	H'65
-	dc	H'2C
-	dc	H'20
-	dc	H'53
-	dc	H'50
-	dc	H'50
-	dc	H'5F
-	dc	H'44
-	dc	H'49
-	dc	H'53
-	dc	H'43
-	dc	H'4F
-	dc	H'4E
-	dc	H'4E
-	dc	H'45
-	dc	H'43
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'20
-	dc	H'6D
-	dc	H'65
-	dc	H'73
-	dc	H'73
-	dc	H'61
-	dc	H'67
-	dc	H'65
-	dc	H'20
-	dc	H'61
-	dc	H'72
-	dc	H'72
-	dc	H'69
-	dc	H'76
-	dc	H'65
-	dc	H'64
-	dc	H'2E
-	dc	H'2E
-	dc	H'2E
-	dc	H'00
-	.CODE
 ;# begin scan referenced symbols
 .IMPORT _cl_handler 0 ; (Non-const ref)
 .IMPORT _sppb_initialising_state_handler 0 ; (Non-const ref)
@@ -10677,44 +6581,22 @@ _sppb_handler:
 ;.stabn	192,0,0,?LBB10
 ;.stabn	224,0,0,?LBE10
 ;# begin scan referenced symbols
-;# import ?LC21 .
-;# import ?LC21 .
 .IMPORT _sppDevInit 0 ; (Non-const ref)
-;# import ?LC22 .
-;# import ?LC22 .
-;# import ?LC23 .
-;# import ?LC23 .
-;# import ?LC24 .
-;# import ?LC24 .
-;# import ?LC25 .
-;# import ?LC25 .
-;# import ?LC26 .
-;# import ?LC26 .
 .IMPORT $_sppDevHandlePinCodeRequest 0 ; (Non-const ref)
-;# import ?LC26 .
-;# import ?LC26 .
 .IMPORT $_sppDevAuthoriseResponse 0 ; (Non-const ref)
-;# import ?LC27 .
-;# import ?LC27 .
 .IMPORT $_sppDevSetTrustLevel 0 ; (Non-const ref)
-;# import ?LC28 .
-;# import ?LC28 .
-;# import ?LC29 .
-;# import ?LC29 .
-;# import ?LC30 .
-;# import ?LC30 .
 .IMPORT $_ConnectionSmIoCapabilityResponse 0 ; (Non-const ref)
-;# import ?LC31 .
-;# import ?LC31 .
-;# import ?LC32 .
-;# import ?LC32 .
 ;# end scan referenced symbols
 _cl_handler:
-	enterl	#9
+	enterl	#7
 	cmp	Y,@(H'FFF3) ; Inserted for native exec
 	bge ?LBB_cl_handler ; Inserted for native exec
 	bsr	$stack_overflow   ; Inserted for native exec
 ?LBB_cl_handler:
+	st	AL,@H'ffff
+	ld	AL,@(H'0007,Y)
+	st	AL,@H'fff8
+	ld	AL,@H'ffff
 ?LBB11:
 	add	AH,#-H'7000
 	cmp	AH,#(H'0001+H'003A)
@@ -10733,8 +6615,6 @@ _cl_handler:
 	dc	lwrd(?L94-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
-	dc	lwrd(?L97-?JT109)
-	dc	lwrd(?L98-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
@@ -10754,8 +6634,10 @@ _cl_handler:
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
-	dc	lwrd(?L99-?JT109)
-	dc	lwrd(?L100-?JT109)
+	dc	lwrd(?L92-?JT109)
+	dc	lwrd(?L92-?JT109)
+	dc	lwrd(?L92-?JT109)
+	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L103-?JT109)
 	dc	lwrd(?L92-?JT109)
@@ -10769,7 +6651,6 @@ _cl_handler:
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L102-?JT109)
 	dc	lwrd(?L92-?JT109)
-	dc	lwrd(?L104-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
@@ -10788,12 +6669,11 @@ _cl_handler:
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
 	dc	lwrd(?L92-?JT109)
-	dc	lwrd(?L105-?JT109)
+	dc	lwrd(?L92-?JT109)
+	dc	lwrd(?L92-?JT109)
 	.CODE
 ?L94:
-	ld	AL,#(?LC21)
-	bsr	$_puts
-	ld	X,@(H'0009,Y)
+	ld	X,@H'fff8
 	st	X,@H'fffc
 	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
 	cmp	AL,#H'0000
@@ -10803,47 +6683,19 @@ _cl_handler:
 	st	AL,@(_sppb+(3)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 	bsr	_sppDevInit
 	bra	(?L92)
-?L97:
-	ld	AL,#(?LC22)
-	bra	(?L110)
-?L98:
-	ld	AL,#(?LC23)
-	bra	(?L110)
-?L99:
-	ld	AL,#(?LC24)
-	bra	(?L110)
-?L100:
-	ld	AL,#(?LC25)
-	bra	(?L110)
 ?L101:
-	ld	AL,#(?LC26)
-	bsr	$_puts
-	ld	AL,@(H'0009,Y)
+	ld	AL,@H'fff8
 	bsr	$_sppDevHandlePinCodeRequest
 	bra	(?L92)
 ?L102:
-	ld	AL,#(?LC26)
-	bsr	$_puts
-	ld	AL,@(H'0009,Y)
+	ld	AL,@H'fff8
 	bsr	$_sppDevAuthoriseResponse
 	bra	(?L92)
 ?L103:
-	ld	AL,#(?LC27)
-	bsr	$_puts
-	ld	AL,@(H'0009,Y)
+	ld	AL,@H'fff8
 	bsr	$_sppDevSetTrustLevel
 	bra	(?L92)
-?L104:
-	ld	AL,#(?LC28)
-	bra	(?L110)
-?L105:
-	ld	AL,#(?LC29)
-?L110:
-	bsr	$_puts
-	bra	(?L92)
 ?L106:
-	ld	AL,#(?LC30)
-	bsr	$_puts
 	st	AL,@H'ffff
 	ld	AL,#H'0000
 	st	AL,@(0,Y)
@@ -10868,387 +6720,34 @@ _cl_handler:
 	bra	(?L92)
 ?L107:
 ?LBB12:
-	ld	AL,#(?LC31)
-	bsr	$_puts
-	ld	X,@(H'0009,Y)
-	add	X,#H'0003
-	st	X,@(H'0005,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL
-	st	AL,@(0,Y)
-	ld	AL,@(H'0009,Y)
-	add	AL,#H'0002
-	st	AL,@(H'0006,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	st	AL,@(H'0001,Y)
-	ld	X,@(H'0009,Y)
-	st	X,@H'fffc
-	bsr	$dofetch32_AH; movhi_fetch_general+1 peephole
-	st	AH,@(H'0002,Y)
-	st	AL,@(H'0003,Y)
-	ld	AL,#(?LC32)
-	bsr	$_printf
-	ld	X,@(H'0009,Y)
+	ld	X,@H'fff8
 	st	X,@H'fffc
 	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(5)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	X,@H'fffc
+	ld	X,@H'fff8
 	add	X,#H'0001
-	st	X,@H'fffc
+	st	X,@H'fffc; addqi2+1/0 peephole
 	bsr	$dofetch_AL
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(6)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	X,@(H'0006,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
+	ld	X,@H'fff8
+	add	X,#H'0002
+	st	X,@H'fffc; addqi2+1/0 peephole
+	bsr	$dofetch_AL
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(7)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	X,@(H'0005,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
+	ld	X,@H'fff8
+	add	X,#H'0003
+	st	X,@H'fffc; addqi2+1/0 peephole
+	bsr	$dofetch_AL
 	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
 	st	AL,@(_sppb+(8)-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
 ?L92:
 ?LBE12:
 ?LBE11:
 ?LBE_cl_handler:
-	leavel	#9
-	.SEG	CONST
-?LC21:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'49
-	dc	H'54
-	dc	H'5F
-	dc	H'43
-	dc	H'46
-	dc	H'4D
-	dc	H'00
-?LC22:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'44
-	dc	H'4D
-	dc	H'5F
-	dc	H'4C
-	dc	H'49
-	dc	H'4E
-	dc	H'4B
-	dc	H'5F
-	dc	H'53
-	dc	H'55
-	dc	H'50
-	dc	H'45
-	dc	H'52
-	dc	H'56
-	dc	H'49
-	dc	H'53
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'54
-	dc	H'49
-	dc	H'4D
-	dc	H'45
-	dc	H'4F
-	dc	H'55
-	dc	H'54
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC23:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'44
-	dc	H'4D
-	dc	H'5F
-	dc	H'53
-	dc	H'4E
-	dc	H'49
-	dc	H'46
-	dc	H'46
-	dc	H'5F
-	dc	H'53
-	dc	H'55
-	dc	H'42
-	dc	H'5F
-	dc	H'52
-	dc	H'41
-	dc	H'54
-	dc	H'49
-	dc	H'4E
-	dc	H'47
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC24:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'44
-	dc	H'4D
-	dc	H'5F
-	dc	H'41
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'4F
-	dc	H'50
-	dc	H'45
-	dc	H'4E
-	dc	H'45
-	dc	H'44
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC25:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'44
-	dc	H'4D
-	dc	H'5F
-	dc	H'41
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'43
-	dc	H'4C
-	dc	H'4F
-	dc	H'53
-	dc	H'45
-	dc	H'44
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC26:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'53
-	dc	H'4D
-	dc	H'5F
-	dc	H'50
-	dc	H'49
-	dc	H'4E
-	dc	H'5F
-	dc	H'43
-	dc	H'4F
-	dc	H'44
-	dc	H'45
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC27:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'53
-	dc	H'4D
-	dc	H'5F
-	dc	H'41
-	dc	H'55
-	dc	H'54
-	dc	H'48
-	dc	H'45
-	dc	H'4E
-	dc	H'54
-	dc	H'49
-	dc	H'43
-	dc	H'41
-	dc	H'54
-	dc	H'45
-	dc	H'5F
-	dc	H'43
-	dc	H'46
-	dc	H'4D
-	dc	H'00
-?LC28:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'53
-	dc	H'4D
-	dc	H'5F
-	dc	H'45
-	dc	H'4E
-	dc	H'43
-	dc	H'52
-	dc	H'59
-	dc	H'50
-	dc	H'54
-	dc	H'49
-	dc	H'4F
-	dc	H'4E
-	dc	H'5F
-	dc	H'4B
-	dc	H'45
-	dc	H'59
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'46
-	dc	H'52
-	dc	H'45
-	dc	H'53
-	dc	H'48
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC29:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'44
-	dc	H'4D
-	dc	H'5F
-	dc	H'4C
-	dc	H'49
-	dc	H'4E
-	dc	H'4B
-	dc	H'5F
-	dc	H'50
-	dc	H'4F
-	dc	H'4C
-	dc	H'49
-	dc	H'43
-	dc	H'59
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC30:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'53
-	dc	H'4D
-	dc	H'5F
-	dc	H'49
-	dc	H'4F
-	dc	H'5F
-	dc	H'43
-	dc	H'41
-	dc	H'50
-	dc	H'41
-	dc	H'42
-	dc	H'49
-	dc	H'4C
-	dc	H'49
-	dc	H'54
-	dc	H'59
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'51
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC31:
-	dc	H'43
-	dc	H'4C
-	dc	H'5F
-	dc	H'53
-	dc	H'4D
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'4D
-	dc	H'4F
-	dc	H'54
-	dc	H'45
-	dc	H'5F
-	dc	H'49
-	dc	H'4F
-	dc	H'5F
-	dc	H'43
-	dc	H'41
-	dc	H'50
-	dc	H'41
-	dc	H'42
-	dc	H'49
-	dc	H'4C
-	dc	H'49
-	dc	H'54
-	dc	H'59
-	dc	H'5F
-	dc	H'52
-	dc	H'45
-	dc	H'51
-	dc	H'5F
-	dc	H'49
-	dc	H'4E
-	dc	H'44
-	dc	H'00
-?LC32:
-	dc	H'09
-	dc	H'20
-	dc	H'52
-	dc	H'65
-	dc	H'6D
-	dc	H'6F
-	dc	H'74
-	dc	H'65
-	dc	H'20
-	dc	H'41
-	dc	H'64
-	dc	H'64
-	dc	H'72
-	dc	H'3A
-	dc	H'20
-	dc	H'6E
-	dc	H'61
-	dc	H'70
-	dc	H'20
-	dc	H'25
-	dc	H'30
-	dc	H'34
-	dc	H'78
-	dc	H'20
-	dc	H'75
-	dc	H'61
-	dc	H'70
-	dc	H'20
-	dc	H'25
-	dc	H'30
-	dc	H'32
-	dc	H'78
-	dc	H'20
-	dc	H'6C
-	dc	H'61
-	dc	H'70
-	dc	H'20
-	dc	H'25
-	dc	H'30
-	dc	H'38
-	dc	H'6C
-	dc	H'78
-	dc	H'0A
-	dc	H'00
-	.CODE
+	leavel	#7
 ;# begin scan referenced symbols
 .IMPORT _sppb_handler 0 ; (Non-const ref)
 .IMPORT _sppb_initialising_state_enter 0 ; (Non-const ref)
@@ -11287,30 +6786,28 @@ _sppb:
 	DS	15
 	ENDMOD
 
-;# Function pattern *movqi_set_rsvd_reg used[0] = 6 total = 6
-;# Function pattern *movqi_fetch_general used[0] = 6 total = 6
-;# Function pattern *movqi_store_y_relative used[0] = 20 used[1] = 6 total = 26
-;# Function pattern *movqi_fetch_y_relative used[0] = 15 total = 15
-;# Function pattern *movhi_store_y_relative used[0] = 1 used[2] = 2 total = 3
+;# Function pattern *movqi_fetch_general used[0] = 1 total = 1
+;# Function pattern *movqi_store_y_relative used[0] = 11 used[1] = 6 total = 17
+;# Function pattern *movqi_fetch_y_relative used[0] = 9 used[1] = 2 total = 11
+;# Function pattern *movhi_store_y_relative used[2] = 2 total = 2
 ;# Function pattern *movqi_store_general used[0] = 3 total = 3
-;# Function pattern *movqi_fetch_symbol_ref_with_offset used[0] = 15 total = 15
+;# Function pattern *movqi_fetch_symbol_ref_with_offset used[0] = 14 total = 14
 ;# Function pattern *movqi_store_symbol_ref_with_offset used[0] = 25 total = 25
 ;# Function pattern *movhi_store_symbol_ref used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 95 total = 95
+;# Function pattern *movqi2 used[0] = 58 total = 58
 ;# Function pattern *movqi2b used[0] = 1 used[1] = 3 total = 4
 ;# Function pattern *movhi used[2] = 1 total = 1
 ;# Function pattern *addqi4-withytranslation used[1] = 3 total = 3
 ;# Function pattern *addqi0-framep used[0] = 1 total = 1
-;# Function pattern *addqi2 used[0] = 8 used[3] = 1 total = 9
+;# Function pattern *addqi2 used[0] = 2 used[3] = 1 total = 3
 ;# Function pattern *andqi3 used[0] = 1 total = 1
-;# Function pattern jump used[0] = 30 total = 30
+;# Function pattern jump used[0] = 24 total = 24
 ;# Function pattern *call1 used[0] = 55 total = 55
-;# Function pattern *call_value1 used[0] = 44 total = 44
+;# Function pattern *call_value1 used[0] = 15 total = 15
 ;# Single pattern tablejump used = 2
-;# Function pattern addsi3+1 used[0] = 11 total = 11
-;# Function pattern addsi3+3 used[0] = 1 total = 1
+;# Function pattern addsi3+1 used[0] = 8 total = 8
 ;# Function pattern addhi3-1 used[0] = 2 total = 2
-;# Function pattern subhi3+1 used[0] = 3 total = 3
+;# Function pattern subhi3+1 used[0] = 9 total = 9
 ;# Function pattern extendhfsf2+2 used[1] = 4 total = 4
 ;# Function pattern extendhfsf2+3 used[0] = 22 total = 22
 	MODULE	ConnectionSmSetTrustLevel
@@ -47660,147 +43157,6 @@ $_memcmp:
 ;# Function pattern addsi3+1 used[0] = 4 total = 4
 ;# Function pattern extendhfsf2+3 used[0] = 4 total = 4
 ;# Function pattern extendhfsf2+6 used[0] = 2 total = 2
-	MODULE	printf
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-.IMPORT $___print 0 ; (Non-const ref)
-;# end scan referenced symbols
-	.CODE
-$_printf:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printf ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printf:
-	ld	AH,@$XAP_AL
-?LBB2:
-	ld	AL,@$XAP_UY
-	sub	AL,@(^crt0.SHARED_STACK_LOW_LIMIT)
-	add	AL,#H'0001+^crt0.NATIVE_STACK_LOGICAL_ADDRESS + ^crt0.SHARED_STACK_COVER + ^crt0.SHARED_MMU_WORST_CASE_STACK
-	st	AL,@H'fffc
-	ld	AL,@$XAP_UY
-	sub	AL,@(^crt0.SHARED_STACK_LOW_LIMIT)
-	add	AL,#H'0004+^crt0.NATIVE_STACK_LOGICAL_ADDRESS + ^crt0.SHARED_STACK_COVER + ^crt0.SHARED_MMU_WORST_CASE_STACK
-	bsr	$dostore_AL
-	st	AL,@(0,Y)
-	ld	AL,#H'0000
-	bsr	$___print
-?LBE2:
-?LBE_printf:
-	leavel	#4
-;.stabn	192,0,0,?LBB2
-;.stabn	224,0,0,?LBE2
-	ENDMOD
-
-;# Function pattern *movqi_set_rsvd_reg used[0] = 1 total = 1
-;# Function pattern *movqi_store_y_relative used[0] = 1 total = 1
-;# Function pattern *movqi_store_general used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 1 total = 1
-;# Function pattern *movqi2b used[0] = 1 total = 1
-;# Function pattern *addqi0-framep used[0] = 2 total = 2
-;# Function pattern *call_value1 used[0] = 1 total = 1
-	MODULE	puts
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-.IMPORT $_putchar 0 ; (Non-const ref)
-;# end scan referenced symbols
-	.CODE
-$_puts:
-	enterl	#3
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_puts ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_puts:
-	st	AL,@(0,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	cmp	AL,#H'0000
-	beq	?L7
-?L5:
-	ld	X,@(0,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	ld	AH,#H'0001
-	add	AH,@H'fffc
-	st	AH,@(0,Y)
-	bsr	$_putchar
-	ld	X,@(0,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0000
-	bne	?L5
-?L7:
-	ld	AL,#H'000A
-	bsr	$_putchar
-	ld	AL,#H'0001
-?LBE_puts:
-	leavel	#3
-	ENDMOD
-
-;# Function pattern *movqi_set_rsvd_reg used[0] = 1 total = 1
-;# Function pattern *movqi_fetch_general used[0] = 1 total = 1
-;# Function pattern *movqi_store_y_relative used[0] = 2 total = 2
-;# Function pattern *movqi2 used[0] = 2 total = 2
-;# Function pattern *addqi2 used[2] = 1 total = 1
-;# Function pattern *call_value1 used[0] = 2 total = 2
-;# Function pattern addsi3+1 used[0] = 2 total = 2
-;# Function pattern extendhfsf2+3 used[0] = 2 total = 2
 	MODULE	_init
 	.LARGE
 ; Native execution
@@ -48230,1090 +43586,6 @@ $_SinkIsValid:
 ;# Function pattern *movqi2b used[0] = 1 total = 1
 ;# Function pattern *call_value1 used[0] = 1 total = 1
 ;# Function pattern extendhfsf2+3 used[0] = 1 total = 1
-	MODULE	print
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-.IMPORT $_VmPutChar 0 ; (Non-const ref)
-.IMPORT _count 0 ; (Non-const ref)
-;# end scan referenced symbols
-	.CODE
-_printChar:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printChar ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printChar:
-	st	AL,@H'fff8
-?LBB2:
-	nadd	AL,#H'0000
-	cmp	AL,#(H'0001+H'000F)
-	bcc	?L2
-	ld	AL,@H'fff8
-	nadd	AL,#H'0000
-	bsr	$_VmPutChar
-	bra	(?L3)
-?L2:
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	ld	AL,@(_count-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	X,@H'fff8
-	add	X,@$XAP_AL
-	st	X,@H'fffc; addqi2+3 peephole
-	bsr	$dostore_AH
-?L3:
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	ld	AL,@(_count-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	add	AL,#H'0001
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	st	AL,@(_count-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-?LBE2:
-?LBE_printChar:
-	leavel	#2
-;.stabn	192,0,0,?LBB2
-;.stabn	224,0,0,?LBE2
-;# begin scan referenced symbols
-.IMPORT _printChar 0 ; (Non-const ref)
-;# end scan referenced symbols
-_printString:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printString ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printString:
-	st	AL,@(0,Y)
-	st	AH,@(H'0001,Y)
-	st	AH,@H'fffc
-	bsr	$dofetch_AL
-	cmp	AL,#H'0000
-	beq	?L10
-?L8:
-	ld	X,@(H'0001,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AH; movqi_fetch_general+1 peephole
-	ld	AL,#H'0001
-	add	AL,@H'fffc
-	st	AL,@(H'0001,Y)
-	ld	AL,@(0,Y)
-	bsr	_printChar
-	ld	X,@(H'0001,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0000
-	bne	?L8
-?L10:
-?LBE_printString:
-	leavel	#4
-	.SEG	CONST
-_digits:
-	dc	H'30
-	dc	H'31
-	dc	H'32
-	dc	H'33
-	dc	H'34
-	dc	H'35
-	dc	H'36
-	dc	H'37
-	dc	H'38
-	dc	H'39
-	dc	H'61
-	dc	H'62
-	dc	H'63
-	dc	H'64
-	dc	H'65
-	dc	H'66
-;# begin scan referenced symbols
-;# end scan referenced symbols
-	.CODE
-_printUnsigned8:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printUnsigned8 ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printUnsigned8:
-	st	AL,@(0,Y)
-?LBB3:
-	ld	AH,#H'0000
-	st	AH,@(H'0001,Y)
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	cmp	AH,#hwrd(H'0001+H'0007)
-	bcs	?L18
-	bne	?L23
-	cmp	AL,#lwrd(H'0001+H'0007)
-	bcs	?L18
-?L23:
-?L17:
-	ld	AL,@(H'0001,Y)
-	add	AL,#H'0003
-	st	AL,@(H'0001,Y)
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	lsr	@(H'0001,Y)
-	cmp	AH,#hwrd(H'0001+H'0007)
-	bcs	?L24
-	bne	?L17
-	cmp	AL,#lwrd(H'0001+H'0007)
-	bcc	?L17
-?L24:
-?L18:
-?LBB4:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	lsr	@(H'0001,Y)
-	ld	AH,@$XAP_AL
-	and	AH,#H'0007
-	add	AH,#H'0030
-	ld	AL,@(0,Y)
-	bsr	_printChar
-	ld	AH,@(H'0001,Y)
-	add	AH,#-H'0003
-	st	AH,@(H'0001,Y)
-?LBE4:
-	cmp	AH,#H'0000
-	bge	?L18
-?LBE3:
-?LBE_printUnsigned8:
-	leavel	#4
-;.stabn	192,0,0,?LBB3
-;.stabn	192,0,0,?LBB4
-;.stabn	224,0,0,?LBE4
-;.stabn	224,0,0,?LBE3
-;# begin scan referenced symbols
-;# end scan referenced symbols
-_printUnsigned10:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printUnsigned10 ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printUnsigned10:
-	st	AL,@(0,Y)
-?LBB5:
-	ld	AH,#H'0000
-	st	AH,@(H'0001,Y)
-?LBB6:
-	ld	X,#H'0000
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	cmp	AH,#hwrd(H'0001+H'3B9AC9FF)
-	bcs	?L82
-	bne	?L83
-	cmp	AL,#lwrd(H'0001+H'3B9AC9FF)
-	bcs	?L82
-?L83:
-?L31:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	add	AL,#H'3600
-	addc	AH,#H'C465
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	add	X,#H'0001
-	cmp	AH,#hwrd(H'0001+H'3B9AC9FF)
-	bcs	?L84
-	bne	?L31
-	cmp	AL,#lwrd(H'0001+H'3B9AC9FF)
-	bcc	?L31
-?L84:
-?L82:
-	ld	AL,@(H'0001,Y)
-	or	AL,@$XAP_UXL
-	st	AL,@(H'0001,Y)
-	cmp	AL,#H'0000
-	beq	?L27
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L27:
-?LBE6:
-?LBB7:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L34:
-	add	X,#H'0001
-	add	AL,#H'1F00
-	addc	AH,#H'FA0A
-	cmp	AH,#H'0000
-	bpl	?L34
-	add	AL,#H'E100
-	addc	AH,#H'05F5
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AH,@(H'0001,Y)
-	or	AH,@$XAP_UXL
-	st	AH,@(H'0001,Y)
-	cmp	AH,#H'0000
-	beq	?L33
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L33:
-?LBE7:
-?LBB8:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L40:
-	add	X,#H'0001
-	add	AL,#H'6980
-	addc	AH,#H'FF67
-	cmp	AH,#H'0000
-	bpl	?L40
-	add	AL,#H'9680
-	addc	AH,#H'0098
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AL,@(H'0001,Y)
-	or	AL,@$XAP_UXL
-	st	AL,@(H'0001,Y)
-	cmp	AL,#H'0000
-	beq	?L39
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L39:
-?LBE8:
-?LBB9:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L46:
-	add	X,#H'0001
-	add	AL,#H'BDC0
-	addc	AH,#H'FFF0
-	cmp	AH,#H'0000
-	bpl	?L46
-	add	AL,#H'4240
-	addc	AH,#H'000F
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AH,@(H'0001,Y)
-	or	AH,@$XAP_UXL
-	st	AH,@(H'0001,Y)
-	cmp	AH,#H'0000
-	beq	?L45
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L45:
-?LBE9:
-?LBB10:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L52:
-	add	X,#H'0001
-	add	AL,#H'7960
-	addc	AH,#H'FFFE
-	cmp	AH,#H'0000
-	bpl	?L52
-	add	AL,#H'86A0
-	addc	AH,#H'0001
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AL,@(H'0001,Y)
-	or	AL,@$XAP_UXL
-	st	AL,@(H'0001,Y)
-	cmp	AL,#H'0000
-	beq	?L51
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L51:
-?LBE10:
-?LBB11:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L58:
-	add	X,#H'0001
-	add	AL,#H'D8F0
-	addc	AH,#H'FFFF
-	cmp	AH,#H'0000
-	bpl	?L58
-	add	AL,#H'2710
-	addc	AH,#H'0000
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AH,@(H'0001,Y)
-	or	AH,@$XAP_UXL
-	st	AH,@(H'0001,Y)
-	cmp	AH,#H'0000
-	beq	?L57
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L57:
-?LBE11:
-?LBB12:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L64:
-	add	X,#H'0001
-	add	AL,#H'FC18
-	addc	AH,#H'FFFF
-	cmp	AH,#H'0000
-	bpl	?L64
-	add	AL,#H'03E8
-	addc	AH,#H'0000
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AL,@(H'0001,Y)
-	or	AL,@$XAP_UXL
-	st	AL,@(H'0001,Y)
-	cmp	AL,#H'0000
-	beq	?L63
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L63:
-?LBE12:
-?LBB13:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L70:
-	add	X,#H'0001
-	add	AL,#H'FF9C
-	addc	AH,#H'FFFF
-	cmp	AH,#H'0000
-	bpl	?L70
-	add	AL,#H'0064
-	addc	AH,#H'0000
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AH,@(H'0001,Y)
-	or	AH,@$XAP_UXL
-	st	AH,@(H'0001,Y)
-	cmp	AH,#H'0000
-	beq	?L69
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L69:
-?LBE13:
-?LBB14:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	ld	X,#-H'0001
-?L76:
-	add	X,#H'0001
-	add	AL,#H'FFF6
-	addc	AH,#H'FFFF
-	cmp	AH,#H'0000
-	bpl	?L76
-	add	AL,#H'000A
-	addc	AH,#H'0000
-	st	AH,@(H'0004,Y)
-	st	AL,@(H'0005,Y)
-	ld	AL,@(H'0001,Y)
-	or	AL,@$XAP_UXL
-	cmp	AL,#H'0000
-	beq	?L75
-	ld	AH,#H'0030
-	add	AH,@$XAP_UXL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?L75:
-?LBE14:
-	ld	AH,@(H'0005,Y)
-	add	AH,#H'0030
-	ld	AL,@(0,Y)
-	bsr	_printChar
-?LBE5:
-?LBE_printUnsigned10:
-	leavel	#4
-;.stabn	192,0,0,?LBB5
-;.stabn	192,0,0,?LBB6
-;.stabn	224,0,0,?LBE6
-;.stabn	192,0,0,?LBB7
-;.stabn	224,0,0,?LBE7
-;.stabn	192,0,0,?LBB8
-;.stabn	224,0,0,?LBE8
-;.stabn	192,0,0,?LBB9
-;.stabn	224,0,0,?LBE9
-;.stabn	192,0,0,?LBB10
-;.stabn	224,0,0,?LBE10
-;.stabn	192,0,0,?LBB11
-;.stabn	224,0,0,?LBE11
-;.stabn	192,0,0,?LBB12
-;.stabn	224,0,0,?LBE12
-;.stabn	192,0,0,?LBB13
-;.stabn	224,0,0,?LBE13
-;.stabn	192,0,0,?LBB14
-;.stabn	224,0,0,?LBE14
-;.stabn	224,0,0,?LBE5
-;# begin scan referenced symbols
-.IMPORT _digits 1 ; (Const ref)
-;# end scan referenced symbols
-_printLowerUnsigned16:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printLowerUnsigned16 ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printLowerUnsigned16:
-	st	AL,@(0,Y)
-?LBB15:
-	ld	AH,#H'0000
-	st	AH,@(H'0001,Y)
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	cmp	AH,#hwrd(H'0001+H'000F)
-	bcs	?L107
-	bne	?L112
-	cmp	AL,#lwrd(H'0001+H'000F)
-	bcs	?L107
-?L112:
-?L106:
-	ld	AL,@(H'0001,Y)
-	add	AL,#H'0004
-	st	AL,@(H'0001,Y)
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	lsr	@(H'0001,Y)
-	cmp	AH,#hwrd(H'0001+H'000F)
-	bcs	?L113
-	bne	?L106
-	cmp	AL,#lwrd(H'0001+H'000F)
-	bcc	?L106
-?L113:
-?L107:
-?LBB16:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	lsr	@(H'0001,Y)
-	and	AL,#H'000F
-	ld	X,@$XAP_AL
-	add	X,#(_digits)
-	st	X,@H'fffc; addqi2+1/0 peephole
-	bsr	$dofetch_AH
-	ld	AL,@(0,Y)
-	bsr	_printChar
-	ld	AH,@(H'0001,Y)
-	add	AH,#-H'0004
-	st	AH,@(H'0001,Y)
-?LBE16:
-	cmp	AH,#H'0000
-	bge	?L107
-?LBE15:
-?LBE_printLowerUnsigned16:
-	leavel	#4
-;.stabn	192,0,0,?LBB15
-;.stabn	192,0,0,?LBB16
-;.stabn	224,0,0,?LBE16
-;.stabn	224,0,0,?LBE15
-;# begin scan referenced symbols
-.IMPORT $_toupper 0 ; (Non-const ref)
-;# end scan referenced symbols
-_printUpperUnsigned16:
-	enterl	#4
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_printUpperUnsigned16 ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_printUpperUnsigned16:
-	st	AL,@(0,Y)
-?LBB17:
-	ld	AH,#H'0000
-	st	AH,@(H'0001,Y)
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	cmp	AH,#hwrd(H'0001+H'000F)
-	bcs	?L120
-	bne	?L125
-	cmp	AL,#lwrd(H'0001+H'000F)
-	bcs	?L120
-?L125:
-?L119:
-	ld	AL,@(H'0001,Y)
-	add	AL,#H'0004
-	st	AL,@(H'0001,Y)
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	lsr	@(H'0001,Y)
-	cmp	AH,#hwrd(H'0001+H'000F)
-	bcs	?L126
-	bne	?L119
-	cmp	AL,#lwrd(H'0001+H'000F)
-	bcc	?L119
-?L126:
-?L120:
-?LBB18:
-	ld	AH,@(H'0004,Y)
-	ld	AL,@(H'0005,Y)
-	lsr	@(H'0001,Y)
-	and	AL,#H'000F
-	add	AL,#(_digits)
-	st	AL,@H'fffc; addqi2+1/0 peephole
-	bsr	$dofetch_AL
-	bsr	$_toupper
-	ld	AH,@$XAP_AL
-	ld	AL,@(0,Y)
-	bsr	_printChar
-	ld	AH,@(H'0001,Y)
-	add	AH,#-H'0004
-	st	AH,@(H'0001,Y)
-?LBE18:
-	cmp	AH,#H'0000
-	bge	?L120
-?LBE17:
-?LBE_printUpperUnsigned16:
-	leavel	#4
-;.stabn	192,0,0,?LBB17
-;.stabn	192,0,0,?LBB18
-;.stabn	224,0,0,?LBE18
-;.stabn	224,0,0,?LBE17
-;# begin scan referenced symbols
-;# end scan referenced symbols
-_skip_digits:
-	enterl	#2
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_skip_digits ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_skip_digits:
-	ld	AH,@$XAP_AL
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	add	AL,#-H'0030
-	cmp	AL,#(H'0001+H'0009)
-	bcc	?L134
-?L132:
-	add	AH,#H'0001
-	st	AH,@H'fffc
-	bsr	$dofetch_AL
-	add	AL,#-H'0030
-	cmp	AL,#H'0009
-	bcz	?L132
-?L134:
-	ld	AL,@$XAP_AH
-?LBE_skip_digits:
-	leavel	#2
-;# begin scan referenced symbols
-.IMPORT _skip_digits 0 ; (Non-const ref)
-.IMPORT $_tolower 0 ; (Non-const ref)
-.IMPORT $_isupper 0 ; (Non-const ref)
-.IMPORT _printUpperUnsigned16 0 ; (Non-const ref)
-.IMPORT _printLowerUnsigned16 0 ; (Non-const ref)
-.IMPORT _printUnsigned8 0 ; (Non-const ref)
-.IMPORT _printUnsigned10 0 ; (Non-const ref)
-.IMPORT _printString 0 ; (Non-const ref)
-;# end scan referenced symbols
-$___print:
-	enterl	#7
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB___print ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB___print:
-	st	AL,@(H'0002,Y)
-	st	AH,@(H'0003,Y)
-	ld	AH,#H'0000
-?LBB19:
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	st	AH,@(_count-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0000
-	beq	?L196
-?L193:
-?LBB20:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AH; movqi_fetch_general+1 peephole
-	ld	AL,#H'0001
-	add	AL,@H'fffc
-	st	AL,@(H'0003,Y)
-	cmp	AH,#H'0025
-	bne	?L140
-?LBB21:
-	ld	X,#H'0000
-	st	X,@(H'0004,Y)
-	ld	AH,#H'0001
-?L154:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'002D
-	bne	?L144
-	ld	AL,@(H'0004,Y)
-	or	AL,#H'0001
-	bra	(?L199)
-?L144:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'002B
-	bne	?L146
-	ld	AL,@(H'0004,Y)
-	or	AL,#H'0002
-	bra	(?L199)
-?L146:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0030
-	bne	?L148
-	ld	AL,@(H'0004,Y)
-	or	AL,#H'0004
-	bra	(?L199)
-?L148:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0020
-	bne	?L150
-	ld	AL,@(H'0004,Y)
-	or	AL,#H'0008
-?L199:
-	st	AL,@(H'0004,Y)
-	ld	X,#H'0001
-	add	X,@H'fffc
-	st	X,@(H'0003,Y)
-	bra	(?L141)
-?L150:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0023
-	bne	?L152
-	ld	AL,#H'0001
-	add	AL,@H'fffc
-	st	AL,@(H'0003,Y)
-	bra	(?L141)
-?L152:
-	ld	AH,#H'0000
-?L141:
-	cmp	AH,#H'0000
-	bne	?L154
-	ld	AL,@(H'0003,Y)
-	bsr	_skip_digits
-	st	AL,@(H'0003,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	cmp	AL,#H'002A
-	bne	?L155
-	ld	X,@(H'0007,Y)
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	ld	AH,#H'0001
-	add	AH,@H'fffc
-	st	AH,@(H'0003,Y)
-?L155:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'002E
-	bne	?L156
-	ld	AL,#H'0001
-	add	AL,@H'fffc
-	st	AL,@(H'0003,Y)
-?L156:
-	ld	AL,@(H'0003,Y)
-	bsr	_skip_digits
-	st	AL,@(H'0003,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	cmp	AL,#H'002A
-	bne	?L157
-	ld	X,@(H'0007,Y)
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	ld	AH,#H'0001
-	add	AH,@H'fffc
-	st	AH,@(H'0003,Y)
-?L157:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	bsr	$_tolower
-	cmp	AL,#H'0068
-	beq	?L159
-	cmp	AL,#H'006C
-	beq	?L160
-	bra	(?L158)
-?L159:
-	ld	AL,@(H'0003,Y)
-	add	AL,#H'0001
-	st	AL,@(H'0003,Y)
-	bra	(?L158)
-?L160:
-	ld	X,@(H'0004,Y)
-	or	X,#H'0010
-	st	X,@(H'0004,Y)
-	ld	AH,@(H'0003,Y)
-	add	AH,#H'0001
-	st	AH,@(H'0003,Y)
-?L158:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	bsr	$_tolower
-	add	AL,#-H'0063
-	cmp	AL,#(H'0001+H'0015)
-	bcc	?L190
-	add	AL,#(?L191)
-	st	AL,@H'fffc; addqi2+1/0 peephole
-	bsr	$dofetch_AL
-	ld	X,@$XAP_AL
-	brxl
-	.SEG	CONST
-?L191:
-	.CODE
-?JT191:
-	.SEG	CONST
-	dc	lwrd(?L188-?JT191)
-	dc	lwrd(?L179-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L179-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L175-?JT191)
-	dc	lwrd(?L165-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L189-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L172-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L190-?JT191)
-	dc	lwrd(?L165-?JT191)
-	.CODE
-?L165:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	bsr	$_isupper
-	cmp	AL,#H'0000
-	beq	?L166
-	ld	AL,@(H'0004,Y)
-?LBB22:
-	and	AL,#H'0010
-	cmp	AL,#H'0000
-	beq	?L167
-	ld	AL,@(H'0007,Y)
-	ld	AH,@$XAP_AL
-	add	AH,#H'0002
-	st	AH,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch32_AH
-	bra	(?L168)
-?L167:
-	ld	AL,@(H'0007,Y)
-	ld	X,@$XAP_AL
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	ld	AL,@$XAP_AL
-	ld	AH,#H'0000
-?L168:
-	st	AH,@(0,Y)
-	st	AL,@(1,Y)
-	ld	AL,@(H'0002,Y)
-	bsr	_printUpperUnsigned16
-?LBE22:
-	bra	(?L163)
-?L166:
-	ld	AL,@(H'0004,Y)
-?LBB23:
-	and	AL,#H'0010
-	cmp	AL,#H'0000
-	beq	?L170
-	ld	AL,@(H'0007,Y)
-	ld	AH,@$XAP_AL
-	add	AH,#H'0002
-	st	AH,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch32_AH
-	bra	(?L171)
-?L170:
-	ld	AL,@(H'0007,Y)
-	ld	X,@$XAP_AL
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	ld	AL,@$XAP_AL
-	ld	AH,#H'0000
-?L171:
-	st	AH,@(0,Y)
-	st	AL,@(1,Y)
-	ld	AL,@(H'0002,Y)
-	bsr	_printLowerUnsigned16
-?LBE23:
-	bra	(?L163)
-?L172:
-	ld	AL,@(H'0004,Y)
-?LBB24:
-	and	AL,#H'0010
-	cmp	AL,#H'0000
-	beq	?L173
-	ld	AL,@(H'0007,Y)
-	ld	AH,@$XAP_AL
-	add	AH,#H'0002
-	st	AH,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch32_AH
-	bra	(?L187)
-?L173:
-	ld	AL,@(H'0007,Y)
-	ld	X,@$XAP_AL
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	ld	AL,@$XAP_AL
-	ld	AH,#H'0000
-	bra	(?L187)
-?L175:
-	ld	AL,@(H'0004,Y)
-?LBE24:
-?LBB25:
-	and	AL,#H'0010
-	cmp	AL,#H'0000
-	beq	?L176
-	ld	AL,@(H'0007,Y)
-	ld	AH,@$XAP_AL
-	add	AH,#H'0002
-	st	AH,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch32_AH
-	bra	(?L177)
-?L176:
-	ld	AL,@(H'0007,Y)
-	ld	X,@$XAP_AL
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	ld	AL,@$XAP_AL
-	ld	AH,#H'0000
-?L177:
-	st	AH,@(0,Y)
-	st	AL,@(1,Y)
-	ld	AL,@(H'0002,Y)
-	bsr	_printUnsigned8
-?LBE25:
-	bra	(?L163)
-?L179:
-	ld	X,@(H'0007,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0000
-	bge	?L180
-	ld	AL,@(H'0002,Y)
-	ld	AH,#H'002D
-	bra	(?L200)
-?L180:
-	ld	AL,@(H'0004,Y)
-	and	AL,#H'0002
-	cmp	AL,#H'0000
-	beq	?L182
-	ld	AL,@(H'0002,Y)
-	ld	AH,#H'002B
-	bra	(?L200)
-?L182:
-	ld	AL,@(H'0004,Y)
-	and	AL,#H'0008
-	cmp	AL,#H'0000
-	beq	?L181
-	ld	AL,@(H'0002,Y)
-	ld	AH,#H'0020
-?L200:
-	bsr	_printChar
-?L181:
-	ld	AL,@(H'0004,Y)
-?LBB26:
-	and	AL,#H'0010
-	cmp	AL,#H'0000
-	beq	?L185
-	ld	AL,@(H'0007,Y)
-	ld	AH,@$XAP_AL
-	add	AH,#H'0002
-	st	AH,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch32_AH
-	bra	(?L186)
-?L185:
-	ld	AL,@(H'0007,Y)
-	ld	X,@$XAP_AL
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	st	AL,@H'fffc
-	bsr	$dofetch_AL
-	asl	#H'0010
-	asr	#H'0010
-?L186:
-	cmp	AH,#H'0000
-	bpl	?L187
-	nadd	AL,#H'0000
-	xor	AH,#H'FFFF
-	addc	AH,#H'0000
-?L187:
-	st	AH,@(0,Y)
-	st	AL,@(1,Y)
-	ld	AL,@(H'0002,Y)
-	bsr	_printUnsigned10
-?LBE26:
-	bra	(?L163)
-?L188:
-	ld	AH,@(H'0007,Y)
-	ld	AL,@$XAP_AH
-	add	AL,#H'0001
-	st	AL,@(H'0007,Y)
-	ld	AL,@(H'0002,Y)
-	st	AH,@H'fffc
-	bra	(?L201)
-?L189:
-	ld	AH,@(H'0007,Y)
-	ld	X,@$XAP_AH
-	add	X,#H'0001
-	st	X,@(H'0007,Y)
-	ld	AL,@(H'0002,Y)
-	st	AH,@H'fffc
-	bsr	$dofetch_AH
-	bsr	_printString
-	bra	(?L163)
-?L190:
-	ld	AL,@(H'0002,Y)
-	st	X,@H'ffff
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	ld	X,@H'ffff
-?L201:
-	bsr	$dofetch_AH
-	bsr	_printChar
-?L163:
-	ld	AH,@(H'0003,Y)
-	add	AH,#H'0001
-	st	AH,@(H'0003,Y)
-?LBE21:
-	bra	(?L137)
-?L140:
-	ld	AL,@(H'0002,Y)
-	bsr	_printChar
-?L137:
-?LBE20:
-	ld	X,@(H'0003,Y)
-	st	X,@H'fffc
-	bsr	$dofetch_AL; movqi_fetch_general+1 peephole
-	cmp	AL,#H'0000
-	bne	?L193
-?L196:
-	ld	AL,@(H'0002,Y)
-?LBB27:
-	nadd	AL,#H'0000
-	cmp	AL,#H'000F
-	bcz	?L194
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	ld	AL,@(_count-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-	ld	X,@(H'0002,Y)
-	add	X,@$XAP_AL
-	st	X,@H'fffc
-	ld	AH,#H'0000
-	bsr	$dostore_AH
-?L194:
-?LBE27:
-	ld	X,@(^crt0.SHARED_APP_GLOBALS_POS)
-	ld	AL,@(_count-^crt0.NATIVE_GLOBALS_LOGICAL_ADDRESS,X)
-?LBE19:
-?LBE___print:
-	leavel	#7
-;.stabn	192,0,0,?LBB20
-;.stabn	192,0,0,?LBB21
-;.stabn	192,0,0,?LBB22
-;.stabn	224,0,0,?LBE22
-;.stabn	192,0,0,?LBB23
-;.stabn	224,0,0,?LBE23
-;.stabn	192,0,0,?LBB24
-;.stabn	224,0,0,?LBE24
-;.stabn	192,0,0,?LBB25
-;.stabn	224,0,0,?LBE25
-;.stabn	192,0,0,?LBB26
-;.stabn	224,0,0,?LBE26
-;.stabn	224,0,0,?LBE21
-;.stabn	224,0,0,?LBE20
-;.stabn	192,0,0,?LBB27
-;.stabn	224,0,0,?LBE27
-	.SEG	VAR
-_count:
-	DS	1
-	ENDMOD
-
-;# Function pattern *movqi_set_rsvd_reg used[0] = 18 used[1] = 1 total = 19
-;# Function pattern *movqi_fetch_general used[0] = 12 total = 12
-;# Function pattern *movqi_store_y_relative used[0] = 55 total = 55
-;# Function pattern *movqi_fetch_y_relative used[0] = 34 total = 34
-;# Function pattern *movhi_fetch_y_relative used[0] = 5 total = 5
-;# Function pattern *movhi_store_y_relative used[0] = 13 total = 13
-;# Function pattern *movhi_fetch_general used[0] = 5 total = 5
-;# Function pattern *movqi_store_general used[0] = 1 total = 1
-;# Function pattern *movqi_fetch_symbol_ref used[0] = 4 total = 4
-;# Function pattern *movqi_store_symbol_ref used[0] = 2 total = 2
-;# Function pattern *movqi2 used[0] = 47 total = 47
-;# Function pattern *movqi2b used[0] = 32 used[1] = 1 total = 33
-;# Function pattern *movhi used[2] = 14 total = 14
-;# Function pattern *addhi3 used[0] = 17 total = 17
-;# Function pattern *addqi2 used[0] = 40 used[2] = 16 total = 56
-;# Function pattern *andqi3 used[0] = 10 total = 10
-;# Function pattern *iorqi3 used[0] = 14 total = 14
-;# Function pattern *extendqihi2 used[0] = 1 total = 1
-;# Function pattern *lshrhi3 used[0] = 6 total = 6
-;# Function pattern negqi2 used[0] = 3 total = 3
-;# Function pattern neghi2 used[0] = 1 total = 1
-;# Function pattern *zero_extendqihi2 used[0] = 4 total = 4
-;# Function pattern jump used[0] = 23 total = 23
-;# Function pattern *call1 used[0] = 23 total = 23
-;# Function pattern *call_value1 used[0] = 6 total = 6
-;# Single pattern tablejump used = 1
-;# Function pattern addsi3+1 used[0] = 15 total = 15
-;# Function pattern subhi3+1 used[0] = 3 total = 3
-;# Function pattern addqi3-2 used[0] = 1 total = 1
-;# Function pattern extendhfsf2+2 used[1] = 3 total = 3
-;# Function pattern extendhfsf2+3 used[0] = 39 total = 39
-;# Function pattern extendhfsf2+4 used[0] = 9 total = 9
-;# Function pattern extendhfsf2+5 used[0] = 8 total = 8
 	MODULE	udivmod
 	.LARGE
 ; Native execution
@@ -49557,223 +43829,3 @@ _count_leading_zeros:
 ;# Function pattern addhi3-2 used[0] = 1 total = 1
 ;# Function pattern extendhfsf2+3 used[0] = 6 total = 6
 ;# Function pattern extendhfsf2+5 used[0] = 1 used[1] = 2 total = 3
-	MODULE	isupper
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-;# end scan referenced symbols
-	.CODE
-$_isupper:
-; leaf function with empty stack frame
-?LBB_isupper:
-	ld	AH,#H'0000
-	add	AL,#-H'0041
-	cmp	AL,#(H'0001+H'0019)
-	bcc	?L2
-	ld	AH,#H'0001
-?L2:
-	ld	AL,@$XAP_AH
-?LBE_isupper:
-	bra	0,X
-	ENDMOD
-
-;# Function pattern *movqi2 used[0] = 1 total = 1
-;# Function pattern *movqi2b used[0] = 2 total = 2
-;# Function pattern *addqi2 used[0] = 1 total = 1
-;# Function pattern extendhfsf2+2 used[1] = 1 total = 1
-	MODULE	tolower
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-.IMPORT $_isupper 0 ; (Non-const ref)
-;# end scan referenced symbols
-	.CODE
-$_tolower:
-	enterl	#3
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_tolower ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_tolower:
-	st	AL,@(0,Y)
-	bsr	$_isupper
-	cmp	AL,#H'0000
-	beq	?L2
-	ld	AL,@(0,Y)
-	add	AL,#H'0020
-	st	AL,@(0,Y)
-?L2:
-	ld	AL,@(0,Y)
-?LBE_tolower:
-	leavel	#3
-	ENDMOD
-
-;# Function pattern *movqi_store_y_relative used[0] = 2 total = 2
-;# Function pattern *movqi_fetch_y_relative used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 1 total = 1
-;# Function pattern *addqi2 used[0] = 1 total = 1
-;# Function pattern *call_value1 used[0] = 1 total = 1
-;# Function pattern extendhfsf2+3 used[0] = 1 total = 1
-	MODULE	toupper
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-.IMPORT $_islower 0 ; (Non-const ref)
-;# end scan referenced symbols
-	.CODE
-$_toupper:
-	enterl	#3
-	cmp	Y,@(H'FFF3) ; Inserted for native exec
-	bge ?LBB_toupper ; Inserted for native exec
-	bsr	$stack_overflow   ; Inserted for native exec
-?LBB_toupper:
-	st	AL,@(0,Y)
-	bsr	$_islower
-	cmp	AL,#H'0000
-	beq	?L2
-	ld	AL,@(0,Y)
-	add	AL,#-H'0020
-	st	AL,@(0,Y)
-?L2:
-	ld	AL,@(0,Y)
-?LBE_toupper:
-	leavel	#3
-	ENDMOD
-
-;# Function pattern *movqi_store_y_relative used[0] = 2 total = 2
-;# Function pattern *movqi_fetch_y_relative used[0] = 1 total = 1
-;# Function pattern *movqi2 used[0] = 1 total = 1
-;# Function pattern *addqi2 used[0] = 1 total = 1
-;# Function pattern *call_value1 used[0] = 1 total = 1
-;# Function pattern extendhfsf2+3 used[0] = 1 total = 1
-	MODULE	islower
-	.LARGE
-; Native execution
-; GNU C version 3.3.3 (CSR version 29 for xapnative)
-; 	compiled by GNU C version 3.2.3 (mingw special 20030504-1).
-;# options passed: 
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/firmware
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/profiles/BlueLab4.1.2-Release
-;# -I.
-;# -Ic:/Perforce/bc/bluelab41/result/image/bluelab_full/tools/include/standard
-;# -iprefix -isystem -D__GNUC__=3 -D__GNUC_MINOR__=3
-;# -D__GNUC_PATCHLEVEL__=3 -MD -MQ -mxap2-mode -menhanced-mode -mlarge-mode
-;# -mbig-function-pointers -mleaf-optim -munderscore -ansi -auxbase-strip
-;# -g -g -O -pedantic -Wall -Wmissing-prototypes -Wstrict-prototypes
-;# -Wsign-compare -Wredundant-decls -Werror -Wall -W -Wmissing-prototypes
-;# -Wstrict-prototypes -Wsign-compare -Wredundant-decls -Werror -ansi
-;# -fno-builtin-memcpy
-;# options enabled:  -fdefer-pop -fthread-jumps -fpeephole -ffunction-cse
-;# -fkeep-static-consts -fpcc-struct-return -fgcse-lm -fgcse-sm
-;# -floop-optimize -fcrossjumping -fif-conversion -fif-conversion2
-;# -fsched-interblock -fsched-spec -fbranch-count-reg -fcprop-registers
-;# -fcommon -fgnu-linker -fargument-alias -fmerge-constants
-;# -fzero-initialized-in-bss -fleading-underscore -fident
-;# -fguess-branch-probability -fmath-errno -ftrapping-math -munderscore
-;# -mpeephole -mxap2-mode -mlarge-mode -mquiet-mode
-;# -minline-block-copy-mode -menhanced-mode -mload-cache-mode
-;# -mbitfield-mode -mbig-function-pointers -mleaf-optim
-
-	.ENHANCED
-;# begin scan referenced symbols
-;# end scan referenced symbols
-	.CODE
-$_islower:
-; leaf function with empty stack frame
-?LBB_islower:
-	ld	AH,#H'0000
-	add	AL,#-H'0061
-	cmp	AL,#(H'0001+H'0019)
-	bcc	?L2
-	ld	AH,#H'0001
-?L2:
-	ld	AL,@$XAP_AH
-?LBE_islower:
-	bra	0,X
-	ENDMOD
-
-;# Function pattern *movqi2 used[0] = 1 total = 1
-;# Function pattern *movqi2b used[0] = 2 total = 2
-;# Function pattern *addqi2 used[0] = 1 total = 1
-;# Function pattern extendhfsf2+2 used[1] = 1 total = 1

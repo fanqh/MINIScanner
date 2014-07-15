@@ -9,13 +9,15 @@
 #include "indication.h"
 #include "scanner.h"
 
-#define SCANNER_POWER_MASK			(1 << 9)
+#define BUZZER_MASK			(1 << 9)
 #define SCANNER_TRIGGER_MASK		(1 << 3)
 
 #define SCANNER_TRIGGER_TIMEOUT		(250)
 
 #define SCANNER_WARMUP_WAIT_TIMEOUT				(500)
 #define SCANNER_SCANNING_TIMEOUT				(4000)
+
+#define SCANNER_SCANNING_BUZZER_TIMEOUT    300
 
 /** pulling down for only 20ms is a WRONG logic, should keep pulling down until read finishe **/
 /** #define SCANNER_SCANNING_PULLDOWN_TIMEOUT		(20) **/
@@ -26,7 +28,8 @@ enum {
 	SCANNER_WARMUP_WAIT_TIMEOUT_IND,
 	SCANNER_TRIGGER_TIMEOUT_IND,			/** obsolete **/
 	SCANNER_SCANNING_TIMEOUT_IND,
-	SCANNER_SCANNING_PULLDOWN_TIMEOUT_IND
+	SCANNER_SCANNING_PULLDOWN_TIMEOUT_IND,
+    SCANNER_SCANNING_BUZZER_TIMEOUT_IND
 };
 
 /** task data **/
@@ -55,7 +58,11 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 
 static void trigger_drive_low(void);
 static void trigger_pull_up(void);
+/*
+static void enable_buzzer(void);
+static void disable_buzzer(void);
 
+*/
 
 static void trigger_drive_low(void) {
 	
@@ -90,6 +97,22 @@ static void disable_scanner(void) {
 	PioSet(SCANNER_POWER_MASK, 0);
 }
 #endif
+
+/*
+static void enable_buzzer(void) {
+	
+	
+	PioSetDir(BUZZER_MASK, BUZZER_MASK);
+	PioSet(BUZZER_MASK, BUZZER_MASK);
+}
+static void disable_buzzer(void) {
+	
+	
+	PioSetDir(BUZZER_MASK, BUZZER_MASK);
+	PioSet(BUZZER_MASK, 0);
+}
+
+*/
 
 static void scanner_off_state_enter(void) {
 	
@@ -277,6 +300,11 @@ static void scanner_ready_state_handler(Task task, MessageId id, Message message
 			scanner.on_state = SCANNER_ON_SCANNING;
 			scanner_scanning_state_enter();
 			break;
+/*        case  SCANNER_SCANNING_BUZZER_TIMEOUT_IND:
+            
+            DEBUG(( "scanner, scanner_scanning_state_handler, SCANNER_SCANNING_BUZZER_TIMEOUT_IND arrived... \n" ));
+            disable_buzzer();
+            break;*/
 	}
 }
 
@@ -369,7 +397,8 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 				bool fill_success;
 				
 				DEBUG(( "scanner, scanner_scanning_state_handler, MESSAGE_MORE_DATA arrived... \n" ));	
-						
+				
+                
 				source = StreamUartSource();
 				size = SourceSize(source);
 				
@@ -381,6 +410,9 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 				
 				SourceDrop(source, size);
 				
+/*               enable_buzzer();
+               MessageSendLater(&scanner.task, SCANNER_SCANNING_BUZZER_TIMEOUT_IND, 0, SCANNER_SCANNING_BUZZER_TIMEOUT);
+ */               
 				if ( TRUE == fill_success ) {
 					
 					DEBUG(( "    barcode_fill_raw_bytes succeed... \n" ));
@@ -428,6 +460,12 @@ static void scanner_scanning_state_handler(Task task, MessageId id, Message mess
 				}
 			}
 			break;
+/*        case  SCANNER_SCANNING_BUZZER_TIMEOUT_IND:
+            
+            DEBUG(( "scanner, scanner_scanning_state_handler, SCANNER_SCANNING_BUZZER_TIMEOUT_IND arrived... \n" ));
+            disable_buzzer();
+            break;
+  */          
 	}
 }
 

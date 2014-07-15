@@ -1,0 +1,54 @@
+
+&F000- 
+&F002 = 0000 0000 0000 0040
+
+// PSKEY_ANA_FREQ - generally either 16Mhz (3e80) or 26Mhz (6590)
+//&01fe=3e80
+
+// PSKEY_DEVICE_NAME
+&0108 = 4b54 4345 3220 3030 4330
+
+// PSKEY_ONCHIP_HCI_CLIENT - true
+&03cc = 0001
+
+//PSKEY_INITIAL_BOOTMODE
+&03cd = 0001
+
+// --------MODE0-------------------------------------------------------- 
+// BOOTMODE_KEY_LIST_0: Overwrite :
+//                                HOST_INTRFACE  (1F9)
+//								 								VM_DISABLE     (25D)
+//                                USB_VM_CONTROL (3C0)
+&04B0 = 01F9 025D 03C0 03b5
+// 
+// BOOTMODE_KEY_TABLE_0+0: PSKEY_HOST_INTERFACE = USB
+&04B8 = 0002
+// BOOTMODE_KEY_TABLE_0+1: PSKEY_VM_DISABLE = TRUE
+&04B9 = 0001
+// BOOTMODE_KEY_TABLE_0+2: PSKEY_USB_VM_CONTROL = false
+&04BA = 0000
+// PSKEY_INITIAL_PIO_STATE
+&04BB = 0002 0002 0002 0000
+
+// --------MODE1-------------------------------------------------------- 
+// BOOTMODE_KEY_LIST_1: Overwrite :
+//                                HOST_INTRFACE  (1F9)
+//								 								VM_DISABLE     (25D)
+//                                USB_VM_CONTROL (3C0)
+//                                  
+&04B1 = 01F9 025D 03C0 
+
+// BOOTMODE_KEY_TABLE_0+0: PSKEY_HOST_INTERFACE = VM access to the UART
+&04f8 = 0004
+// BOOTMODE_KEY_TABLE_0+1: PSKEY_VM_DISABLE = TRUE
+&04f9 = 0000
+// BOOTMODE_KEY_TABLE_0+2: PSKEY_USB_VM_CONTROL = TRUE
+&04fA = 0001
+
+My application key
+
+&015e = ce6e 150a 8ab5 123c f9f7 a3ef 5a33 1096 d3ab f0e6 e37c 11d0 13f4 6c6b 1e7f c77a ee2f 5067 30db 1676 19e3 0397 1dd2 8f9b 6570 754d 610a aac5 6446 bdaf c8a6 5475 
+&015f = 0ebb 82bb 5c95 2097 3242 18a0 d91b 5a74 f168 6ba2 9af3 2ae7 5adc ff35 4b1d 993b 08a2 2a78 c278 4415 7f04 e8a3 e5ed 3484 6986 19e2 da9f f4b5 e4e5 de12 15ce 1507 
+&0160 = b749
+&0161 = 1021 2d05 3416 c372 2f25 5d75 205b 978f 6f29 5f87 5270 115d 445a 8758 96a1 4612 8611 db19 4bf6 718e d9ee faf0 080a 9b9e 9fca 47d5 071a afb9 56c5 7e44 d819 5a64 
+&0162 = 94a0 1362 e7f2 ade5 b55f 2f06 9d80 4971 f7ca 9831 3c15 10d2 3905 aa6a 9338 cfcf f19f d992 bc63 d2a6 fbc9 6949 d311 be75 4da4 5bac 6212 8add 4be3 d2aa 463b 356b 

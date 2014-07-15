@@ -394,13 +394,17 @@ static void sppb_connected_state_handler(Task task, MessageId id, Message messag
 			
 		case SCANNER_RESULT_MESSAGE:
 			{
+                
 				barcode_t* barcode = (barcode_t*)message;
+                ledsPlay(BEEP_ONCE);
 				if (barcode && SinkIsValid(sppb.spp_sink) && SinkSlack(sppb.spp_sink) >= barcode ->length) {
 					
 					uint16 offset;
 					uint8* dst;
 					Sink sink = sppb.spp_sink;
-                    ledsPlay(MOTOR_ONCE);
+                    
+                    DEBUG(("spp connected state, fan  buzze...\n"));
+                    
 					offset = SinkClaim(sink, barcode ->length);
 					dst = SinkMap(sink);
 					memcpy(dst + offset, barcode ->code, barcode ->length);

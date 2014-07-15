@@ -261,8 +261,12 @@ static void hal_activating_state_enter(void) {
 	**/
 	
 	ledsPlay(BEEP_TWICE);
-    ledsPlay(MOTOR_TWICE);
-	
+    /*ledsPlay(MOTOR_TWICE);*/
+    
+/*    
+    PioSetDir(1<<9, 1<<9);
+	PioSet(1<<9, 1<<9);
+	*/
 	MessageSendLater(getHalTask(), HAL_ACTIVATING_TIMEOUT, 0, BEEP_TWICE_DURATION + 100);
 }
 
@@ -523,7 +527,7 @@ static void hal_deactivating_state_enter(void) {
 	update_indication();
 
 	ledsPlay(BEEP_TWICE);
-    ledsPlay(MOTOR_TWICE);
+/*    ledsPlay(MOTOR_TWICE);*/
 	MessageSendLater(getHalTask(), HAL_DEACTIVATING_TIMEOUT, 0, BEEP_TWICE_DURATION + 100);
 	
 	/** send message to profile **/
