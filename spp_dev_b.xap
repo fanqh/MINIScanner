@@ -4613,7 +4613,7 @@ _send_pio_enter_messages:
 ;.stabn	224,0,0,?LBE2
 	.SEG	CONST
 _timed_messages_sPOWER_BUTTON_SCAN_BUTTON:
-	dc	H'2710
+	dc	H'1388
 	dc	H'0000
 	dc	H'03EB
 _timed_messages:

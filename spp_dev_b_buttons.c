@@ -96,7 +96,7 @@ typedef struct
 
 static const TimedMessage timed_messages_sPOWER_BUTTON_SCAN_BUTTON[] =
 {
-	{ 0, 10000, 0, 0, FUNCTION_BUTTON_DFU }
+	{ 0, 5000, 0, 0, FUNCTION_BUTTON_DFU }
 };
 
 static const struct
