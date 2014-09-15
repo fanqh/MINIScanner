@@ -16,9 +16,9 @@ First, check hal state.
 2.not charging? Display batt level
 2.Activating, no leds, just beep
 3.active
-1.bt ??¡§?C pairable, connecting, Fast blue flash, no batt or charging indication
+1.bt ???¡ì?C pairable, connecting, Fast blue flash, no batt or charging indication
 2.connected - echo, Fast white flash, no batt or charging indication
-3.connected ??¡§?C pipe, Slow blue flash, with or without batt, depends on charging
+3.connected ???¡ì?C pipe, Slow blue flash, with or without batt, depends on charging
 4.disconnecting, ready, connection off, so no blue; if charging, persistent batt, otherwise, off.
 4.Deactivating, no leds, just beep.
 
@@ -43,14 +43,6 @@ IND_BATT_FINE_BLUE_BREATH
 #define IND_BATT_MODEST					RED_GREEN_ON
 #define IND_BATT_FINE					GREEN_ON
 #define IND_INQUIRY_PAGE_ON				BLUE_FAST_FLASH		/** pairable & connecting **/
-#define IND_ECHO						WHITE_FAST_FLASH
-
-#define IND_PIPE_BATT_NOT_LOW			BLUE_SLOW_FLASH
-#define IND_PIPE_BATT_LOW				RED_SLOW_FLASH
-
-#define IND_PIPE_CHG_BATT_LOW			RED_ON_BLUE_SLOW_FLASH
-#define IND_PIPE_CHG_BATT_MODEST		RED_GREEN_ON_BLUE_SLOW_FLASH
-#define IND_PIPE_CHG_BATT_FINE			GREEN_ON_BLUE_SLOW_FLASH
 
 #define IND_ACTIVATING_WAITING			BLUE_ON
 #define IND_SCANNING					RAINBOW
