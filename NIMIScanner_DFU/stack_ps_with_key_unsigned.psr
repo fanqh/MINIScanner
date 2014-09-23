@@ -1,5 +1,5 @@
 
-&F000- 
+//&F000- 
 &F002 = 0000 0000 0000 0040
 
 // PSKEY_ANA_FREQ - generally either 16Mhz (3e80) or 26Mhz (6590)

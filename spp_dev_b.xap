@@ -3972,7 +3972,7 @@ _scanner_scanning_state_enter:
 ;	st	AL,@H'ffff; Redundant: REMOVED by as
 	ld	AL,#H'0000
 	st	AL,@(H'0001,Y)
-	ld	AL,#H'0FA0
+	ld	AL,#H'0C1C
 	st	AL,@(H'0002,Y)
 	ld	AL,@H'ffff
 	ld	AL,#(_scanner)
@@ -5208,7 +5208,7 @@ $_pioInit:
 	.ENHANCED
 	.SEG	CONST
 _gLedPinsUsed:
-	dc	H'0A07
+	dc	H'0A87
 _pattern_ALL_LEDS_OFF:
 	dc	H'0807
 	dc	H'0000
@@ -5256,22 +5256,22 @@ _pattern_BLUE_SLOW_BURST:
 	dc	H'0004
 	dc	H'0C80
 _pattern_RED_SLOW_FLASH:
-	dc	H'0002
+	dc	H'0080
 	dc	H'80C8
-	dc	H'0002
+	dc	H'0080
 	dc	H'0ED8
 _pattern_RED_SLOW_BURST:
-	dc	H'0002
+	dc	H'0080
 	dc	H'80C8
-	dc	H'0002
+	dc	H'0080
 	dc	H'0064
-	dc	H'0002
+	dc	H'0080
 	dc	H'80C8
-	dc	H'0002
+	dc	H'0080
 	dc	H'0064
-	dc	H'0002
+	dc	H'0080
 	dc	H'80C8
-	dc	H'0002
+	dc	H'0080
 	dc	H'0C80
 _pattern_RED_ON_BLUE_SLOW_FLASH:
 	dc	H'0002
@@ -5328,17 +5328,9 @@ _pattern_RAINBOW:
 	dc	H'8032
 	dc	H'0001
 	dc	H'0000
-	dc	H'0005
+	dc	H'0003
 	dc	H'8032
-	dc	H'0005
-	dc	H'0000
-	dc	H'0004
-	dc	H'8032
-	dc	H'0004
-	dc	H'0000
-	dc	H'0006
-	dc	H'8032
-	dc	H'0006
+	dc	H'0003
 	dc	H'0000
 _pattern_BEEP_ONCE:
 	dc	H'0A00
@@ -5400,7 +5392,7 @@ _gLeds:
 	dc	_pattern_GREEN_ON_BLUE_SLOW_FLASH
 	dc	H'0601
 	dc	_pattern_RED_GREEN_BLUE_ALT
-	dc	H'0C01
+	dc	H'0801
 	dc	_pattern_RAINBOW
 	dc	H'0200
 	dc	_pattern_BEEP_ONCE

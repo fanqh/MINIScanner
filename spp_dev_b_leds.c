@@ -49,7 +49,7 @@ typedef struct ledbTag
 /*START_OF_INSERTED_CODE*/
 
 /*All of The LED pins used*/
-static const int gLedPinsUsed = 0x0A07 ; 
+static const int gLedPinsUsed = 0x0A87 ; 
 
  /*ALL_LEDS_OFF*/ 
 static const ledEntry_t pattern_ALL_LEDS_OFF [ 1 ] = 
@@ -112,18 +112,18 @@ static const ledEntry_t pattern_BLUE_SLOW_BURST [ 6 ] =
 /*RED_SLOW_FLASH*/ 
 static const ledEntry_t pattern_RED_SLOW_FLASH [ 2 ] = 
 {
-    { 0x0002 , ON  , 200  }  , 
-    { 0x0002 , OFF , 3800 }  
+    { 0x0080 , ON  , 200  }  , 
+    { 0x0080 , OFF , 3800 }  
 }; 
 /*RED_SLOW_BURST*/ 
 static const ledEntry_t pattern_RED_SLOW_BURST [ 6 ] = 
 {
-    { 0x0002 , ON  , 200  }  , 
-    { 0x0002 , OFF , 100  }  , 
-    { 0x0002 , ON  , 200  }  , 
-    { 0x0002 , OFF , 100  }  , 
-    { 0x0002 , ON  , 200  }  , 
-    { 0x0002 , OFF , 3200 }  
+    { 0x0080 , ON  , 200  }  , 
+    { 0x0080 , OFF , 100  }  , 
+    { 0x0080 , ON  , 200  }  , 
+    { 0x0080 , OFF , 100  }  , 
+    { 0x0080 , ON  , 200  }  , 
+    { 0x0080 , OFF , 3200 }  
 }; 
 /*RED_ON_BLUE_SLOW_FLASH*/ 
 static const ledEntry_t pattern_RED_ON_BLUE_SLOW_FLASH [ 4 ] = 
@@ -161,7 +161,7 @@ static const ledEntry_t pattern_RED_GREEN_BLUE_ALT [ 6 ] =
     { 0x0004 , OFF , 200  }  
 }; 
 /*RAINBOW*/ 
-static const ledEntry_t pattern_RAINBOW [ 12 ] = 
+static const ledEntry_t pattern_RAINBOW [ 8 ] = 
 {
     { 0x0002 , ON  , 50   }  , 
     { 0x0002 , OFF , 0    }  , 
@@ -169,12 +169,8 @@ static const ledEntry_t pattern_RAINBOW [ 12 ] =
     { 0x0003 , OFF , 0    }  , 
     { 0x0001 , ON  , 50   }  , 
     { 0x0001 , OFF , 0    }  , 
-    { 0x0005 , ON  , 50   }  , 
-    { 0x0005 , OFF , 0    }  , 
-    { 0x0004 , ON  , 50   }  , 
-    { 0x0004 , OFF , 0    }  , 
-    { 0x0006 , ON  , 50   }  , 
-    { 0x0006 , OFF , 0    }  
+    { 0x0003 , ON  , 50   }  , 
+    { 0x0003 , OFF , 0    }  
 }; 
 /*BEEP_ONCE*/ 
 static const ledEntry_t pattern_BEEP_ONCE [ 2 ] = 
@@ -239,7 +235,7 @@ static const led_t gLeds [ LED_NUM_PATTERNS ] =
 
     {  { 6,  0x00 , RPT }, (ledEntry_t *) pattern_RED_GREEN_BLUE_ALT } ,
 
-    {  { 12,  0x00 , RPT }, (ledEntry_t *) pattern_RAINBOW } ,
+    {  { 8,  0x00 , RPT }, (ledEntry_t *) pattern_RAINBOW } ,
 
     {  { 2,  0x00 , OFF }, (ledEntry_t *) pattern_BEEP_ONCE } ,
 

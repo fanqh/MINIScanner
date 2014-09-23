@@ -1,5 +1,5 @@
 
-&F000- 
+//&F000- 
 &F002 = 0000 0000 0000 0040
 
 // PSKEY_ANA_FREQ - generally either 16Mhz (3e80) or 26Mhz (6590)
@@ -55,4 +55,4 @@ My application key
 
 ; SIGNED BY: My stack key
 
-&f001 = 86a0 e238 2de5 8b1a 6919 7620 4149 fc98 d7bf 84f9 d12f 2fb3 c5d8 2406 4c74 e3cd fa4c 1df7 2624 9ed4 65ae f696 649e e438 da3f 0b39 a112 e291 30a4 bb5d 8b26 1f48 b0d5 aca3 5495 138f b1bd e85d fa00 493e bbf3 3edd 7466 3970 a05d c3a3 149d c717 0e1a 5105 0c0e 8b9b 9649 a595 62d8 0f20 9e15 ebb6 016c 4b77 dcc5 255f f3b5 6b39
+&f001 = 247a 40d9 742e 2d49 9459 36fc 06f0 ee9e 13e3 b6ed 526a d7f3 3994 06c4 bfb5 d593 32b9 a5d6 3db9 b234 6866 f40a f12d e8f2 b0a2 bf96 8671 4077 962c d47a 38e0 87dc 4456 48ec 33cc 5a58 15cb e779 f090 6e9b 9672 d16b 2231 6658 d5a6 2f5d f8bd 82d1 ed84 d692 bee5 6931 e9a5 3ade b5da ad06 37ad 5140 69c7 4d20 66fc fdec 2f71 4f5f
